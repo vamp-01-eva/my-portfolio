@@ -31,7 +31,7 @@ The generator writes the HTML from the project records in `tools/projects-a.mjs`
 
 Live at **https://markjustinemau.vercel.app**.
 
-The site is deployed on Vercel as the `my-portfolio` project. The repository is private, so GitHub Pages is not used. To publish updates, either run `npx vercel deploy --prod` from the site folder or connect the private GitHub repo in the Vercel dashboard for automatic deployments.
+The site is deployed on Vercel as the `my-portfolio` project. The repository is private, so GitHub Pages is not used. To publish updates, connect the private GitHub repo in the Vercel dashboard for automatic deployments, or run `npx vercel deploy --prod` from the repository root. `.vercelignore` keeps the build tools and Hallmark records out of the deployment.
 
 ## Notes
 
