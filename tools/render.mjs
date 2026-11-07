@@ -132,6 +132,7 @@ export function page({ title, description, active = '', content, hasSlots = fals
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body id="top">
