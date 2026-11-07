@@ -1,0 +1,61 @@
+[
+ {
+  "date": "2026-11-06",
+  "mode": "build",
+  "theme": "Blueprint",
+  "shape": "Map / Diagram",
+  "axes": "mid/geometric-sans/neutral",
+  "hero": "Index",
+  "nav": "search-led bar",
+  "footer": "statement",
+  "imagery": "built product sample, CSS case sheet + 1 library photograph, cyanotype",
+  "photos": [
+   "soldering-a-0805"
+  ],
+  "entry": "portfolio template",
+  "fingerprint": "Left-margin|Asymmetric spans|Hairline|Solid|Margin-aligned|None",
+  "sections": [
+   "Hero / Index + product sample",
+   "Route map",
+   "Inbox relay case sheet",
+   "About split",
+   "Close statement",
+   "Footer"
+  ],
+  "signature": "the five-stop route stepped by hand",
+  "waived": [],
+  "prompt": "Portfolio template for a web developer and beginner AI automation specialist; fictional identity and library photos; modern-minimal, technical, austere."
+ },
+ {
+  "date": "2026-11-08",
+  "mode": "rebuild",
+  "theme": "Lumen",
+  "shape": "Stat-Led",
+  "axes": "dark/roman-serif/warm",
+  "hero": "Banner",
+  "nav": "banner over a retracting bar",
+  "footer": "colophon",
+  "imagery": "one library photograph (server aisle) and system diagrams; no fake screenshots",
+  "photos": [
+   "virginia-tech-data-center"
+  ],
+  "entry": "Mark Justine J. Mauricio portfolio",
+  "fingerprint": "Stat-led|Banner|Hairline|Solid|Margin-aligned|None",
+  "sections": [
+   "Hero / ten-build ledger",
+   "Project index (10 rows)",
+   "Featured case route",
+   "Skills list",
+   "About split + photo",
+   "Close",
+   "Footer"
+  ],
+  "signature": "the ten-build ledger and its status column",
+  "waived": [
+   "38iii: the one rose verb in the hero head",
+   "47c: the blueprint grid inside the ledger well",
+   "58 exception: case files are long-form documents and intentionally exceed the landing-screen word budget"
+  ],
+  "prompt": "Rebuild Mark Justine J. Mauricio's portfolio in Lumen: early-career web developer and AI automation builder, ten builds with honest status, case studies, resume, and a contact form; no invented metrics, clients, or deployments."
+ }
+]

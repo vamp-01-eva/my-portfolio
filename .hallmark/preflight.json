@@ -1,0 +1,12 @@
+{
+  "scanned": "2026-11-06",
+  "findings": {
+    "fonts": "none in the project before the build; Blueprint loads Chakra Petch, IBM Plex Sans and IBM Plex Mono",
+    "palette": "none before the build; Blueprint cyanotype tokens live in tokens.css",
+    "motion": "none before the build; CSS color and transform transitions only",
+    "spacing": "none before the build; the shared Hallmark scale is in tokens.css",
+    "framework": "none; static HTML, CSS and JavaScript"
+  },
+  "preserve": [],
+  "introduce": ["Blueprint palette and type", "spacing scale", "map/diagram shape", "hero discipline", "search-led chrome", "photo slots", "Hallmark gates"]
+}

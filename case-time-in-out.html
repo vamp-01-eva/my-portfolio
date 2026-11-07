@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Employee Time-In / Time-Out Management System, case file</title>
+  <meta name="description" content="A web-based attendance record for daily time-in and time-out entries.">
+  <meta name="page-type" content="service">
+  <meta name="site-kind" content="other">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body id="top">
+
+  <a class="skip" href="#main">skip to content</a>
+  <div class="topline">
+    <div class="container topline__inner">
+      <p class="topline__note">open to junior developer and ai automation roles</p>
+      <a class="topline__link" href="contact.html">start a conversation</a>
+    </div>
+  </div>
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="Mark Justine J. Mauricio, home">mark mauricio</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="work.html" aria-current="page">work</a>
+        <a href="about.html">about</a>
+        <a href="contact.html">contact</a>
+      </nav>
+      <a class="btn btn--secondary btn--nav" href="MAURICIO_RESUME.pdf" download="Mark-Justine-Mauricio-Resume.pdf">résumé</a>
+      <details class="nav-menu">
+        <summary>menu</summary>
+        <nav class="nav-menu__panel" aria-label="Primary mobile">
+          <a href="work.html" aria-current="page">work</a>
+          <a href="about.html">about</a>
+          <a href="contact.html">contact</a>
+          <a href="MAURICIO_RESUME.pdf" download="Mark-Justine-Mauricio-Resume.pdf">résumé</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+  <main id="main">
+
+    <header class="case-head">
+      <div class="container">
+        <div class="case-head__top">
+          <a class="back-link" href="work.html">all work</a>
+          <span class="tag">completed</span>
+        </div>
+        <h1>Employee Time-In / Time-Out Management System</h1>
+        <p class="lead">daily attendance, one record</p>
+        <div class="case-sheet">
+          <dl>
+            <div><dt>category</dt><dd>web application</dd></div>
+            <div><dt>year</dt><dd class="num">2026</dd></div>
+            <div><dt>status</dt><dd>completed</dd></div>
+            <div><dt>stack</dt><dd>Google Apps Script, HTML, CSS, JavaScript, Google Workspace</dd></div>
+          </dl>
+        </div>
+      </div>
+    </header>
+    <div class="container case-body">
+      <nav class="case-contents" aria-label="Case contents">
+        <p class="case-contents__title">in this case</p>
+        <ol><li><a href="#overview">project overview</a></li><li><a href="#problem">problem statement</a></li><li><a href="#objectives">objectives</a></li><li><a href="#role">my role and contributions</a></li><li><a href="#technologies">technologies used</a></li><li><a href="#features">main features</a></li><li><a href="#workflow">workflow and system architecture</a></li><li><a href="#screens">screens and demonstrations</a></li><li><a href="#challenges">challenges and solutions</a></li><li><a href="#status">project status</a></li></ol>
+      </nav>
+      <article class="case-content">
+        <section id="overview">
+          <h2>project overview</h2>
+          <p class="lead">An internal attendance tool built during the DepEd ICT internship. Employees record time-in and time-out in the browser; administrators get one central attendance record instead of scattered manual entries.</p>
+          <p>The system digitizes the employee attendance log for daily office use. An employee opens the web app, records a time-in or time-out, and the entry lands in a central attendance record.</p><p>The build was part of the DepEd ICT Unit internship in Antipolo. It was made for internal administrative use, not as a public product.</p>
+        </section>
+        <section id="problem">
+          <h2>problem statement</h2>
+          <p class="case-statement">Attendance records were kept as manual entries. The office needed a digital record that was easier to complete, easier to keep in one place, and easier for administrators to review.</p>
+        </section>
+        <section id="objectives">
+          <h2>objectives</h2>
+          <ol class="objective-list objective-list--4"><li>Give employees a simple browser-based way to record time-in and time-out.</li><li>Keep attendance entries in one central record.</li><li>Give administrators a clear view of the day’s attendance.</li><li>Reduce the manual work of collecting and checking attendance logs.</li></ol>
+        </section>
+        <section id="role">
+          <h2>my role and contributions</h2>
+          <dl class="role-list"><div><dt>requirements</dt><dd>Worked with end users to understand the attendance flow and the information the office needed to keep.</dd></div><div><dt>build</dt><dd>Implemented the web app with Google Apps Script, HTML, CSS, and JavaScript.</dd></div><div><dt>testing</dt><dd>Tested the time-in and time-out flow by hand and checked the resulting records before review by the IT Officer.</dd></div><div><dt>refinement</dt><dd>Adjusted the interface and validation based on feedback from the people using it.</dd></div></dl>
+          <p class="case-note">AI-assisted development tools were used for parts of the implementation. I reviewed the generated code, tested the flow, and refined the result rather than treating the output as finished.</p>
+        </section>
+        <section id="technologies">
+          <h2>technologies used</h2>
+          <table class="tech-table">
+            <thead><tr><th scope="col">group</th><th scope="col">tools</th></tr></thead>
+            <tbody><tr><td>build</td><td>Google Apps Script, HTML, CSS, JavaScript</td></tr><tr><td>data</td><td>Google Workspace</td></tr><tr><td>environment</td><td>Browser-based internal web app</td></tr></tbody>
+          </table>
+        </section>
+        <section id="features">
+          <h2>main features</h2>
+          <ol class="feature-list"><li><span class="feature-list__title">Time-in and time-out</span><span class="feature-list__text">A single control records the employee’s current attendance action.</span></li><li><span class="feature-list__title">Attendance record</span><span class="feature-list__text">Entries are kept in one central list for administrative review.</span></li><li><span class="feature-list__title">Employee view</span><span class="feature-list__text">The employee sees the current state and the entries recorded for the day.</span></li><li><span class="feature-list__title">Administrative view</span><span class="feature-list__text">Administrators can review attendance records by employee and date.</span></li></ol>
+          
+        </section>
+        <section id="workflow">
+          <h2>workflow and system architecture</h2>
+          <figure class="route-figure">
+            <div class="route"><div class="route__node"><span class="route__label">employee</span><span class="route__note">opens the web app</span></div><span class="route__link" aria-hidden="true"></span><div class="route__node"><span class="route__label">time-in / time-out</span><span class="route__note">records the action</span></div><span class="route__link" aria-hidden="true"></span><div class="route__node"><span class="route__label">attendance record</span><span class="route__note">central entry</span></div><span class="route__link" aria-hidden="true"></span><div class="route__node"><span class="route__label">admin review</span><span class="route__note">checks the record</span></div></div>
+            <figcaption>Employee to time record to administrative review.</figcaption>
+          </figure>
+        </section>
+        <section id="screens">
+          <h2>screens and demonstrations</h2>
+          <figure class="screen-figure">
+            <div class="screen-map">
+    <div class="screen-panel">
+      <p class="screen-panel__title">employee view</p>
+      <ul><li>current status</li><li>time-in / time-out control</li><li>today’s entries</li></ul>
+    </div>
+    <div class="screen-panel">
+      <p class="screen-panel__title">admin view</p>
+      <ul><li>employee list</li><li>date filter</li><li>attendance records</li></ul>
+    </div></div>
+            <figcaption>The employee view records the action; the admin view reads the record.</figcaption>
+          </figure>
+        </section>
+        <section id="challenges">
+          <h2>challenges and solutions</h2>
+          <table class="challenge-table">
+            <thead><tr><th scope="col">the constraint</th><th scope="col">the response</th></tr></thead>
+            <tbody><tr><td>The office needed a digital record without adding a new desktop tool.</td><td>The app runs in the browser and keeps the entry flow to one action.</td></tr><tr><td>The record has to be readable by the person who enters it and by the administrator who reviews it.</td><td>The employee view and the admin view show the same entry from two angles.</td></tr></tbody>
+          </table>
+        </section>
+        <section id="status">
+          <h2>project status</h2>
+          <div class="status-well">
+            <span class="tag">completed</span>
+            <p>Completed and used during the DepEd ICT internship. No public deployment or usage metric is claimed.</p>
+            <p class="case-note">No attendance statistics, adoption figures, or client deployment are claimed on this page.</p>
+          </div>
+        </section>
+        <nav class="case-next" aria-label="Next case">
+          <div>
+            <p class="case-next__label">next case</p>
+            <a class="case-next__link" href="case-vehicle-booking.html">vehicle booking</a>
+          </div>
+          <a class="text-link" href="work.html">all work</a>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__colophon">mark justine j. mauricio, antipolo, philippines. <a href="mailto:markjustinemau@gmail.com">markjustinemau@gmail.com</a>. <a href="tel:+639690829260">+63 969 082 9260</a>. built with html, css, and javascript.</p>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="work.html">work</a>
+        <a href="about.html">about</a>
+        <a href="contact.html">contact</a>
+        <a href="MAURICIO_RESUME.pdf" download="Mark-Justine-Mauricio-Resume.pdf">résumé</a>
+      </nav>
+      <p class="credits" data-credits>Photographs: <a href="https://commons.wikimedia.org/wiki/File:Virginia_Tech_-_data_center.jpg">Christopher Bowns</a> (CC BY-SA 2.0, Wikimedia Commons).</p>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
