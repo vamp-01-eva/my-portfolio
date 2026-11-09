@@ -1,22 +1,73 @@
 :root {
   color-scheme: dark;
+
+  /* space */
   --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
-  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
-  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
-  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
-  --color-error: oklch(72% 0.15 27); --color-success: oklch(76% 0.13 150);
-  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+
+  /* type */
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.5rem, 4vw + 1rem, 4.5rem);
+  --text-display: clamp(3rem, 6.5vw + 1rem, 7.5rem);
+  --text-section: clamp(2.25rem, 3.5vw + 1rem, 4.5rem);
+  --text-title: clamp(1.35rem, 0.8vw + 1rem, 1.75rem);
+  --text-lead: clamp(1.125rem, 0.4vw + 1rem, 1.4rem);
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms; --dur-slow: 900ms;
+
+  /* palette: cold reliquary */
+  --void: #07070a;
+  --char: #0c0c10;
+  --gunmetal: #131318;
+  --steel: #1d1d23;
+  --steel-2: #2a2b32;
+  --ice-dim: #8b9099;
+  --ice: #c6cbd3;
+  --ice-bright: #edeff3;
+  --specular: #ffffff;
+  --signal: #a9cbdd;
+  --signal-dim: #6f8fa1;
+  --danger: #d99a9a;
+
+  /* lines and surfaces */
+  --rule-faint: rgba(198, 203, 211, 0.07);
+  --rule: rgba(198, 203, 211, 0.14);
+  --rule-strong: rgba(198, 203, 211, 0.26);
+  --rule-bright: rgba(237, 239, 243, 0.5);
+  --surface: rgba(198, 203, 211, 0.025);
+  --surface-2: rgba(198, 203, 211, 0.05);
+
+  /* chrome */
+  --chrome-text: linear-gradient(178deg, #ffffff 0%, #e4e8ed 13%, #a2a8b1 29%, #f4f6f9 43%, #bcc2ca 55%, #7d838c 69%, #dde1e6 84%, #ffffff 100%);
+  --chrome-plate: linear-gradient(145deg, #2c2e34 0%, #15161a 38%, #202228 61%, #0d0e11 100%);
+  --chrome-edge: linear-gradient(90deg, transparent 0%, rgba(237, 239, 243, 0.16) 18%, rgba(255, 255, 255, 0.72) 50%, rgba(237, 239, 243, 0.16) 82%, transparent 100%);
+
+  /* type families */
+  --font-display: "Bodoni Moda", ui-serif, Georgia, serif;
+  --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* layout */
+  --container: 1440px;
+  --gutter: 64px;
+  --gap-columns: 32px;
+  --section-gap-s: 96px;
+  --section-gap: 144px;
+  --section-gap-l: 176px;
+
+  /* form / state */
+  --color-error: var(--danger);
+  --color-success: var(--signal);
+
+  /* depth */
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
-  --color-paper: oklch(12.5% 0.027 290); --color-paper-2: oklch(16% 0.03 290); --color-paper-3: oklch(20% 0.032 290);
-  --color-ink: oklch(96% 0.01 300); --color-ink-2: oklch(85% 0.017 298); --color-muted: oklch(69% 0.026 295);
-  --color-rule: oklch(27% 0.034 290); --color-rule-2: oklch(36% 0.04 292); --rule-blueprint: oklch(96% 0.01 300 / 0.05);
-  --color-accent: oklch(80% 0.15 62); --color-accent-2: oklch(72% 0.15 12); --color-accent-ink: oklch(14% 0.028 290);
-  --color-live: oklch(80% 0.13 155); --color-focus: oklch(80% 0.15 62);
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif; --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Geist Mono", ui-monospace, monospace;
-  --radius-card: 10px; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: 0 28px 64px -30px oklch(4% 0.02 290 / 0.8);
-  --tracking-display: -0.015em; --display-weight: 400;
+
+  --radius: 2px;
+  --radius-card: 4px;
+  --shadow-card: 0 40px 80px -40px rgba(0, 0, 0, 0.9);
+  --tracking-display: -0.03em;
+  --display-weight: 500;
 }

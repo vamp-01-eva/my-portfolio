@@ -1,5 +1,6 @@
 import { projectsA } from './projects-a.mjs';
 import { projectsB } from './projects-b.mjs';
+import { sigilSprite, statusKey, statusGlyph } from './sigils.mjs';
 
 export const projects = [...projectsA, ...projectsB];
 export const bySlug = new Map(projects.map((p) => [p.slug, p]));
@@ -31,25 +32,14 @@ export function esc(value = '') {
 }
 
 export function statusTag(status) {
-  return `<span class="tag">${esc(status)}</span>`;
-}
-
-export function miniMap(count = 4, accentLast = false, lead = false) {
-  const nodes = [];
-  for (let i = 0; i < count; i += 1) {
-    const isLast = i === count - 1;
-    const cls = `mini-map__node${isLast && accentLast ? ' mini-map__node--accent' : ''}`;
-    nodes.push(`<span class="${cls}"></span>`);
-    if (!isLast) nodes.push('<span class="mini-map__line"></span>');
-  }
-  return `<span class="mini-map${lead ? ' mini-map--lead' : ''}" aria-hidden="true">${nodes.join('')}</span>`;
+  return `<span class="status status--${statusKey(status)}">${statusGlyph(status)}<span>${esc(status)}</span></span>`;
 }
 
 export function routeDiagram(workflow) {
   const nodes = workflow.nodes.map((node, index) => {
     const accent = node.accent ? ' route__node--accent' : '';
     const link = index < workflow.nodes.length - 1 ? '<span class="route__link" aria-hidden="true"></span>' : '';
-    return `<div class="route__node${accent}"><span class="route__label">${esc(node.label)}</span><span class="route__note">${esc(node.note)}</span></div>${link}`;
+    return `<div class="route__node${accent}"><span class="route__index">${String(index + 1).padStart(2, '0')}</span><span class="route__label">${esc(node.label)}</span><span class="route__note">${esc(node.note)}</span></div>${link}`;
   }).join('');
   const branch = workflow.branch
     ? `<p class="route__branch">${esc(workflow.branch)}</p>`
@@ -75,19 +65,22 @@ function nav(active) {
   <a class="skip" href="#main">skip to content</a>
   <div class="topline">
     <div class="container topline__inner">
-      <p class="topline__note">open to junior developer and ai automation roles</p>
-      <a class="topline__link" href="contact.html">start a conversation</a>
+      <p class="topline__note"><span class="topline__pulse" aria-hidden="true"></span> open to junior developer and ai automation roles</p>
+      <a class="topline__link" href="contact.html">start a conversation <span aria-hidden="true">↗</span></a>
     </div>
   </div>
   <header class="site-header" data-header>
     <div class="container site-header__inner">
-      <a class="brand" href="index.html" aria-label="${esc(SITE.name)}, home">${esc(SITE.shortName)}</a>
+      <a class="brand" href="index.html" aria-label="${esc(SITE.name)}, home">
+        <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#mark-m"/></svg>
+        <span class="brand__name">${esc(SITE.shortName)}</span>
+      </a>
       <nav class="site-nav" aria-label="Primary">
         ${link('work.html', 'work', 'work')}
         ${link('about.html', 'about', 'about')}
         ${link('contact.html', 'contact', 'contact')}
       </nav>
-      <a class="btn btn--secondary btn--nav" href="${SITE.resume}" download="${SITE.resumeDownload}">résumé</a>
+      <a class="btn btn--ghost btn--nav" href="${SITE.resume}" download="${SITE.resumeDownload}">résumé</a>
       <details class="nav-menu">
         <summary>menu</summary>
         <nav class="nav-menu__panel" aria-label="Primary mobile">
@@ -105,6 +98,11 @@ function footer() {
   return `
   <footer class="footer">
     <div class="container footer__inner">
+      <div class="footer__brand">
+        <svg class="footer__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#mark-m"/></svg>
+        <p class="footer__name">mark justine j. mauricio</p>
+        <p class="footer__note">web developer / ai automation builder / antipolo</p>
+      </div>
       <p class="footer__colophon">mark justine j. mauricio, antipolo, philippines. <a href="mailto:${SITE.email}">${SITE.email}</a>. <a href="tel:${SITE.phoneHref}">${SITE.phone}</a>. built with html, css, and javascript.</p>
       <nav class="footer__nav" aria-label="Footer">
         <a href="work.html">work</a>
@@ -112,7 +110,7 @@ function footer() {
         <a href="contact.html">contact</a>
         <a href="${SITE.resume}" download="${SITE.resumeDownload}">résumé</a>
       </nav>
-      <p class="credits" data-credits>Photographs: <a href="https://commons.wikimedia.org/wiki/File:Virginia_Tech_-_data_center.jpg">Christopher Bowns</a> (CC BY-SA 2.0, Wikimedia Commons).</p>
+      <p class="credits">Type: Bodoni Moda, Geist, and Geist Mono (SIL Open Font License). Sigils: original linework. No project screenshots are claimed.</p>
     </div>
   </footer>`;
 }
@@ -128,14 +126,16 @@ export function page({ title, description, active = '', content, hasSlots = fals
   <meta name="description" content="${esc(description)}">
   <meta name="page-type" content="service">
   <meta name="site-kind" content="other">
+  <meta name="theme-color" content="#07070a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Geist:wght@300..600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body id="top">
+${sigilSprite()}
 ${nav(active)}
   <main id="main">
 ${content}

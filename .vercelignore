@@ -8,7 +8,6 @@ hallmark.md
 front-end-skill.md
 taste-skill.md
 
-# Unused library photo candidates
-images/canoscan-5600f-main-pcb-top-view-1920.jpg
-images/data-center-cua-cmc-telecom-2-1920.jpg
-images/soldering-a-0805-1920.jpg
+# Local-only references and unused photo candidates
+design-reference/
+images/

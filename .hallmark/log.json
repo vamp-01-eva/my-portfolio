@@ -57,5 +57,33 @@
    "58 exception: case files are long-form documents and intentionally exceed the landing-screen word budget"
   ],
   "prompt": "Rebuild Mark Justine J. Mauricio's portfolio in Lumen: early-career web developer and AI automation builder, ten builds with honest status, case studies, resume, and a contact form; no invented metrics, clients, or deployments."
+ },
+ {
+  "date": "2026-11-09",
+  "mode": "rebuild",
+  "theme": "Cold Reliquary",
+  "shape": "Specimen Wall",
+  "axes": "dark/didone-metal/monochrome",
+  "hero": "chrome banner over a build seal",
+  "nav": "retracting bar",
+  "footer": "colophon block",
+  "imagery": "original sigil specimen plates and system diagrams; no fake screenshots",
+  "photos": [],
+  "entry": "Mark Justine J. Mauricio portfolio",
+  "fingerprint": "Specimen wall|Chrome banner|Hairline|Solid|Margin-aligned|None",
+  "sections": [
+   "Hero / ten-build seal and ledger",
+   "Specimen wall (10 plates)",
+   "Featured case route",
+   "Spec sheet",
+   "About split + field plate",
+   "Close",
+   "Footer"
+  ],
+  "signature": "the ten-build specimen wall and its chrome seal",
+  "waived": [
+   "58 exception: case files are long-form documents and intentionally exceed the landing-screen word budget"
+  ],
+  "prompt": "Rebuild Mark Justine J. Mauricio's portfolio in Cold Reliquary: chrome-led cybersigilism at intensity 3, dark monochrome palette with an ice-blue signal, ten builds with honest status, original sigil specimen plates, case studies, resume, and a contact form; no invented metrics, clients, or deployments."
  }
 ]

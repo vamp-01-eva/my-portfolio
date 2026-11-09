@@ -16,7 +16,8 @@ function typographic(html) {
 }
 
 function write(name, html) {
-  fs.writeFileSync(path.join(root, name), typographic(html), 'utf8');
+  const output = typographic(html).replace(/[ \t]+$/gm, '');
+  fs.writeFileSync(path.join(root, name), output, 'utf8');
   console.log(`wrote ${name}`);
 }
 
