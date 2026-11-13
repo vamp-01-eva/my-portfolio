@@ -18,9 +18,34 @@ export const SITE = {
 
 export const groups = [
   { key: 'web', label: 'web applications', line: 'Internal tools built during the DepEd ICT internship.' },
-  { key: 'ai', label: 'ai automation', line: 'Independent prototypes, labelled as prototypes.' },
+  { key: 'ai', label: 'ai automation', line: 'Four prototypes: one standalone assistant, one connected shorts pipeline.' },
   { key: 'academic', label: 'academic', line: 'The Soletisfaction capstone.' }
 ];
+
+export const pipelineSteps = [
+  { slug: 'youtube-clipper', label: 'clipper', note: 'cut the first set' },
+  { slug: 'youtube-reclipper', label: 'reclipper', note: 'cut a new set' },
+  { slug: 'local-video-captioner', label: 'captioner', note: 'add captions' }
+];
+
+export function pipelineStrip(project) {
+  const current = project.pipeline ? project.pipeline.step : 0;
+  const steps = pipelineSteps.map((step, index) => {
+    const number = String(index + 1).padStart(2, '0');
+    const isCurrent = current === index + 1;
+    return `<li class="pipeline-strip__step${isCurrent ? ' is-current' : ''}">
+      <span class="pipeline-strip__no">${number}</span>
+      <a href="case-${step.slug}.html">${esc(step.label)}</a>
+      <span class="pipeline-strip__note">${esc(step.note)}</span>
+      ${isCurrent ? '<span class="pipeline-strip__now">this case</span>' : ''}
+    </li>`;
+  }).join('');
+  return `<aside class="pipeline-strip" aria-label="Shorts pipeline position">
+    <p class="pipeline-strip__label">part of the shorts pipeline</p>
+    <ol>${steps}</ol>
+    <p class="pipeline-strip__foot">The clipper and reclipper keep clips caption-free; the captioner adds captions after editing.</p>
+  </aside>`;
+}
 
 export function esc(value = '') {
   return String(value)
@@ -54,6 +79,18 @@ export function screenMap(screens) {
       <ul>${panel.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>
     </div>`).join('');
   return `<div class="screen-map">${panels}</div>`;
+}
+
+export function screensBlock(screens) {
+  if (!screens.images) return screenMap(screens);
+  const shots = screens.images.map((image) => `
+    <figure class="shot${image.wide ? ' shot--wide' : ''}${image.portrait ? ' shot--portrait' : ''}">
+      <div class="shot__frame">
+        <img src="${esc(image.src)}" alt="${esc(image.alt)}" width="${image.w}" height="${image.h}" loading="lazy" decoding="async">
+      </div>
+      <figcaption><span class="shot__tag">${esc(image.tag)}</span>${esc(image.caption)}</figcaption>
+    </figure>`).join('');
+  return `<div class="shot-grid">${shots}</div>`;
 }
 
 function nav(active) {
@@ -110,7 +147,7 @@ function footer() {
         <a href="contact.html">contact</a>
         <a href="${SITE.resume}" download="${SITE.resumeDownload}">résumé</a>
       </nav>
-      <p class="credits">Type: Bodoni Moda, Geist, and Geist Mono (SIL Open Font License). Sigils: original linework. No project screenshots are claimed.</p>
+      <p class="credits">Type: Bodoni Moda, Geist, and Geist Mono (SIL Open Font License). Sigils: original linework. Screens: captures from the projects shown.</p>
     </div>
   </footer>`;
 }

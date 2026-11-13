@@ -1,4 +1,4 @@
-import { projects, esc, statusTag, routeDiagram, screenMap, page } from './render.mjs';
+import { projects, esc, statusTag, routeDiagram, screensBlock, pipelineStrip, page } from './render.mjs';
 import { projectSigil } from './sigils.mjs';
 
 const sections = [
@@ -58,6 +58,7 @@ export function casePage(project) {
           <h2>project overview</h2>
           <p class="lead">${esc(project.lead)}</p>
           ${project.overview.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}
+          ${project.pipeline ? pipelineStrip(project) : ''}
         </section>
         <section id="problem">
           <h2>problem statement</h2>
@@ -93,8 +94,8 @@ export function casePage(project) {
         </section>
         <section id="screens">
           <h2>screens and demonstrations</h2>
-          <figure class="screen-figure">
-            ${screenMap(project.screens)}
+          <figure class="screen-figure${project.screens.images ? ' screen-figure--gallery' : ''}">
+            ${screensBlock(project.screens)}
             <figcaption>${esc(project.screens.caption)}</figcaption>
           </figure>
         </section>

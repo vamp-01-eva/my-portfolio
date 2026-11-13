@@ -3,6 +3,19 @@ import { projectSigil, groupGlyph } from './sigils.mjs';
 
 const feature = bySlug.get('contract-renewal');
 
+const pipelineRoute = {
+  title: 'The shorts pipeline',
+  caption: 'The clipper and reclipper output caption-free clips; editing happens before the captioner burns captions.',
+  nodes: [
+    { label: 'source video', note: 'youtube or saved file' },
+    { label: 'clipper', note: 'first cut' },
+    { label: 'reclipper', note: 'new settings' },
+    { label: 'edit', note: 'outside the tools' },
+    { label: 'captioner', note: 'styled captions', accent: true },
+    { label: 'publish', note: 'finished short' }
+  ]
+};
+
 function sectionHead(no, label, title, lede, id = '') {
   const idAttr = id ? ` id="${id}"` : '';
   return `<div class="section-head">
@@ -14,8 +27,8 @@ function sectionHead(no, label, title, lede, id = '') {
   </div>`;
 }
 
-function plate(project, featured = false) {
-  return `<li class="plate${featured ? ' plate--featured' : ''}">
+function plate(project, featured = false, capstone = false) {
+  return `<li class="plate${featured ? ' plate--featured' : ''}${capstone ? ' plate--capstone' : ''}">
     <a class="plate__link" href="case-${project.slug}.html">
       <span class="plate__frame" aria-hidden="true"></span>
       <span class="plate__top">
@@ -52,18 +65,18 @@ function dossier(project) {
 const seal = `<figure class="seal" aria-hidden="true">
   <svg class="seal__rings" viewBox="0 0 400 400" focusable="false"><use href="#seal-rings"/></svg>
   <div class="seal__core">
-    <span class="seal__number chrome">10</span>
+    <span class="seal__number chrome">08</span>
     <span class="seal__unit">builds</span>
   </div>
-  <span class="seal__label seal__label--a">web 06</span>
-  <span class="seal__label seal__label--b">ai 03</span>
+  <span class="seal__label seal__label--a">web 03</span>
+  <span class="seal__label seal__label--b">ai 04</span>
   <span class="seal__label seal__label--c">academic 01</span>
 </figure>`;
 
 const ledger = `<div class="ledger">
   <dl class="ledger__counts">
-    <div><dt>web applications</dt><dd>06</dd></div>
-    <div><dt>ai automation</dt><dd>03</dd></div>
+    <div><dt>web applications</dt><dd>03</dd></div>
+    <div><dt>ai automation</dt><dd>04</dd></div>
     <div><dt>academic</dt><dd>01</dd></div>
   </dl>
   <p class="ledger__note">the index is the detail.</p>
@@ -81,7 +94,7 @@ const fieldPlate = `<figure class="field-plate" data-slot="about-photo" data-alt
 </figure>`;
 
 export function homePage() {
-  const plates = projects.map((project, index) => plate(project, index === 0)).join('');
+  const plates = projects.map((project, index) => plate(project, index === 0, project.group === 'academic')).join('');
   const content = `
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__field" aria-hidden="true">
@@ -90,7 +103,7 @@ export function homePage() {
       <div class="container hero__inner">
         <div class="hero__copy">
           <p class="eyebrow"><span>portfolio</span>2026</p>
-          <h1 id="hero-title" class="chrome">ten builds,<br><em>checked</em> by hand.</h1>
+          <h1 id="hero-title" class="chrome">eight builds,<br><em>checked</em> by hand.</h1>
           <p class="hero__lede">I’m Mark, a web developer and AI automation builder in Antipolo. I build internal tools, then test the flow by hand.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#work">view the work</a>
@@ -111,7 +124,7 @@ export function homePage() {
 
     <section class="index-section" id="work" aria-labelledby="work-title">
       <div class="container">
-        ${sectionHead('01', 'index', 'the work', 'Ten builds, three groups. Each plate opens its case.', 'work-title')}
+        ${sectionHead('01', 'index', 'the work', 'Eight builds, three groups. Each plate opens its case.', 'work-title')}
         <ul class="plate-wall" aria-label="Project index">
           ${plates}
         </ul>
@@ -123,9 +136,9 @@ export function homePage() {
         <div class="case-excerpt__copy">
           <p class="eyebrow"><span>02</span>case excerpt</p>
           <h2 id="feature-title">one build, opened.</h2>
-          <p class="lead">The contract renewal tracker, from form to inbox.</p>
-          <span class="case-excerpt__watermark chrome" aria-hidden="true">06</span>
-          <a class="text-link" href="case-${feature.slug}.html">read the contract renewal case <span aria-hidden="true">→</span></a>
+          <p class="lead">The personnel inventory, from form to renewal notice.</p>
+          <span class="case-excerpt__watermark chrome" aria-hidden="true">03</span>
+          <a class="text-link" href="case-${feature.slug}.html">read the personnel inventory case <span aria-hidden="true">→</span></a>
         </div>
         <div class="case-excerpt__body">
           <figure class="route-figure">
@@ -146,8 +159,8 @@ export function homePage() {
         ${sectionHead('03', 'spec sheet', 'what i work with', 'Used in coursework, internship work, and personal builds.', 'skills-title')}
         <dl class="spec-list">
           <div><dt>build</dt><dd>HTML, CSS, JavaScript, PHP, MySQL.</dd></div>
-          <div><dt>integrate</dt><dd>OpenAI API, prompt engineering, API integration.</dd></div>
-          <div><dt>automate</dt><dd>Make.com, Apps Script, Sheets, Forms, email workflows.</dd></div>
+          <div><dt>integrate</dt><dd>OpenAI API, Google Gemini, prompt engineering, API integration.</dd></div>
+          <div><dt>automate</dt><dd>n8n, Make.com, Apps Script, Sheets, Forms, email workflows.</dd></div>
           <div><dt>support</dt><dd>Windows, Microsoft 365, networking, hardware support.</dd></div>
           <div><dt>tools</dt><dd>Git, VS Code, Antigravity, OpenCode, Claude, ChatGPT.</dd></div>
         </dl>
@@ -160,7 +173,7 @@ export function homePage() {
           <div class="about__copy">
             <p class="eyebrow"><span>04</span>about</p>
             <h2 id="about-title">i learned by fixing the office first.</h2>
-            <p>At DepEd’s ICT Unit, I built internal tools for attendance, bookings, rooms, and accounts, then tested each flow by hand.</p>
+            <p>At DepEd’s ICT Unit, I built internal tools for attendance, bookings, and contract tracking, then tested each flow by hand.</p>
             <a class="text-link" href="about.html">more about how i work <span aria-hidden="true">→</span></a>
           </div>
           <dl class="about__facts">
@@ -190,7 +203,7 @@ export function homePage() {
     </section>`;
   return page({
     title: 'Mark Justine J. Mauricio, web developer and AI automation builder',
-    description: 'Portfolio of Mark Justine J. Mauricio, an early-career web developer and AI automation builder in Antipolo. Ten builds, real status, and case files.',
+    description: 'Portfolio of Mark Justine J. Mauricio, an early-career web developer and AI automation builder in Antipolo. Eight builds, real status, and case files.',
     active: '',
     content,
     hasSlots: true
@@ -200,11 +213,30 @@ export function homePage() {
 export function workPage() {
   const groupBlocks = groups.map((group, groupIndex) => {
     const isAcademic = group.key === 'academic';
-    const rows = projects.filter((project) => project.group === group.key).map(dossier).join('');
+    const isAi = group.key === 'ai';
+    const groupProjects = projects.filter((project) => project.group === group.key);
+    const rows = groupProjects.map(dossier).join('');
     const title = isAcademic ? 'one capstone, built as a team.' : esc(group.label);
     const line = isAcademic
       ? 'An online store, a point of sale, and the inventory behind both.'
       : esc(group.line);
+    const list = isAi
+      ? `<p class="group-subhead"><span>a</span>standalone assistant</p>
+          <ol class="dossier-list">${groupProjects.filter((project) => !project.pipeline).map(dossier).join('')}</ol>
+          <div class="pipeline-band">
+            <div class="pipeline-band__head">
+              <p class="eyebrow"><span>pipeline</span>three connected tools</p>
+              <h3>the shorts pipeline</h3>
+              <p>One source video moves through three tools. The clipper and reclipper produce caption-free clips; the captioner adds captions after editing.</p>
+            </div>
+            <figure class="route-figure route-figure--pipeline">
+              ${routeDiagram(pipelineRoute)}
+              <figcaption>${esc(pipelineRoute.caption)}</figcaption>
+            </figure>
+          </div>
+          <p class="group-subhead"><span>b</span>pipeline components</p>
+          <ol class="dossier-list">${groupProjects.filter((project) => project.pipeline).map(dossier).join('')}</ol>`
+      : `<ol class="dossier-list">${rows}</ol>`;
     return `
       <section class="work-group${isAcademic ? ' work-group--academic' : ''}" id="${group.key}" aria-labelledby="${group.key}-title">
         <div class="container">
@@ -216,7 +248,7 @@ export function workPage() {
               <p class="lead">${line}</p>
             </div>
           </div>
-          <ol class="dossier-list">${rows}</ol>
+          ${list}
         </div>
       </section>`;
   }).join('');
@@ -225,7 +257,7 @@ export function workPage() {
       <div class="container">
         <p class="eyebrow"><span>catalogue</span>2026</p>
         <h1 class="chrome">the work</h1>
-        <p class="lead">Ten builds in three groups. Every row opens a case file.</p>
+        <p class="lead">Eight builds in three groups. Every row opens a case file.</p>
       </div>
     </header>
     <div class="container page-ledger">
@@ -240,7 +272,7 @@ export function workPage() {
     </section>`;
   return page({
     title: 'The work, Mark Justine J. Mauricio',
-    description: 'Ten builds by Mark Justine J. Mauricio: web applications, AI automation prototypes, and an academic capstone, with the status of each project.',
+    description: 'Eight builds by Mark Justine J. Mauricio: web applications, AI automation prototypes, and an academic capstone, with the status of each project.',
     active: 'work',
     content
   });
@@ -249,8 +281,8 @@ export function workPage() {
 export function aboutPage() {
   const skillRows = [
     ['build', 'HTML, CSS, JavaScript, PHP, MySQL.'],
-    ['integrate', 'OpenAI API, prompt engineering, API integration.'],
-    ['automate', 'Make.com, Apps Script, Sheets, email workflows.'],
+    ['integrate', 'OpenAI API, Google Gemini, prompt engineering, API integration.'],
+    ['automate', 'n8n, Make.com, Apps Script, Sheets, email workflows.'],
     ['support', 'Windows, Microsoft 365, networking, hardware.'],
     ['tools', 'Git, VS Code, OpenCode, Claude, ChatGPT.']
   ].map(([term, text]) => `<div><dt>${term}</dt><dd>${text}</dd></div>`).join('');
@@ -268,7 +300,7 @@ export function aboutPage() {
           <p class="eyebrow"><span>01</span>origin</p>
           <h2 id="start-title">where it started</h2>
           <p class="lead">I studied IT at STI College from 2022 to 2026, then interned at DepEd’s ICT Unit in Antipolo.</p>
-          <p>The internship put me in front of the office work: attendance, bookings, rooms, and accounts.</p>
+          <p>The internship put me in front of the office work: attendance, vehicle bookings, and contract tracking.</p>
         </div>
         <dl class="about-facts-band">
           <div><dt>based in</dt><dd>Antipolo, Philippines.</dd></div>
@@ -302,7 +334,7 @@ export function aboutPage() {
       <section class="about-section" id="learning" aria-labelledby="learning-title">
         <h2 id="learning-title">what i’m learning</h2>
         <div class="about-section__body">
-          <p>I’m learning Make.com and n8n, building integrations around the OpenAI API and Google Workspace. The chatbot and Gmail organizer are prototypes.</p>
+          <p>I’m building with n8n, connecting Google Gemini, Google Workspace, and messaging channels. The barbershop assistant and the shorts pipeline are prototypes.</p>
         </div>
       </section>
 

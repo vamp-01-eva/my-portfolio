@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Conference Room Booking System, case file</title>
-  <meta name="description" content="An internal room reservation system with centralized booking records and email notifications.">
+  <title>YouTube Shorts Clipper, case file</title>
+  <meta name="description" content="An n8n workflow that turns a YouTube video into vertical, caption-free Shorts and uploads them to Google Drive.">
   <meta name="page-type" content="service">
   <meta name="site-kind" content="other">
   <meta name="theme-color" content="#07070a">
@@ -80,24 +80,28 @@
   </symbol>
   <symbol id="sig-03" viewBox="0 0 120 120">
     <g fill="none" stroke="url(#chrome-stroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="24" y="24" width="72" height="72"/>
-      <path d="M24 24l72 72M96 24L24 96"/>
-      <circle cx="60" cy="60" r="9"/>
-      <path d="M60 10v12M60 98v12M10 60h12M98 60h12"/>
+      <rect x="42" y="18" width="36" height="58" rx="4"/>
+      <path d="M60 18v58"/>
+      <circle cx="48" cy="92" r="9"/>
+      <circle cx="72" cy="92" r="9"/>
+      <path d="M54 85L74 30M66 85L46 30"/>
     </g>
   </symbol>
   <symbol id="sig-04" viewBox="0 0 120 120">
     <g fill="none" stroke="url(#chrome-stroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M60 14l34 14v28c0 22-16 38-34 50-18-12-34-28-34-50V28z"/>
-      <path d="M44 46h32M44 60h32M44 74h20"/>
-      <path d="M60 14v10M42 28l-6-6M78 28l6-6"/>
+      <path d="M88 44a34 34 0 1 0 6 32"/>
+      <path d="M88 44l2-16-14 7"/>
+      <rect x="46" y="38" width="28" height="44" rx="3"/>
+      <path d="M60 38v44M46 50h28"/>
     </g>
   </symbol>
   <symbol id="sig-05" viewBox="0 0 120 120">
     <g fill="none" stroke="url(#chrome-stroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="60" cy="42" r="18"/>
-      <path d="M28 96c4-20 16-30 32-30s28 10 32 30"/>
-      <path d="M60 10v8M24 42h-8M96 42h8M48 96v10M72 96v10"/>
+      <rect x="20" y="28" width="80" height="60" rx="4"/>
+      <path d="M20 42h80"/>
+      <rect x="34" y="62" width="30" height="6" rx="2"/>
+      <rect x="70" y="62" width="16" height="6" rx="2"/>
+      <path d="M60 88v10M48 102h24"/>
     </g>
   </symbol>
   <symbol id="sig-06" viewBox="0 0 120 120">
@@ -115,23 +119,6 @@
       <circle cx="60" cy="54" r="3"/>
       <circle cx="76" cy="54" r="3"/>
       <path d="M60 16v12M46 12l14 10 14-10"/>
-    </g>
-  </symbol>
-  <symbol id="sig-08" viewBox="0 0 120 120">
-    <g fill="none" stroke="url(#chrome-stroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M18 36h84v50H18z"/>
-      <path d="M18 36l42 32 42-32"/>
-      <path d="M18 86l28-24M102 86L74 62"/>
-      <path d="M60 14v10"/>
-    </g>
-  </symbol>
-  <symbol id="sig-09" viewBox="0 0 120 120">
-    <g fill="none" stroke="url(#chrome-stroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M32 34h56l8 52-18 8-6-10H48l-6 10-18-8z"/>
-      <circle cx="46" cy="62" r="5"/>
-      <circle cx="74" cy="62" r="5"/>
-      <path d="M60 16v12M44 12l16 12 16-12"/>
-      <path d="M46 80h28"/>
     </g>
   </symbol>
   <symbol id="sig-10" viewBox="0 0 120 120">
@@ -234,22 +221,22 @@
   <main id="main">
 
     <header class="case-head">
-      <span class="case-head__watermark chrome" aria-hidden="true">03</span>
+      <span class="case-head__watermark chrome" aria-hidden="true">05</span>
       <span class="case-head__sigil" aria-hidden="true"><svg class="sigil" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#sig-03"/></svg></span>
       <div class="container">
         <div class="case-head__top">
           <a class="back-link" href="work.html"><span aria-hidden="true">←</span> all work</a>
-          <span class="status status--done"><svg class="status__glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#status-done"/></svg><span>completed</span></span>
+          <span class="status status--prototype"><svg class="status__glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#status-prototype"/></svg><span>prototype</span></span>
         </div>
-        <p class="eyebrow"><span>case file</span>03</p>
-        <h1>Conference Room Booking System</h1>
-        <p class="lead">room reservations in one schedule</p>
+        <p class="eyebrow"><span>case file</span>05</p>
+        <h1>YouTube Shorts Clipper</h1>
+        <p class="lead">long video in, vertical clips out</p>
         <div class="case-sheet">
           <dl>
-            <div><dt>category</dt><dd>web application</dd></div>
-            <div><dt>year</dt><dd class="num">2026</dd></div>
-            <div><dt>status</dt><dd>completed</dd></div>
-            <div><dt>stack</dt><dd>Google Apps Script, HTML, CSS, JavaScript, Gmail</dd></div>
+            <div><dt>category</dt><dd>video pipeline</dd></div>
+            <div><dt>year</dt><dd class="num">now</dd></div>
+            <div><dt>status</dt><dd>prototype</dd></div>
+            <div><dt>stack</dt><dd>n8n, Google Gemini, YouTube, Google Drive</dd></div>
           </dl>
         </div>
       </div>
@@ -262,80 +249,100 @@
       <article class="case-content">
         <section id="overview">
           <h2>project overview</h2>
-          <p class="lead">An internal reservation tool built during the DepEd ICT internship. Room requests go into one schedule, and the booking triggers an email notification.</p>
-          <p>The system simplifies conference room scheduling by keeping reservations in one web app. A requester selects a room and a time, and the booking is recorded and sent by email.</p><p>The build was part of the DepEd ICT Unit internship in Antipolo. It was made for internal administrative use.</p>
+          <p class="lead">The first stage of a shorts production pipeline. A form takes a YouTube URL and clip settings; the workflow downloads the source, transcribes it, asks Google Gemini to pick the strongest moments, cuts vertical clips, and uploads them to Google Drive.</p>
+          <p>The clipper is built in n8n. A form submission starts the job. The workflow downloads the source video, gets and parses the transcript, builds candidate windows, and sends them to Google Gemini to pick the strongest moments. The selected ranges are cut into vertical clips and uploaded to a Google Drive folder.</p><p>Clips are rendered without burned-in captions on purpose. Editing happens first; the Local Video Captioner adds styled captions afterward.</p><p>The project is a working local prototype. The workflow runs from the request form to the Drive upload.</p>
+          <aside class="pipeline-strip" aria-label="Shorts pipeline position">
+    <p class="pipeline-strip__label">part of the shorts pipeline</p>
+    <ol><li class="pipeline-strip__step is-current">
+      <span class="pipeline-strip__no">01</span>
+      <a href="case-youtube-clipper.html">clipper</a>
+      <span class="pipeline-strip__note">cut the first set</span>
+      <span class="pipeline-strip__now">this case</span>
+    </li><li class="pipeline-strip__step">
+      <span class="pipeline-strip__no">02</span>
+      <a href="case-youtube-reclipper.html">reclipper</a>
+      <span class="pipeline-strip__note">cut a new set</span>
+
+    </li><li class="pipeline-strip__step">
+      <span class="pipeline-strip__no">03</span>
+      <a href="case-local-video-captioner.html">captioner</a>
+      <span class="pipeline-strip__note">add captions</span>
+
+    </li></ol>
+    <p class="pipeline-strip__foot">The clipper and reclipper keep clips caption-free; the captioner adds captions after editing.</p>
+  </aside>
         </section>
         <section id="problem">
           <h2>problem statement</h2>
-          <p class="case-statement">Room requests were handled through separate messages and manual notes. The office needed one reservation record that showed what was booked, when, and by whom.</p>
+          <p class="case-statement">Turning a long video into Shorts is repetitive: download, transcribe, find the moments worth keeping, cut them, reframe them, and upload the results. Doing each step by hand slows down a publishing schedule.</p>
         </section>
         <section id="objectives">
           <h2>objectives</h2>
-          <ol class="objective-list objective-list--4"><li>Accept conference room reservations in one form.</li><li>Keep room bookings in a central record.</li><li>Send an email notification for each reservation.</li><li>Make the room schedule easier to review and track.</li></ol>
+          <ol class="objective-list objective-list--6"><li>Accept a YouTube URL and clip settings in one form.</li><li>Download the source and get its transcript.</li><li>Use the transcript to build candidate clip windows.</li><li>Ask Google Gemini to pick the strongest moments.</li><li>Cut vertical, caption-free clips.</li><li>Upload the clips to Google Drive and build a job report.</li></ol>
         </section>
         <section id="role">
           <h2>my role and contributions</h2>
-          <dl class="role-list"><div><dt>requirements</dt><dd>Worked with end users to understand how rooms were requested and how conflicts were checked.</dd></div><div><dt>build</dt><dd>Implemented the reservation form, booking record, and email notification with Google Apps Script and a browser interface.</dd></div><div><dt>testing</dt><dd>Tested the reservation flow and the notification by hand before review.</dd></div><div><dt>refinement</dt><dd>Adjusted the form and the booking details based on user feedback.</dd></div></dl>
-          <p class="case-note">AI-assisted development tools were used for parts of the implementation. I reviewed the generated code, tested the flow, and refined the result rather than treating the output as finished.</p>
+          <dl class="role-list"><div><dt>design</dt><dd>Designed the job flow from form submission through download, transcript, moment selection, cuts, and Drive delivery.</dd></div><div><dt>build</dt><dd>Built the n8n workflow, the request form, the clip settings, and the Drive upload path.</dd></div><div><dt>prompt</dt><dd>Wrote the moment-selection prompt and tuned it against the candidate windows and the requested focus.</dd></div><div><dt>testing</dt><dd>Tested the workflow end to end with sample videos and adjusted the cut and upload steps.</dd></div></dl>
+          <p class="case-note">AI-assisted development tools were used for parts of the implementation. I reviewed the workflow, ran it against sample videos, and refined the result rather than treating the output as finished.</p>
         </section>
         <section id="technologies">
           <h2>technologies used</h2>
           <table class="tech-table">
             <thead><tr><th scope="col">group</th><th scope="col">tools</th></tr></thead>
-            <tbody><tr><td>build</td><td>Google Apps Script, HTML, CSS, JavaScript</td></tr><tr><td>notifications</td><td>Gmail</td></tr><tr><td>data</td><td>Google Workspace</td></tr></tbody>
+            <tbody><tr><td>workflow</td><td>n8n</td></tr><tr><td>model</td><td>Google Gemini</td></tr><tr><td>source</td><td>YouTube</td></tr><tr><td>output</td><td>Google Drive</td></tr></tbody>
           </table>
         </section>
         <section id="features">
           <h2>main features</h2>
-          <ol class="feature-list"><li><span class="feature-list__title">Room reservation</span><span class="feature-list__text">Captures the room, date, time, and requester.</span></li><li><span class="feature-list__title">Central booking record</span><span class="feature-list__text">Keeps reservations in one list.</span></li><li><span class="feature-list__title">Email notification</span><span class="feature-list__text">Sends the reservation details to the people who need them.</span></li><li><span class="feature-list__title">Reservation tracking</span><span class="feature-list__text">Makes the room schedule easier to review.</span></li></ol>
+          <ol class="feature-list"><li><span class="feature-list__title">Request form</span><span class="feature-list__text">Takes the YouTube URL, clip count, framing, length, hook card, progress bar, audio polish, watermark, and cookie setting.</span></li><li><span class="feature-list__title">Transcript-driven windows</span><span class="feature-list__text">Downloads the source, gets the transcript, and builds candidate moments from it.</span></li><li><span class="feature-list__title">AI moment picking</span><span class="feature-list__text">Sends the candidate windows to Google Gemini and selects the strongest moments for the requested focus.</span></li><li><span class="feature-list__title">Vertical cuts</span><span class="feature-list__text">Cuts the selected ranges into vertical clips with the chosen framing.</span></li><li><span class="feature-list__title">Drive delivery</span><span class="feature-list__text">Creates a Drive folder and uploads the finished clips.</span></li><li><span class="feature-list__title">Job report</span><span class="feature-list__text">Builds a report for the run after the clips are uploaded.</span></li></ol>
 
         </section>
         <section id="workflow">
           <h2>workflow and system architecture</h2>
           <figure class="route-figure">
-            <div class="route"><div class="route__node"><span class="route__index">01</span><span class="route__label">request</span><span class="route__note">room and time</span></div><span class="route__link" aria-hidden="true"></span><div class="route__node"><span class="route__index">02</span><span class="route__label">reservation form</span><span class="route__note">captures details</span></div><span class="route__link" aria-hidden="true"></span><div class="route__node"><span class="route__index">03</span><span class="route__label">room record</span><span class="route__note">central booking</span></div><span class="route__link" aria-hidden="true"></span><div class="route__node"><span class="route__index">04</span><span class="route__label">email</span><span class="route__note">notification</span></div></div>
-            <figcaption>Request to room record to email.</figcaption>
+            <div class="route"><div class="route__node"><span class="route__index">01</span><span class="route__label">request form</span><span class="route__note">url and settings</span></div><span class="route__link" aria-hidden="true"></span><div class="route__node"><span class="route__index">02</span><span class="route__label">download + transcript</span><span class="route__note">source prepared</span></div><span class="route__link" aria-hidden="true"></span><div class="route__node route__node--accent"><span class="route__index">03</span><span class="route__label">pick moment</span><span class="route__note">gemini</span></div><span class="route__link" aria-hidden="true"></span><div class="route__node"><span class="route__index">04</span><span class="route__label">cut clips</span><span class="route__note">vertical, caption-free</span></div><span class="route__link" aria-hidden="true"></span><div class="route__node"><span class="route__index">05</span><span class="route__label">upload</span><span class="route__note">google drive</span></div></div>
+            <figcaption>Form to download and transcript to moment selection to cuts to Google Drive.</figcaption>
           </figure>
         </section>
         <section id="screens">
           <h2>screens and demonstrations</h2>
-          <figure class="screen-figure">
-            <div class="screen-map">
-    <div class="screen-panel">
-      <p class="screen-panel__title">reservation form</p>
-      <ul><li>room</li><li>date</li><li>time</li><li>requester</li></ul>
-    </div>
-    <div class="screen-panel">
-      <p class="screen-panel__title">room record</p>
-      <ul><li>bookings</li><li>schedule</li><li>status</li></ul>
-    </div>
-    <div class="screen-panel">
-      <p class="screen-panel__title">notification</p>
-      <ul><li>room</li><li>time</li><li>requester</li></ul>
-    </div></div>
-            <figcaption>The form takes the request; the record and the email keep it visible.</figcaption>
+          <figure class="screen-figure screen-figure--gallery">
+            <div class="shot-grid">
+    <figure class="shot shot--wide">
+      <div class="shot__frame">
+        <img src="assets/screens/shorts-clipper-workflow.png" alt="n8n YouTube Shorts Clipper workflow with download, transcript, Gemini moment selection, cuts, and Drive upload." width="1470" height="658" loading="lazy" decoding="async">
+      </div>
+      <figcaption><span class="shot__tag">workflow</span>The clipper workflow: form submission, download, transcript, moment selection with Gemini, cuts, and Drive upload.</figcaption>
+    </figure>
+    <figure class="shot shot--portrait">
+      <div class="shot__frame">
+        <img src="assets/screens/shorts-clipper-form.png" alt="YouTube Shorts Clipper request form with framing, clip length, and audio settings." width="455" height="910" loading="lazy" decoding="async">
+      </div>
+      <figcaption><span class="shot__tag">request form</span>The request form settings: framing, clip length, hook card, progress bar, audio polish, watermark, and cookies.</figcaption>
+    </figure></div>
+            <figcaption>Captures from the clipper: the n8n workflow and the request form settings.</figcaption>
           </figure>
         </section>
         <section id="challenges">
           <h2>challenges and solutions</h2>
           <table class="challenge-table">
             <thead><tr><th scope="col">the constraint</th><th scope="col">the response</th></tr></thead>
-            <tbody><tr><td>Room requests can collide when they live in separate messages.</td><td>One reservation record keeps the room, date, and time together.</td></tr><tr><td>The people involved need the booking without checking the app.</td><td>The reservation triggers an email notification.</td></tr></tbody>
+            <tbody><tr><td>A long video has more material than a Shorts run can use.</td><td>The workflow builds candidate windows from the transcript and lets Gemini rank the strongest moments against the requested focus.</td></tr><tr><td>Burned-in captions make a clip harder to edit later.</td><td>The clipper leaves the clips caption-free; the Local Video Captioner adds captions after editing.</td></tr></tbody>
           </table>
         </section>
         <section id="status">
           <h2>project status</h2>
           <div class="status-well">
             <span class="status-well__sigil" aria-hidden="true"><svg class="sigil" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#sig-03"/></svg></span>
-            <span class="status status--done"><svg class="status__glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#status-done"/></svg><span>completed</span></span>
-            <p>Completed and used during the DepEd ICT internship. Email notifications were part of the build. No public deployment or usage metric is claimed.</p>
-            <p class="case-note">No booking volume, adoption figures, or client deployment are claimed on this page.</p>
+            <span class="status status--prototype"><svg class="status__glyph" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><use href="#status-prototype"/></svg><span>prototype</span></span>
+            <p>Working local prototype. The n8n workflow runs from the request form to the Drive upload. No public deployment or usage metric is claimed.</p>
+            <p class="case-note">No video volume, publishing schedule, or client deployment is claimed on this page.</p>
           </div>
         </section>
         <nav class="case-next" aria-label="Next case">
           <div>
             <p class="case-next__label">next case</p>
-            <a class="case-next__link" href="case-contract-audit.html"><span class="case-next__no">04</span>contract audit</a>
+            <a class="case-next__link" href="case-youtube-reclipper.html"><span class="case-next__no">06</span>shorts reclipper</a>
           </div>
           <a class="text-link" href="work.html">all work <span aria-hidden="true">→</span></a>
         </nav>
@@ -357,7 +364,7 @@
         <a href="contact.html">contact</a>
         <a href="MAURICIO_RESUME.pdf" download="Mark-Justine-Mauricio-Resume.pdf">résumé</a>
       </nav>
-      <p class="credits">Type: Bodoni Moda, Geist, and Geist Mono (SIL Open Font License). Sigils: original linework. No project screenshots are claimed.</p>
+      <p class="credits">Type: Bodoni Moda, Geist, and Geist Mono (SIL Open Font License). Sigils: original linework. Screens: captures from the projects shown.</p>
     </div>
   </footer>
   <script src="main.js"></script>

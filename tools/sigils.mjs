@@ -65,24 +65,28 @@ const projectSymbols = `
   </symbol>
   <symbol id="sig-03" viewBox="0 0 120 120">
     <g fill="none" stroke="url(#chrome-stroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="24" y="24" width="72" height="72"/>
-      <path d="M24 24l72 72M96 24L24 96"/>
-      <circle cx="60" cy="60" r="9"/>
-      <path d="M60 10v12M60 98v12M10 60h12M98 60h12"/>
+      <rect x="42" y="18" width="36" height="58" rx="4"/>
+      <path d="M60 18v58"/>
+      <circle cx="48" cy="92" r="9"/>
+      <circle cx="72" cy="92" r="9"/>
+      <path d="M54 85L74 30M66 85L46 30"/>
     </g>
   </symbol>
   <symbol id="sig-04" viewBox="0 0 120 120">
     <g fill="none" stroke="url(#chrome-stroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M60 14l34 14v28c0 22-16 38-34 50-18-12-34-28-34-50V28z"/>
-      <path d="M44 46h32M44 60h32M44 74h20"/>
-      <path d="M60 14v10M42 28l-6-6M78 28l6-6"/>
+      <path d="M88 44a34 34 0 1 0 6 32"/>
+      <path d="M88 44l2-16-14 7"/>
+      <rect x="46" y="38" width="28" height="44" rx="3"/>
+      <path d="M60 38v44M46 50h28"/>
     </g>
   </symbol>
   <symbol id="sig-05" viewBox="0 0 120 120">
     <g fill="none" stroke="url(#chrome-stroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="60" cy="42" r="18"/>
-      <path d="M28 96c4-20 16-30 32-30s28 10 32 30"/>
-      <path d="M60 10v8M24 42h-8M96 42h8M48 96v10M72 96v10"/>
+      <rect x="20" y="28" width="80" height="60" rx="4"/>
+      <path d="M20 42h80"/>
+      <rect x="34" y="62" width="30" height="6" rx="2"/>
+      <rect x="70" y="62" width="16" height="6" rx="2"/>
+      <path d="M60 88v10M48 102h24"/>
     </g>
   </symbol>
   <symbol id="sig-06" viewBox="0 0 120 120">
@@ -100,23 +104,6 @@ const projectSymbols = `
       <circle cx="60" cy="54" r="3"/>
       <circle cx="76" cy="54" r="3"/>
       <path d="M60 16v12M46 12l14 10 14-10"/>
-    </g>
-  </symbol>
-  <symbol id="sig-08" viewBox="0 0 120 120">
-    <g fill="none" stroke="url(#chrome-stroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M18 36h84v50H18z"/>
-      <path d="M18 36l42 32 42-32"/>
-      <path d="M18 86l28-24M102 86L74 62"/>
-      <path d="M60 14v10"/>
-    </g>
-  </symbol>
-  <symbol id="sig-09" viewBox="0 0 120 120">
-    <g fill="none" stroke="url(#chrome-stroke)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M32 34h56l8 52-18 8-6-10H48l-6 10-18-8z"/>
-      <circle cx="46" cy="62" r="5"/>
-      <circle cx="74" cy="62" r="5"/>
-      <path d="M60 16v12M44 12l16 12 16-12"/>
-      <path d="M46 80h28"/>
     </g>
   </symbol>
   <symbol id="sig-10" viewBox="0 0 120 120">
@@ -234,13 +221,11 @@ export function sigilSprite() {
 const projectMap = {
   'time-in-out': 'sig-01',
   'vehicle-booking': 'sig-02',
-  'conference-room': 'sig-03',
-  'contract-audit': 'sig-04',
-  'account-requests': 'sig-05',
   'contract-renewal': 'sig-06',
-  'barbershop-chatbot': 'sig-07',
-  'gmail-organizer': 'sig-08',
-  'discord-bot': 'sig-09',
+  'barbershop-manager': 'sig-07',
+  'youtube-clipper': 'sig-03',
+  'youtube-reclipper': 'sig-04',
+  'local-video-captioner': 'sig-05',
   'soletisfaction': 'sig-10'
 };
 

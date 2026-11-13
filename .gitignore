@@ -13,3 +13,6 @@ design-reference/
 images/canoscan-5600f-main-pcb-top-view-1920.jpg
 images/data-center-cua-cmc-telecom-2-1920.jpg
 images/soldering-a-0805-1920.jpg
+
+# Local screenshot sources; the cropped, deployed copies live in assets/screens/
+images/*.png

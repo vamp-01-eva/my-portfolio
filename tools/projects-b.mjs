@@ -1,305 +1,391 @@
-// Project records 06 to 10. Content supplied by Mark Justine J. Mauricio.
+// Project records 04 to 08. Content supplied by Mark Justine J. Mauricio.
 // No metrics, clients, testimonials, or deployment claims are added.
 
 export const projectsB = [
   {
-    slug: 'contract-renewal',
-    number: '06',
-    title: 'Contract Renewal Tracker & Automated Email Notification System',
-    navTitle: 'contract renewal tracker',
-    category: 'automation',
-    group: 'web',
-    status: 'build',
-    year: '2026',
-    stack: ['Google Forms', 'Google Sheets', 'Google Apps Script', 'HTML', 'CSS', 'JavaScript', 'Gmail'],
-    summary: 'A Google Workspace automation that connects a form, a sheet, a dashboard, and email notifications.',
-    card: 'form to sheet to dashboard to email',
-    lead: 'A workflow automation that collects contract renewal information through Google Forms, keeps it in Google Sheets, monitors it in a web dashboard, and sends email notifications. Super Admin and School Admin roles control what each administrator can see.',
-    overview: [
-      'The system connects Google Forms, Google Sheets, a web dashboard, and email notifications. A form submission becomes a row in the sheet, the dashboard monitors the renewal record, and the email workflow notifies the people involved.',
-      'The build includes two administrator roles. A Super Admin sees the whole organization and can export records; a School Admin sees the school assigned to them.'
-    ],
-    problem: 'Google Forms makes it easy to collect renewal information, but a form response on its own is hard to monitor. The office needed one database, a dashboard that showed what was due, role-based visibility, and a notification workflow.',
-    objectives: [
-      'Collect contract renewal information through Google Forms.',
-      'Keep the data in Google Sheets as the central database.',
-      'Monitor renewals in a web dashboard.',
-      'Send automated email notifications.',
-      'Limit each administrator\'s view to the records they are allowed to see.'
-    ],
-    role: [
-      { label: 'design', text: 'Designed the form-to-sheet-to-dashboard flow and the role-based visibility model.' },
-      { label: 'build', text: 'Built the Google Forms and Google Sheets structure, the web dashboard, and the email notification workflow.' },
-      { label: 'access', text: 'Implemented Super Admin and School Admin views, including organization-wide visibility and export for the Super Admin.' },
-      { label: 'testing', text: 'Tested the form submission, dashboard view, role restrictions, and email notification by hand.' }
-    ],
-    roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed the generated code, tested the flow, and refined the result rather than treating the output as finished.',
-    tech: [
-      { group: 'collection', items: ['Google Forms'] },
-      { group: 'database', items: ['Google Sheets'] },
-      { group: 'dashboard', items: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript'] },
-      { group: 'notifications', items: ['Gmail'] }
-    ],
-    features: [
-      { title: 'Form collection', text: 'Google Forms captures the renewal information.' },
-      { title: 'Sheet database', text: 'Google Sheets holds the central renewal record.' },
-      { title: 'Monitoring dashboard', text: 'A web dashboard shows the renewal list and its status.' },
-      { title: 'Email notifications', text: 'The workflow sends the renewal message to the people involved.' },
-      { title: 'Super Admin view', text: 'Organization-wide visibility and export.' },
-      { title: 'School Admin view', text: 'Access limited to the administrator\'s assigned school.' }
-    ],
-    workflow: {
-      title: 'The renewal route',
-      caption: 'Google Form to Google Sheet to dashboard to email, with a role-based branch.',
-      nodes: [
-        { label: 'google form', note: 'renewal details' },
-        { label: 'google sheet', note: 'database' },
-        { label: 'dashboard', note: 'monitoring', accent: true },
-        { label: 'email', note: 'notification' }
-      ],
-      branch: 'Super Admin sees all schools and exports. School Admin sees only the assigned school.'
-    },
-    screens: {
-      title: 'The dashboard screens',
-      caption: 'The dashboard keeps the renewal list, the role filter, and the export in one view.',
-      panels: [
-        { title: 'renewal list', items: ['personnel', 'school', 'renewal date', 'status'] },
-        { title: 'role filter', items: ['Super Admin', 'School Admin', 'assigned school'] },
-        { title: 'export', items: ['filtered records', 'renewal status', 'school'] }
-      ]
-    },
-    challenges: [
-      { constraint: 'A form response is easy to collect but hard to monitor over time.', response: 'The sheet acts as the database, and the dashboard turns the rows into a renewal list.' },
-      { constraint: 'A single organization-wide view is not right for every administrator.', response: 'Super Admin and School Admin roles limit each view to the records that administrator should see.' }
-    ],
-    statusDetail: 'Built as a Google Workspace automation. The form, sheet, dashboard, roles, and email workflow are the described build. No client deployment or usage metric is claimed.',
-    notClaimed: 'No renewal volume, adoption figures, or client deployment are claimed on this page.'
-  },
-  {
-    slug: 'barbershop-chatbot',
-    number: '07',
-    title: 'AI-Powered Facebook Messenger Chatbot for Barbershops',
-    navTitle: 'barbershop chatbot',
+    slug: 'barbershop-manager',
+    number: '04',
+    title: 'Barbershop Manager AI Assistant',
+    navTitle: 'barbershop manager',
     category: 'ai automation',
     group: 'ai',
     status: 'prototype',
     year: 'now',
-    stack: ['Make.com', 'OpenAI Responses API', 'Facebook Messenger', 'Google Sheets', 'Google Docs'],
-    summary: 'A Messenger chatbot for barbershop inquiries, with English, Tagalog, and Taglish replies and a Google Docs knowledge base.',
-    card: 'multilingual replies and a chat log',
-    lead: 'An AI customer support prototype for barbershops. It answers common questions about services and haircuts in English, Tagalog, or Taglish, keeps conversation context with thread identifiers, and logs the conversation in Google Sheets.',
+    stack: ['n8n', 'Google Gemini', 'Facebook Messenger', 'Google Docs', 'Google Sheets', 'Google Calendar'],
+    summary: 'A Messenger AI assistant that answers shop questions, checks appointment availability, and books appointments into Google Calendar.',
+    card: 'shop questions, availability, and bookings',
+    lead: 'An AI customer support and booking prototype for barbershops. The main assistant answers service questions in English, Tagalog, or Taglish, keeps conversation context, and calls two sub-workflows to check open slots and create a booking.',
     overview: [
-      'The chatbot is designed for customer inquiries on Facebook Messenger. A message goes through Make.com to the OpenAI Responses API, which answers with the help of a Google Docs knowledge base. The conversation is logged in Google Sheets.',
-      'The project is an independent prototype. The chat and FAQ flow is the current build; appointment booking is a planned extension, not a finished feature.'
+      'The assistant runs as an n8n workflow. A Messenger message passes through the main workflow, which loads the shop instructions from Google Docs, calls Google Gemini with conversation memory, and can invoke two tools: one checks calendar availability, the other books an appointment.',
+      'The booking sub-workflow validates the request, checks the slot again, creates a Google Calendar event, and logs the booking in Google Sheets. The availability sub-workflow builds a time window and reads open slots from the calendar.',
+      'The project is a working prototype. Appointment changes, cancellations, and reminders are not implemented.'
     ],
-    problem: 'Barbershop staff answer the same questions repeatedly, often in a mix of English, Tagalog, and Taglish. The shop needed a way to answer common questions quickly without losing the thread of the conversation.',
+    problem: 'Barbershop staff answer the same questions repeatedly and coordinate appointments by hand. The shop needed a way to answer common questions quickly, check real availability, and keep the booking record in one place.',
     objectives: [
       'Answer common barbershop questions in English, Tagalog, and Taglish.',
-      'Keep the chatbot\'s instructions and knowledge in a Google Doc.',
-      'Maintain conversation context with a thread identifier.',
-      'Log conversations in Google Sheets for review.',
-      'Leave room for an appointment booking workflow.'
+      'Keep the assistant\'s instructions and shop information in a Google Doc.',
+      'Maintain conversation context with a memory node.',
+      'Check open appointment slots against Google Calendar.',
+      'Create a booking and log it in Google Sheets.',
+      'Send the assistant\'s reply back through Messenger.'
     ],
     role: [
-      { label: 'design', text: 'Designed the conversation flow and the knowledge base structure.' },
-      { label: 'prompt', text: 'Wrote and refined the instructions for the model, including the language mix and the limits of the answers.' },
-      { label: 'integration', text: 'Connected Facebook Messenger, Make.com, the OpenAI Responses API, Google Docs, and Google Sheets.' },
-      { label: 'testing', text: 'Tested the reply flow and the conversation log by hand. Booking is not presented as implemented.' }
+      { label: 'design', text: 'Designed the conversation flow, the knowledge base structure, and the boundary between the assistant and the two booking sub-workflows.' },
+      { label: 'prompt', text: 'Wrote and refined the instructions for the model, including the language mix, the shop details, and the limits of the answers.' },
+      { label: 'integration', text: 'Connected Facebook Messenger, n8n, Google Gemini, Google Docs, Google Sheets, and Google Calendar.' },
+      { label: 'testing', text: 'Tested the reply flow, the availability check, the booking path, and the conversation log by hand.' }
     ],
-    roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed the generated code, tested the flow, and refined the result rather than treating the output as finished.',
+    roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed the workflow, tested the reply and booking paths, and refined the result rather than treating the output as finished.',
     tech: [
       { group: 'channel', items: ['Facebook Messenger'] },
-      { group: 'automation', items: ['Make.com'] },
-      { group: 'model', items: ['OpenAI Responses API'] },
+      { group: 'automation', items: ['n8n'] },
+      { group: 'model', items: ['Google Gemini'] },
       { group: 'knowledge', items: ['Google Docs'] },
-      { group: 'records', items: ['Google Sheets'] }
+      { group: 'records', items: ['Google Sheets', 'Google Calendar'] }
     ],
     features: [
       { title: 'Multilingual replies', text: 'Answers in English, Tagalog, and Taglish.' },
-      { title: 'Service and haircut questions', text: 'Handles common questions about barber services and haircuts.' },
-      { title: 'Knowledge base', text: 'Uses a Google Docs document for the chatbot\'s instructions and shop information.' },
-      { title: 'Conversation context', text: 'Uses conversation or thread identifiers to keep the exchange coherent.' },
-      { title: 'Conversation log', text: 'Records the conversation in Google Sheets.' }
+      { title: 'Shop knowledge base', text: 'Uses a Google Docs document for the assistant\'s instructions and shop information.' },
+      { title: 'Conversation memory', text: 'Keeps the exchange coherent with a memory node in the main workflow.' },
+      { title: 'Availability checking', text: 'Calls a sub-workflow that reads open slots from Google Calendar.' },
+      { title: 'Appointment booking', text: 'Calls a sub-workflow that validates the request, creates a calendar event, and logs the booking.' },
+      { title: 'Booking record', text: 'Keeps each confirmed appointment in Google Sheets.' },
+      { title: 'Admin booking list', text: 'A separate branch lists bookings from the Google Sheets record.' }
     ],
     planned: [
-      'Real-time appointment availability checking.',
-      'Automated booking creation.',
-      'Booking confirmation messages.',
       'Appointment changes and cancellations.',
-      'Automated appointment reminders.'
+      'Automated appointment reminders.',
+      'Rescheduling from the Messenger conversation.'
     ],
     workflow: {
-      title: 'The chatbot route',
-      caption: 'Messenger to Make.com to the OpenAI Responses API, with the Google Docs knowledge base and the Google Sheets log alongside. Booking is a planned branch.',
+      title: 'The assistant route',
+      caption: 'Messenger to the main assistant, with Google Gemini and memory, then the availability and booking sub-workflows and a reply.',
       nodes: [
         { label: 'messenger', note: 'customer message' },
-        { label: 'make.com', note: 'workflow' },
-        { label: 'openai', note: 'responses api' },
-        { label: 'docs + sheets', note: 'knowledge and log' },
+        { label: 'main assistant', note: 'instructions + memory' },
+        { label: 'gemini', note: 'reply and tool choice' },
+        { label: 'availability', note: 'sub-workflow' },
+        { label: 'booking', note: 'sub-workflow', accent: true },
         { label: 'reply', note: 'sent back' }
       ],
-      branch: 'Appointment booking is planned, not implemented.'
+      branch: 'The booking sub-workflow validates the request, checks the slot, creates a Google Calendar event, and appends the booking to Google Sheets.'
     },
     screens: {
-      title: 'The chatbot screens',
-      caption: 'The Messenger thread, the Make.com scenario, the Google Doc, and the Sheet are the working parts.',
-      panels: [
-        { title: 'messenger thread', items: ['customer message', 'bot reply', 'conversation context'] },
-        { title: 'make.com scenario', items: ['webhook', 'openai call', 'google sheets row'] },
-        { title: 'google doc', items: ['instructions', 'services', 'answer limits'] }
+      title: 'The assistant workflows',
+      caption: 'Captures from n8n: the main assistant workflow and the two booking sub-workflows.',
+      images: [
+        {
+          src: 'assets/screens/barbershop-main.png',
+          alt: 'n8n barbershop assistant workflow with Messenger, Google Docs, Gemini, memory, and booking tools.',
+          caption: 'The main assistant: Messenger trigger, shop instructions, Gemini, conversation memory, and the availability and booking tools.',
+          tag: 'main workflow',
+          wide: true,
+          w: 980,
+          h: 580
+        },
+        {
+          src: 'assets/screens/barbershop-booking.png',
+          alt: 'n8n booking sub-workflow with validation, calendar availability, event creation, and Google Sheets logging.',
+          caption: 'The booking sub-workflow: validate the request, re-check the slot, create the calendar event, and log the booking.',
+          tag: 'sub-workflow',
+          wide: true,
+          w: 1620,
+          h: 545
+        },
+        {
+          src: 'assets/screens/barbershop-availability.png',
+          alt: 'n8n availability sub-workflow reading open calendar slots.',
+          caption: 'The availability sub-workflow: build a time window and read open slots from Google Calendar.',
+          tag: 'sub-workflow',
+          wide: true,
+          w: 1620,
+          h: 570
+        }
       ]
     },
     challenges: [
       { constraint: 'Customers write in English, Tagalog, and Taglish, sometimes in the same message.', response: 'The instructions and the knowledge base describe the language mix, and the reply stays in the customer\'s register.' },
-      { constraint: 'A chat is hard to review after it ends.', response: 'Each conversation is logged in Google Sheets with its thread identifier.' }
+      { constraint: 'A booking can collide if the assistant only talks about availability.', response: 'The availability sub-workflow reads the calendar, and the booking sub-workflow re-checks the slot before creating the event.' },
+      { constraint: 'A chat is hard to review after it ends.', response: 'The main workflow keeps conversation memory, and confirmed bookings are logged in Google Sheets.' }
     ],
-    statusDetail: 'Working prototype for the chat and FAQ flow. Appointment availability, booking creation, confirmation, changes, and reminders are planned, not implemented.',
+    statusDetail: 'Working prototype. The Messenger assistant, availability check, and booking sub-workflows are built in n8n. Appointment changes, cancellations, and reminders are planned, not implemented.',
     notClaimed: 'No booking volume, customer count, or client deployment is claimed on this page.'
   },
   {
-    slug: 'gmail-organizer',
-    number: '08',
-    title: 'AI-Powered Gmail Inbox Organizer',
-    navTitle: 'gmail organizer',
-    category: 'ai automation',
+    slug: 'youtube-clipper',
+    number: '05',
+    title: 'YouTube Shorts Clipper',
+    navTitle: 'shorts clipper',
+    category: 'video pipeline',
     group: 'ai',
     status: 'prototype',
     year: 'now',
-    stack: ['Make.com', 'Gmail', 'OpenAI API'],
-    summary: 'An AI email organization prototype that classifies incoming mail, applies Gmail labels, and surfaces priority messages.',
-    card: 'labels and priority for gmail',
-    lead: 'A workflow prototype that reads incoming Gmail, asks OpenAI to classify the message, and applies labels based on the content. Priority detection and optional summaries are part of the intended scope.',
+    pipeline: { step: 1 },
+    stack: ['n8n', 'Google Gemini', 'YouTube', 'Google Drive'],
+    summary: 'An n8n workflow that turns a YouTube video into vertical, caption-free Shorts and uploads them to Google Drive.',
+    card: 'long video in, vertical clips out',
+    lead: 'The first stage of a shorts production pipeline. A form takes a YouTube URL and clip settings; the workflow downloads the source, transcribes it, asks Google Gemini to pick the strongest moments, cuts vertical clips, and uploads them to Google Drive.',
     overview: [
-      'The organizer is a Make.com workflow that watches Gmail and calls the OpenAI API to classify each message. The classification is used to apply labels and identify promotional or spam-like mail.',
-      'The project is an independent prototype. The page describes the intended feature set; each feature should be confirmed against the current build before it is presented as complete.'
+      'The clipper is built in n8n. A form submission starts the job. The workflow downloads the source video, gets and parses the transcript, builds candidate windows, and sends them to Google Gemini to pick the strongest moments. The selected ranges are cut into vertical clips and uploaded to a Google Drive folder.',
+      'Clips are rendered without burned-in captions on purpose. Editing happens first; the Local Video Captioner adds styled captions afterward.',
+      'The project is a working local prototype. The workflow runs from the request form to the Drive upload.'
     ],
-    problem: 'Inbox triage is repetitive. Messages arrive in different categories, and the important ones can get buried under promotions and routine mail.',
+    problem: 'Turning a long video into Shorts is repetitive: download, transcribe, find the moments worth keeping, cut them, reframe them, and upload the results. Doing each step by hand slows down a publishing schedule.',
     objectives: [
-      'Classify incoming email by content and intent.',
-      'Apply Gmail labels automatically.',
-      'Identify spam and promotional messages.',
-      'Surface priority messages.',
-      'Optionally generate a short summary.'
+      'Accept a YouTube URL and clip settings in one form.',
+      'Download the source and get its transcript.',
+      'Use the transcript to build candidate clip windows.',
+      'Ask Google Gemini to pick the strongest moments.',
+      'Cut vertical, caption-free clips.',
+      'Upload the clips to Google Drive and build a job report.'
     ],
     role: [
-      { label: 'design', text: 'Designed the classification categories and the label set.' },
-      { label: 'integration', text: 'Connected Gmail, Make.com, and the OpenAI API in a workflow.' },
-      { label: 'testing', text: 'Tested the workflow against sample messages and refined the prompt and labels.' }
+      { label: 'design', text: 'Designed the job flow from form submission through download, transcript, moment selection, cuts, and Drive delivery.' },
+      { label: 'build', text: 'Built the n8n workflow, the request form, the clip settings, and the Drive upload path.' },
+      { label: 'prompt', text: 'Wrote the moment-selection prompt and tuned it against the candidate windows and the requested focus.' },
+      { label: 'testing', text: 'Tested the workflow end to end with sample videos and adjusted the cut and upload steps.' }
     ],
-    roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed the generated code, tested the flow, and refined the result rather than treating the output as finished. The feature list is a prototype scope, not a claim that every feature is finished.',
+    roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed the workflow, ran it against sample videos, and refined the result rather than treating the output as finished.',
     tech: [
-      { group: 'mail', items: ['Gmail'] },
-      { group: 'automation', items: ['Make.com'] },
-      { group: 'model', items: ['OpenAI API'] }
+      { group: 'workflow', items: ['n8n'] },
+      { group: 'model', items: ['Google Gemini'] },
+      { group: 'source', items: ['YouTube'] },
+      { group: 'output', items: ['Google Drive'] }
     ],
     features: [
-      { title: 'Email classification', text: 'Reads the message and assigns a category.' },
-      { title: 'Gmail labels', text: 'Applies labels based on the classification.' },
-      { title: 'Spam and promotions', text: 'Identifies promotional and spam-like messages.' },
-      { title: 'Priority detection', text: 'Flags messages that need attention.' },
-      { title: 'Optional summaries', text: 'Adds a short summary to the message record.' }
+      { title: 'Request form', text: 'Takes the YouTube URL, clip count, framing, length, hook card, progress bar, audio polish, watermark, and cookie setting.' },
+      { title: 'Transcript-driven windows', text: 'Downloads the source, gets the transcript, and builds candidate moments from it.' },
+      { title: 'AI moment picking', text: 'Sends the candidate windows to Google Gemini and selects the strongest moments for the requested focus.' },
+      { title: 'Vertical cuts', text: 'Cuts the selected ranges into vertical clips with the chosen framing.' },
+      { title: 'Drive delivery', text: 'Creates a Drive folder and uploads the finished clips.' },
+      { title: 'Job report', text: 'Builds a report for the run after the clips are uploaded.' }
     ],
     workflow: {
-      title: 'The inbox route',
-      caption: 'Gmail to Make.com to the OpenAI API, then labels, priority, and an optional summary.',
+      title: 'The clipper route',
+      caption: 'Form to download and transcript to moment selection to cuts to Google Drive.',
       nodes: [
-        { label: 'gmail', note: 'new message' },
-        { label: 'make.com', note: 'workflow' },
-        { label: 'openai', note: 'classification' },
-        { label: 'labels', note: 'applied' },
-        { label: 'priority', note: 'flagged' }
+        { label: 'request form', note: 'url and settings' },
+        { label: 'download + transcript', note: 'source prepared' },
+        { label: 'pick moment', note: 'gemini', accent: true },
+        { label: 'cut clips', note: 'vertical, caption-free' },
+        { label: 'upload', note: 'google drive' }
       ]
     },
     screens: {
-      title: 'The organizer screens',
-      caption: 'The Gmail inbox, the label set, and the workflow are the working parts.',
-      panels: [
-        { title: 'gmail inbox', items: ['incoming message', 'label', 'priority'] },
-        { title: 'make.com scenario', items: ['gmail trigger', 'openai call', 'label action'] },
-        { title: 'label set', items: ['category', 'promotion', 'spam', 'priority'] }
+      title: 'The clipper screens',
+      caption: 'Captures from the clipper: the n8n workflow and the request form settings.',
+      images: [
+        {
+          src: 'assets/screens/shorts-clipper-workflow.png',
+          alt: 'n8n YouTube Shorts Clipper workflow with download, transcript, Gemini moment selection, cuts, and Drive upload.',
+          caption: 'The clipper workflow: form submission, download, transcript, moment selection with Gemini, cuts, and Drive upload.',
+          tag: 'workflow',
+          wide: true,
+          w: 1470,
+          h: 658
+        },
+        {
+          src: 'assets/screens/shorts-clipper-form.png',
+          alt: 'YouTube Shorts Clipper request form with framing, clip length, and audio settings.',
+          caption: 'The request form settings: framing, clip length, hook card, progress bar, audio polish, watermark, and cookies.',
+          tag: 'request form',
+          portrait: true,
+          w: 455,
+          h: 910
+        }
       ]
     },
     challenges: [
-      { constraint: 'Email categories are not always clean.', response: 'The prompt and the label set define the categories, and the workflow keeps the model\'s classification visible in the label.' },
-      { constraint: 'A wrong label is worse than no label.', response: 'The prototype is tested against sample messages before the labels are treated as reliable.' }
+      { constraint: 'A long video has more material than a Shorts run can use.', response: 'The workflow builds candidate windows from the transcript and lets Gemini rank the strongest moments against the requested focus.' },
+      { constraint: 'Burned-in captions make a clip harder to edit later.', response: 'The clipper leaves the clips caption-free; the Local Video Captioner adds captions after editing.' }
     ],
-    statusDetail: 'Prototype. Classification, labeling, spam and promotion detection, priority detection, and summaries are the intended scope. Confirm the implementation status of each feature before presenting it as complete.',
-    notClaimed: 'No inbox volume, accuracy figure, or client deployment is claimed on this page.'
+    statusDetail: 'Working local prototype. The n8n workflow runs from the request form to the Drive upload. No public deployment or usage metric is claimed.',
+    notClaimed: 'No video volume, publishing schedule, or client deployment is claimed on this page.'
   },
   {
-    slug: 'discord-bot',
-    number: '09',
-    title: 'Discord AI Automation Bot',
-    navTitle: 'discord bot',
-    category: 'ai automation',
+    slug: 'youtube-reclipper',
+    number: '06',
+    title: 'YouTube Shorts Reclipper',
+    navTitle: 'shorts reclipper',
+    category: 'video pipeline',
     group: 'ai',
     status: 'prototype',
     year: 'now',
-    stack: ['Discord API', 'OpenAI API', 'automation platform (to confirm)'],
-    summary: 'An early AI automation prototype for Discord server assistance, FAQ replies, and moderation support.',
-    card: 'discord faq and moderation support',
-    lead: 'An early prototype for a Discord bot that can answer common server questions, assist with FAQs, and support moderation work. The page records the project direction; the build is not presented as finished.',
+    pipeline: { step: 2 },
+    stack: ['n8n', 'Google Gemini', 'local source file'],
+    summary: 'An n8n workflow that re-cuts a saved source video into fresh caption-free Shorts without downloading it again.',
+    card: 'saved source, new clips',
+    lead: 'The second stage of the pipeline. It reuses the source video saved by an earlier clipper job, re-runs moment selection with new settings, and produces fresh caption-free clips without downloading the video again.',
     overview: [
-      'The project explores an AI assistant for Discord servers. The intended scope includes question answering, FAQ responses, server assistance, message classification, and moderation support.',
-      'The build is early. The technologies and features below are the project scope; they are not presented as completed.'
+      'The reclipper starts from a form that points at a saved source file or defaults to the newest job. It inspects the source, resolves the job folder, and either reuses the existing transcript and windows or builds new ones. Google Gemini picks a new set of moments, and the selected ranges are cut again.',
+      'Because the source is already local, the workflow skips the download, cookies, and Drive upload steps. The output stays caption-free so the clips can be edited before captions are added.',
+      'The project is a working local prototype. It is meant to run after the clipper, not as a replacement for it.'
     ],
-    problem: 'Server questions repeat, and moderators spend time answering the same things. A bot could handle the routine questions and surface the messages that need a person.',
+    problem: 'A good source video often needs a second or third pass with different clip settings. Re-downloading and re-transcribing the source each time wastes work and slows down the next set of clips.',
     objectives: [
-      'Answer common server questions.',
-      'Provide FAQ responses.',
-      'Assist with server information.',
-      'Classify messages that need moderation attention.',
-      'Keep a person in the loop for moderation decisions.'
+      'Reuse the source video saved by an earlier clipper job.',
+      'Accept a new clip count, framing, focus, and length.',
+      'Reuse the existing transcript when one is available.',
+      'Ask Google Gemini to pick a fresh set of moments.',
+      'Cut new caption-free clips without a download or Drive upload.'
     ],
     role: [
-      { label: 'scope', text: 'Defined the bot\'s use cases and the boundary between automated replies and human moderation.' },
-      { label: 'design', text: 'Outlined the Discord, OpenAI, and automation workflow.' },
-      { label: 'status', text: 'The implementation is early; this page is a scope record, not a finished build report.' }
+      { label: 'design', text: 'Designed the reclip flow around the saved source, the job folder, and the existing transcript.' },
+      { label: 'build', text: 'Built the n8n workflow, the source resolution step, the reclip form, and the cut path.' },
+      { label: 'prompt', text: 'Reused the moment-selection prompt and adjusted it for a fresh pass over the same transcript.' },
+      { label: 'testing', text: 'Tested the reclip path against saved sources and checked that the new clips stayed caption-free.' }
     ],
-    roleNote: 'Only the parts that are actually implemented should be described as built. The current page keeps the feature list at the scope level.',
+    roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed the workflow, ran it against saved sources, and refined the result rather than treating the output as finished.',
     tech: [
-      { group: 'platform', items: ['Discord API'] },
-      { group: 'model', items: ['OpenAI API'] },
-      { group: 'automation', items: ['Make.com or another automation platform (to confirm)'] }
+      { group: 'workflow', items: ['n8n'] },
+      { group: 'model', items: ['Google Gemini'] },
+      { group: 'source', items: ['Saved local source video'] },
+      { group: 'output', items: ['Local clip folder'] }
     ],
     features: [
-      { title: 'Question answering', text: 'Answers common server questions.' },
-      { title: 'FAQ responses', text: 'Returns prepared answers for repeated questions.' },
-      { title: 'Server assistance', text: 'Helps users find server information.' },
-      { title: 'Message classification', text: 'Flags messages that may need moderation.' },
-      { title: 'Moderation support', text: 'Surfaces items for a human moderator.' }
+      { title: 'Saved-source input', text: 'Points at a job folder or path; a blank value uses the newest job.' },
+      { title: 'Transcript reuse', text: 'Uses the existing transcript and windows when the job already has them.' },
+      { title: 'New moment selection', text: 'Asks Google Gemini for a fresh set of moments based on the new focus.' },
+      { title: 'New clip settings', text: 'Takes a new clip count, framing, length, hook card, progress bar, audio polish, and watermark.' },
+      { title: 'Local output', text: 'Cuts the new clips on disk without a download or Drive upload.' },
+      { title: 'Job report', text: 'Builds a report for the reclip run.' }
     ],
     workflow: {
-      title: 'The bot route',
-      caption: 'Discord to the bot to the OpenAI API, with a moderation branch for a human.',
+      title: 'The reclipper route',
+      caption: 'Form to saved source to transcript reuse to new moment selection to fresh cuts.',
       nodes: [
-        { label: 'discord', note: 'message' },
-        { label: 'bot', note: 'workflow' },
-        { label: 'openai', note: 'reply or classification' },
-        { label: 'reply', note: 'to the channel' },
-        { label: 'moderation', note: 'human review' }
+        { label: 'request form', note: 'saved source + settings' },
+        { label: 'inspect source', note: 'job folder resolved' },
+        { label: 'reuse transcript', note: 'or rebuild' },
+        { label: 'pick moment', note: 'gemini', accent: true },
+        { label: 'cut clips', note: 'caption-free' }
       ],
-      branch: 'Moderation decisions stay with a person.'
+      branch: 'If the job already has a transcript, it is reused; otherwise the workflow rebuilds it.'
     },
     screens: {
-      title: 'The bot screens',
-      caption: 'The Discord channel, the bot reply, and the moderation queue are the intended views.',
-      panels: [
-        { title: 'discord channel', items: ['question', 'bot reply', 'context'] },
-        { title: 'bot workflow', items: ['event', 'openai call', 'response'] },
-        { title: 'moderation queue', items: ['flagged message', 'reason', 'moderator'] }
+      title: 'The reclipper screens',
+      caption: 'Captures from the reclipper: the n8n workflow and the request form.',
+      images: [
+        {
+          src: 'assets/screens/shorts-reclipper-workflow.png',
+          alt: 'n8n YouTube Shorts Reclipper workflow reusing a saved source and cutting a fresh set of clips.',
+          caption: 'The reclipper reuses a saved source, re-runs moment selection, and cuts a fresh set of clips.',
+          tag: 'workflow',
+          wide: true,
+          w: 1520,
+          h: 430
+        },
+        {
+          src: 'assets/screens/shorts-reclipper-form.png',
+          alt: 'YouTube Shorts Reclipper request form with saved source and new clip settings.',
+          caption: 'The reclipper form points at a saved source and takes new clip settings; no download or Drive step.',
+          tag: 'request form',
+          portrait: true,
+          w: 455,
+          h: 920
+        }
       ]
     },
     challenges: [
-      { constraint: 'A server assistant can overstep into moderation decisions.', response: 'The scope keeps moderation decisions with a person and uses the bot to surface messages, not to punish.' },
-      { constraint: 'The build is early, and an overstated feature list would be misleading.', response: 'The case page labels the feature set as scope and does not present it as completed.' }
+      { constraint: 'Re-downloading and re-transcribing a source for every new set of clips wastes work.', response: 'The reclipper reads the saved source and reuses the existing transcript when the job has one.' },
+      { constraint: 'A second pass should not overwrite the first set of clips.', response: 'The reclip job resolves its own output folder and writes a new set of clips.' }
     ],
-    statusDetail: 'Early prototype. The page records the project direction; features and technologies are not presented as completed. Confirm the implemented parts before publishing them as build details.',
-    notClaimed: 'No server count, user count, moderation outcome, or client deployment is claimed on this page.'
+    statusDetail: 'Working local prototype. The reclipper runs against saved sources and writes a fresh set of caption-free clips. No public deployment or usage metric is claimed.',
+    notClaimed: 'No video volume, publishing schedule, or client deployment are claimed on this page.'
+  },
+  {
+    slug: 'local-video-captioner',
+    number: '07',
+    title: 'Local Video Captioner',
+    navTitle: 'video captioner',
+    category: 'video pipeline',
+    group: 'ai',
+    status: 'prototype',
+    year: 'now',
+    pipeline: { step: 3 },
+    stack: ['n8n', 'Python', 'clip_helper.py', 'local video'],
+    summary: 'An n8n workflow that burns styled captions onto a local video after editing.',
+    card: 'edited clip in, captioned clip out',
+    lead: 'The final stage of the pipeline. It takes an edited local video, finds its subtitle track, and burns styled captions onto it with clip_helper.py, keeping the source resolution.',
+    overview: [
+      'The captioner runs after the clips have been edited. A form supplies the local video path, an optional subtitle path, and the caption style. The workflow prepares the job, calls clip_helper.py to burn the captions, parses the result, and builds a report.',
+      'Subtitle lookup checks an explicit path first, then a matching .srt or .vtt beside the video, then an embedded text track. The output keeps the source resolution and is written to a captions folder with the ASS and JSON caption files.',
+      'The project is a working local prototype. It does not download, cut, or reframe the video; it only adds captions.'
+    ],
+    problem: 'Captioning after editing is a separate manual step. Re-burning captions on every edit is slow and easy to get wrong, especially when the subtitle file and the video are handled separately.',
+    objectives: [
+      'Accept a local video and an optional subtitle path.',
+      'Find a matching or embedded subtitle track when no path is given.',
+      'Apply a caption style, position, and text effect.',
+      'Burn the captions without changing the source resolution.',
+      'Write the captioned video and its caption files to one output folder.'
+    ],
+    role: [
+      { label: 'design', text: 'Designed the caption job around the local video, the subtitle lookup, and the output folder.' },
+      { label: 'build', text: 'Built the n8n workflow, the caption form, and the clip_helper.py caption step.' },
+      { label: 'styling', text: 'Defined the caption styles, positions, and text effects exposed in the form.' },
+      { label: 'testing', text: 'Tested explicit subtitle paths, matching sidecar files, and embedded tracks against sample clips.' }
+    ],
+    roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed the workflow, ran it against sample clips, and refined the result rather than treating the output as finished.',
+    tech: [
+      { group: 'workflow', items: ['n8n'] },
+      { group: 'caption helper', items: ['Python', 'clip_helper.py'] },
+      { group: 'source', items: ['Local video file'] },
+      { group: 'output', items: ['Captioned MP4, ASS, and JSON'] }
+    ],
+    features: [
+      { title: 'Local video input', text: 'Takes any video path on disk.' },
+      { title: 'Subtitle lookup', text: 'Uses an explicit path, then a matching .srt or .vtt beside the video, then an embedded text track.' },
+      { title: 'Caption styles', text: 'Viral, Classic, Boxed, Minimal, and Neon.' },
+      { title: 'Position and effect', text: 'Upper, middle, or lower position with effects such as pop, shake, bounce, fade, word pop, or karaoke.' },
+      { title: 'Resolution preserved', text: 'Burns captions without cutting or reframing the source.' },
+      { title: 'Caption files', text: 'Writes the captioned MP4 plus the ASS and JSON caption files to one folder.' }
+    ],
+    workflow: {
+      title: 'The captioner route',
+      caption: 'Form to job preparation to clip_helper.py caption burn-in to parsed output and a report.',
+      nodes: [
+        { label: 'request form', note: 'video and style' },
+        { label: 'prepare job', note: 'subtitle lookup' },
+        { label: 'add captions', note: 'clip_helper.py', accent: true },
+        { label: 'parse captions', note: 'output checked' },
+        { label: 'report', note: 'job summary' }
+      ]
+    },
+    screens: {
+      title: 'The captioner screens',
+      caption: 'Captures from the captioner: the n8n workflow and the request form.',
+      images: [
+        {
+          src: 'assets/screens/video-captioner-workflow.png',
+          alt: 'n8n Local Video Captioner workflow with job preparation, clip_helper.py caption burn-in, parsing, and a report.',
+          caption: 'The captioner workflow: prepare the job, burn captions with clip_helper.py, parse the result, and build a report.',
+          tag: 'workflow',
+          wide: true,
+          w: 1490,
+          h: 320
+        },
+        {
+          src: 'assets/screens/video-captioner-form.png',
+          alt: 'Local Video Captioner request form with video path, caption style, position, and text effect.',
+          caption: 'The caption form takes a local video path, subtitle path, style, position, and text effect.',
+          tag: 'request form',
+          portrait: true,
+          w: 455,
+          h: 920
+        }
+      ]
+    },
+    challenges: [
+      { constraint: 'A video may have an explicit subtitle file, a sidecar file, or an embedded track.', response: 'The subtitle lookup checks those sources in order and reports the one it used.' },
+      { constraint: 'Captions need to match the edited cut, not the original source.', response: 'The captioner runs after editing and burns the captions onto the edited local video.' }
+    ],
+    statusDetail: 'Working local prototype. The captioner burns styled captions onto local videos and writes the output files. No public deployment or usage metric is claimed.',
+    notClaimed: 'No video volume, publishing schedule, or client deployment is claimed on this page.'
   },
   {
     slug: 'soletisfaction',
-    number: '10',
+    number: '08',
     title: 'Soletisfaction E-commerce, POS & Inventory Management System',
     navTitle: 'soletisfaction',
     category: 'academic',
@@ -359,12 +445,44 @@ export const projectsB = [
     },
     screens: {
       title: 'The system screens',
-      caption: 'The storefront, the POS, the inventory list, and the sales dashboard are the main views.',
-      panels: [
-        { title: 'storefront', items: ['catalog', 'product detail', 'cart'] },
-        { title: 'pos', items: ['items', 'total', 'transaction'] },
-        { title: 'inventory', items: ['product', 'stock', 'price'] },
-        { title: 'sales dashboard', items: ['sales', 'income', 'customer status'] }
+      caption: 'Captures from the admin and customer sides of the capstone.',
+      images: [
+        {
+          src: 'assets/screens/soletisfaction-admin-products.png',
+          alt: 'Soletisfaction admin product list with prices, categories, stock, and markdowns.',
+          caption: 'The product list: prices, categories, stock, markdowns, and archive controls.',
+          tag: 'admin',
+          wide: true,
+          w: 1006,
+          h: 481
+        },
+        {
+          src: 'assets/screens/soletisfaction-admin-dashboard.png',
+          alt: 'Soletisfaction admin dashboard with sales analytics and totals.',
+          caption: 'The admin dashboard: earnings, users, sales, active orders, and returns.',
+          tag: 'dashboard',
+          wide: true,
+          w: 840,
+          h: 394
+        },
+        {
+          src: 'assets/screens/soletisfaction-customer-login.png',
+          alt: 'Soletisfaction customer login screen.',
+          caption: 'The customer sign-in screen for the online store.',
+          tag: 'customer',
+          wide: true,
+          w: 1007,
+          h: 446
+        },
+        {
+          src: 'assets/screens/soletisfaction-catalog.png',
+          alt: 'Soletisfaction customer product catalog with category filters.',
+          caption: 'The customer catalog with category filters, prices, and stock status.',
+          tag: 'storefront',
+          wide: true,
+          w: 1010,
+          h: 445
+        }
       ]
     },
     challenges: [

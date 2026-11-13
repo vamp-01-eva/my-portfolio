@@ -9,11 +9,11 @@ Cold Reliquary is a chrome-led, cybersigilism-intensity-3 system: a monochrome p
 - `tokens.css` — palette, type, spacing, chrome, and motion tokens.
 - `base.css` — base element styles, chrome text, grain, and image-slot rules.
 - `styles.css` — page layouts and responsive rules.
-- `tools/sigils.mjs` — the original SVG sprite: M monogram, ten-build seal, project sigils, status glyphs, and group glyphs.
+- `tools/sigils.mjs` — the original SVG sprite: M monogram, eight-build seal, project sigils, status glyphs, and group glyphs.
 - `main.js` — header retraction, mobile menu, and local form validation.
 - `slot.js` — optional image-slot helper; removes broken images and exposes `window.hallmarkSlots`.
 
-Project plates are abstract specimen plates, not product screenshots. Each carries one original sigil. The home and about field plate uses `data-slot="about-photo"`; drop in a real workspace photograph when one is available.
+Project plates are abstract specimen plates. Each carries one original sigil; case files use real captures from the builds where available. The home and about field plate uses `data-slot="about-photo"`; drop in a real workspace photograph when one is available.
 
 ## Pages
 
@@ -21,13 +21,13 @@ Project plates are abstract specimen plates, not product screenshots. Each carri
 - `work.html` — project catalogue
 - `about.html` — background and skills
 - `contact.html` — contact details and form
-- `case-*.html` — ten case studies
+- `case-*.html` — eight case studies
 - `MAURICIO_RESUME.pdf` — downloadable résumé
 
 ## Content rules
 
-- Ten projects with the status supplied for each: completed, in progress, internship build, build, prototype, or academic project.
-- No invented metrics, testimonials, client logos, deployments, or product screenshots.
+- Eight projects with the status supplied for each: completed, build, prototype, or academic project.
+- No invented metrics, testimonials, client logos, or deployments. Screens are real captures from the projects shown.
 - Case studies are long-form documents.
 - LinkedIn and GitHub links remain placeholders until real URLs are supplied.
 - The contact form validates locally only. It does not send anything.
@@ -46,16 +46,17 @@ Open http://localhost:8000/.
 node tools/build.mjs
 ```
 
-The generator writes all 14 pages from the project records in `tools/projects-a.mjs` and `tools/projects-b.mjs`, using the templates in `tools/pages.mjs` and `tools/case.mjs`.
+The generator writes all 12 pages from the project records in `tools/projects-a.mjs` and `tools/projects-b.mjs`, using the templates in `tools/pages.mjs` and `tools/case.mjs`.
 
 ## Deployment
 
 Live at **https://markjustinemau.vercel.app**.
 
-The site is deployed on Vercel as the `my-portfolio` project. The repository is private, so GitHub Pages is not used. To publish updates, connect the private GitHub repo in the Vercel dashboard for automatic deployments, or run `npx vercel deploy --prod` from the repository root. `.vercelignore` keeps the build tools, Hallmark records, design references, and unused images out of the deployment.
+The site is deployed on Vercel as the `my-portfolio` project. The repository is private, and Vercel's Git integration deploys updates pushed to `main`. `.vercelignore` keeps the build tools, Hallmark records, design references, and local image sources out of the deployment.
 
 ## Assets
 
 - `MAURICIO_RESUME.pdf` — the downloadable résumé.
-- `images/` — local photo candidates; not referenced by the site and not deployed.
+- `assets/screens/` — cropped captures used in the case files; deployed.
+- `images/` — local image sources; not referenced by the site and not deployed.
 - `design-reference/` — local design references; not deployed.

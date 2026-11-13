@@ -1,4 +1,4 @@
-// Project records 01 to 05. Content supplied by Mark Justine J. Mauricio.
+// Project records 01 to 03. Content supplied by Mark Justine J. Mauricio.
 // No metrics, clients, testimonials, or deployment claims are added.
 
 export const projectsA = [
@@ -78,271 +78,205 @@ export const projectsA = [
     group: 'web',
     status: 'completed',
     year: '2026',
-    stack: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript', 'Gmail'],
-    summary: 'A booking app for vehicle drop-off and pick-up requests, with ticket generation and email notifications.',
-    card: 'vehicle requests, tickets, email',
-    lead: 'An internal booking tool built during the DepEd ICT internship. A request becomes a ticket, the ticket triggers an email notification, and the booking stays in one organized record.',
+    stack: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript', 'Google Drive', 'Google Sheets', 'Gmail'],
+    summary: 'A booking app for vehicle drop-off and pick-up requests, with an admin approval dashboard and email notifications.',
+    card: 'vehicle requests, approvals, records',
+    lead: 'An internal booking tool built during the DepEd ICT internship. Requests are submitted in the browser, reviewed by an administrator, and kept in one organized record.',
     overview: [
-      'The system organizes vehicle drop-off and pick-up requests in one web app. A requester submits the booking details, the app generates a ticket, and an email notification goes out.',
+      'The system organizes vehicle drop-off and pick-up requests in one web app. A requester submits the trip details, the request receives a control number, and an administrator reviews it in a dashboard.',
+      'Booking data is kept in Google Drive and Google Sheets. The dashboard shows request totals by status and a searchable list of requests, and each request opens into a detail view.',
       'The build was part of the DepEd ICT Unit internship in Antipolo. It was made for internal administrative use.'
     ],
-    problem: 'Vehicle requests were handled as separate messages and manual notes. The office needed a booking record that could be tracked, a ticket for each request, and a notification that did not depend on someone re-typing the details.',
+    problem: 'Vehicle requests were handled as separate messages and manual notes. The office needed one booking record, a clear approval state, and a notification that did not depend on someone re-typing the details.',
     objectives: [
       'Accept drop-off and pick-up requests in one form.',
-      'Generate a ticket for each booking.',
+      'Give each request a control number and a record.',
+      'Let administrators review and update request status.',
       'Send an email notification when a booking is made.',
-      'Keep booking records organized and easy to track.'
+      'Keep booking data in Google Drive and Google Sheets.'
     ],
     role: [
-      { label: 'requirements', text: 'Worked with end users to map the booking request and the information the office needed to capture.' },
-      { label: 'build', text: 'Implemented the booking form, ticket generation, and email notification flow with Google Apps Script and a browser interface.' },
-      { label: 'testing', text: 'Tested the request-to-ticket flow and the email notification by hand before review.' },
-      { label: 'refinement', text: 'Adjusted the form fields and the ticket details based on user feedback.' }
+      { label: 'requirements', text: 'Worked with end users to map the booking request, the approval states, and the information the office needed to capture.' },
+      { label: 'build', text: 'Implemented the booking form, control numbers, admin dashboard, and email notification flow with Google Apps Script and a browser interface.' },
+      { label: 'testing', text: 'Tested the request-to-approval flow and the email notification by hand before review.' },
+      { label: 'refinement', text: 'Adjusted the form fields, status labels, and dashboard filters based on user feedback.' }
     ],
     roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed the generated code, tested the flow, and refined the result rather than treating the output as finished.',
     tech: [
       { group: 'build', items: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript'] },
-      { group: 'notifications', items: ['Gmail'] },
-      { group: 'data', items: ['Google Workspace'] }
+      { group: 'storage', items: ['Google Drive', 'Google Sheets'] },
+      { group: 'notifications', items: ['Gmail'] }
     ],
     features: [
-      { title: 'Booking form', text: 'Captures the requester, vehicle, drop-off, and pick-up details.' },
-      { title: 'Ticket generation', text: 'Creates a ticket for each booking request.' },
-      { title: 'Email notification', text: 'Sends the booking details to the people who need them.' },
-      { title: 'Booking records', text: 'Keeps requests in one list for tracking and review.' }
+      { title: 'Booking request form', text: 'Captures the requester, contact details, trip type, passengers, vehicle, and schedule.' },
+      { title: 'Control number', text: 'Gives each request a reference number and a printable record.' },
+      { title: 'Admin review', text: 'Administrators sign in, open a request, and move it through pending, approved, declined, or rescheduled.' },
+      { title: 'Request dashboard', text: 'Shows request totals by status and a searchable list of bookings.' },
+      { title: 'Request detail', text: 'Keeps the requester, trip, vehicle, and admin notes together.' },
+      { title: 'Email notification', text: 'Sends the booking details to the people who need them.' }
     ],
     workflow: {
       title: 'The booking route',
-      caption: 'Request to ticket to email to record.',
+      caption: 'Request to control number to admin review to status, with the record kept in Drive and Sheets.',
       nodes: [
         { label: 'request', note: 'drop-off or pick-up' },
         { label: 'booking form', note: 'captures details' },
-        { label: 'ticket', note: 'generated' },
-        { label: 'email', note: 'notification' },
-        { label: 'records', note: 'tracked' }
+        { label: 'control number', note: 'record created' },
+        { label: 'admin review', note: 'approve or decline', accent: true },
+        { label: 'records', note: 'drive and sheets' }
       ]
     },
     screens: {
       title: 'The booking screens',
-      caption: 'The form creates the request; the ticket and the record carry it forward.',
-      panels: [
-        { title: 'booking form', items: ['requester', 'vehicle', 'drop-off / pick-up', 'submit'] },
-        { title: 'ticket', items: ['ticket number', 'booking details', 'status'] },
-        { title: 'booking list', items: ['requests', 'dates', 'status'] }
+      caption: 'Captures from the booking app: the landing page, the request form, the admin sign-in, and the request dashboard.',
+      images: [
+        {
+          src: 'assets/screens/vehicle-landing.png',
+          alt: 'Vehicle Booking System landing page with Book a Vehicle and Admin Login buttons.',
+          caption: 'The landing page: book a vehicle or open the admin side.',
+          tag: 'landing',
+          wide: true,
+          w: 1920,
+          h: 954
+        },
+        {
+          src: 'assets/screens/vehicle-form.png',
+          alt: 'Vehicle Booking Request Form with requester and trip detail fields.',
+          caption: 'The request form captures the requester, contact details, trip type, passengers, and purpose.',
+          tag: 'request',
+          w: 900,
+          h: 860
+        },
+        {
+          src: 'assets/screens/vehicle-admin-login.png',
+          alt: 'Admin login card for the Vehicle Booking Management System.',
+          caption: 'Administrators sign in before reviewing requests.',
+          tag: 'admin',
+          w: 440,
+          h: 500
+        },
+        {
+          src: 'assets/screens/vehicle-dashboard.png',
+          alt: 'Admin dashboard showing request totals and a table of vehicle requests.',
+          caption: 'The admin dashboard: request totals, status filters, and the request list.',
+          tag: 'dashboard',
+          wide: true,
+          w: 1919,
+          h: 955
+        }
       ]
     },
     challenges: [
-      { constraint: 'A booking request has to become a ticket and an email without staff re-keying the details.', response: 'The form generates the ticket and triggers the notification from the same submission.' },
-      { constraint: 'Requests need to be findable after the email is sent.', response: 'Every booking stays in a central record with its ticket and status.' }
+      { constraint: 'A request has to keep its details and its approval state in one place.', response: 'The form creates a control number, and the admin dashboard carries that request through its statuses.' },
+      { constraint: 'Requests need to be findable after the notification is sent.', response: 'Every booking stays in the Drive and Sheets record with its control number and status.' }
     ],
-    statusDetail: 'Completed and used during the DepEd ICT internship. Ticket generation and email notifications were part of the build. No public deployment or usage metric is claimed.',
+    statusDetail: 'Completed and used during the DepEd ICT internship. The request form, control numbers, admin dashboard, and email notifications were part of the build. No public deployment or usage metric is claimed.',
     notClaimed: 'No booking volume, adoption figures, or client deployment are claimed on this page.'
   },
   {
-    slug: 'conference-room',
+    slug: 'contract-renewal',
     number: '03',
-    title: 'Conference Room Booking System',
-    navTitle: 'conference room',
-    category: 'web application',
+    title: 'Personnel Inventory: Contract Tracker & Automated Email Notification System',
+    navTitle: 'personnel inventory',
+    category: 'automation',
     group: 'web',
-    status: 'completed',
+    status: 'build',
     year: '2026',
-    stack: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript', 'Gmail'],
-    summary: 'An internal room reservation system with centralized booking records and email notifications.',
-    card: 'room reservations in one schedule',
-    lead: 'An internal reservation tool built during the DepEd ICT internship. Room requests go into one schedule, and the booking triggers an email notification.',
+    stack: ['Google Forms', 'Google Sheets', 'Google Apps Script', 'HTML', 'CSS', 'JavaScript', 'Gmail'],
+    summary: 'A personnel contract inventory that connects a Google Form, a sheet database, a dashboard, and automated email reminders.',
+    card: 'personnel contracts, tracked to renewal',
+    lead: 'A Google Workspace automation that keeps personnel contract information in one inventory, monitors renewal dates in a dashboard, and sends email notifications. Super Admin and School Admin roles control what each administrator can see.',
     overview: [
-      'The system simplifies conference room scheduling by keeping reservations in one web app. A requester selects a room and a time, and the booking is recorded and sent by email.',
-      'The build was part of the DepEd ICT Unit internship in Antipolo. It was made for internal administrative use.'
+      'The system connects Google Forms, Google Sheets, a web dashboard, and email notifications. A form submission becomes a row in the personnel inventory, the dashboard monitors contract and renewal details, and the email workflow notifies the people involved.',
+      'The build includes two administrator roles. A Super Admin sees the whole organization and can export records; a School Admin sees the school assigned to them. The dashboard groups records into all records, renewal alerts, and archives.'
     ],
-    problem: 'Room requests were handled through separate messages and manual notes. The office needed one reservation record that showed what was booked, when, and by whom.',
+    problem: 'Contract details and renewal dates were spread across separate records. Administrators needed one personnel inventory that showed which contracts were due and a repeatable way to notify the people involved.',
     objectives: [
-      'Accept conference room reservations in one form.',
-      'Keep room bookings in a central record.',
-      'Send an email notification for each reservation.',
-      'Make the room schedule easier to review and track.'
+      'Collect personnel contract information through Google Forms.',
+      'Keep the data in Google Sheets as the central inventory.',
+      'Monitor contracts and renewal dates in a web dashboard.',
+      'Send automated email notifications before a contract expires.',
+      'Limit each administrator\'s view to the records they are allowed to see.'
     ],
     role: [
-      { label: 'requirements', text: 'Worked with end users to understand how rooms were requested and how conflicts were checked.' },
-      { label: 'build', text: 'Implemented the reservation form, booking record, and email notification with Google Apps Script and a browser interface.' },
-      { label: 'testing', text: 'Tested the reservation flow and the notification by hand before review.' },
-      { label: 'refinement', text: 'Adjusted the form and the booking details based on user feedback.' }
+      { label: 'design', text: 'Designed the form-to-sheet-to-dashboard flow, the renewal alert states, and the role-based visibility model.' },
+      { label: 'build', text: 'Built the Google Forms and Google Sheets structure, the web dashboard, and the email notification workflow.' },
+      { label: 'access', text: 'Implemented Super Admin and School Admin views, including organization-wide visibility and export for the Super Admin.' },
+      { label: 'testing', text: 'Tested the form submission, dashboard views, role restrictions, and email notification by hand.' }
     ],
     roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed the generated code, tested the flow, and refined the result rather than treating the output as finished.',
     tech: [
-      { group: 'build', items: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript'] },
-      { group: 'notifications', items: ['Gmail'] },
-      { group: 'data', items: ['Google Workspace'] }
+      { group: 'collection', items: ['Google Forms'] },
+      { group: 'database', items: ['Google Sheets'] },
+      { group: 'dashboard', items: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript'] },
+      { group: 'notifications', items: ['Gmail'] }
     ],
     features: [
-      { title: 'Room reservation', text: 'Captures the room, date, time, and requester.' },
-      { title: 'Central booking record', text: 'Keeps reservations in one list.' },
-      { title: 'Email notification', text: 'Sends the reservation details to the people who need them.' },
-      { title: 'Reservation tracking', text: 'Makes the room schedule easier to review.' }
-    ],
-    workflow: {
-      title: 'The reservation route',
-      caption: 'Request to room record to email.',
-      nodes: [
-        { label: 'request', note: 'room and time' },
-        { label: 'reservation form', note: 'captures details' },
-        { label: 'room record', note: 'central booking' },
-        { label: 'email', note: 'notification' }
-      ]
-    },
-    screens: {
-      title: 'The reservation screens',
-      caption: 'The form takes the request; the record and the email keep it visible.',
-      panels: [
-        { title: 'reservation form', items: ['room', 'date', 'time', 'requester'] },
-        { title: 'room record', items: ['bookings', 'schedule', 'status'] },
-        { title: 'notification', items: ['room', 'time', 'requester'] }
-      ]
-    },
-    challenges: [
-      { constraint: 'Room requests can collide when they live in separate messages.', response: 'One reservation record keeps the room, date, and time together.' },
-      { constraint: 'The people involved need the booking without checking the app.', response: 'The reservation triggers an email notification.' }
-    ],
-    statusDetail: 'Completed and used during the DepEd ICT internship. Email notifications were part of the build. No public deployment or usage metric is claimed.',
-    notClaimed: 'No booking volume, adoption figures, or client deployment are claimed on this page.'
-  },
-  {
-    slug: 'contract-audit',
-    number: '04',
-    title: 'Personnel Contract Audit & Renewal System',
-    navTitle: 'contract audit',
-    category: 'web application',
-    group: 'web',
-    status: 'in progress',
-    year: '2026',
-    stack: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript', 'Gmail'],
-    summary: 'An administrative contract record with renewal tracking and email notification workflows. Partially developed.',
-    card: 'contract renewals, tracked',
-    lead: 'An internal contract monitoring tool started during the DepEd ICT internship. It keeps personnel contract information and renewal dates in one place and uses email workflows to flag renewals. The build was not fully completed.',
-    overview: [
-      'The system was designed to help administrators manage personnel contract information and monitor renewals. It combines a contract record, renewal tracking, and email notification workflows.',
-      'The project was partially developed during the internship. It is presented here as an in-progress build, not a completed deployment.'
-    ],
-    problem: 'Contract details and renewal dates were spread across separate records. Administrators needed a central view of which contracts were due and a repeatable way to notify the people involved.',
-    objectives: [
-      'Keep personnel contract information in one record.',
-      'Track renewal dates and the status of each contract.',
-      'Use email workflows to notify the people involved.',
-      'Give administrators a clearer monitoring view.'
-    ],
-    role: [
-      { label: 'requirements', text: 'Worked with end users to identify the contract fields and the renewal information the office needed to track.' },
-      { label: 'build', text: 'Implemented the contract record, renewal tracking, and email workflow with Google Apps Script and a browser interface.' },
-      { label: 'testing', text: 'Tested the record and notification flow by hand while the build was in progress.' },
-      { label: 'handover', text: 'Documented the unfinished parts so the next person could continue the work.' }
-    ],
-    roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed and tested the generated code. The project was not fully completed during the internship.',
-    tech: [
-      { group: 'build', items: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript'] },
-      { group: 'notifications', items: ['Gmail'] },
-      { group: 'data', items: ['Google Workspace'] }
-    ],
-    features: [
-      { title: 'Contract record', text: 'Keeps personnel contract information in one place.' },
-      { title: 'Renewal tracking', text: 'Shows the renewal date and the status of each contract.' },
-      { title: 'Email workflow', text: 'Prepares notifications for the people involved in a renewal.' },
-      { title: 'Administrative view', text: 'Gives administrators a monitoring view of the contract list.' }
+      { title: 'Form collection', text: 'Google Forms captures the personnel and contract information.' },
+      { title: 'Sheet inventory', text: 'Google Sheets holds the central personnel and renewal record.' },
+      { title: 'Monitoring dashboard', text: 'A web dashboard shows staff totals, contract details, and renewal status.' },
+      { title: 'Renewal alerts', text: 'Records are grouped into all records, renewal alerts, and archives.' },
+      { title: 'Email notifications', text: 'The workflow sends a renewal notice with the contract details and days remaining.' },
+      { title: 'Super Admin view', text: 'Organization-wide visibility and export.' },
+      { title: 'School Admin view', text: 'Access limited to the administrator\'s assigned school.' }
     ],
     workflow: {
       title: 'The renewal route',
-      caption: 'Contract record to renewal date to email workflow to admin review.',
+      caption: 'Google Form to Google Sheet to dashboard to email, with a role-based branch.',
       nodes: [
-        { label: 'contract record', note: 'personnel details' },
-        { label: 'renewal date', note: 'tracked' },
-        { label: 'email workflow', note: 'notification' },
-        { label: 'admin review', note: 'monitoring' }
-      ]
+        { label: 'google form', note: 'contract details' },
+        { label: 'google sheet', note: 'inventory' },
+        { label: 'dashboard', note: 'monitoring', accent: true },
+        { label: 'email', note: 'renewal notice' }
+      ],
+      branch: 'Super Admin sees all schools and exports. School Admin sees only the assigned school.'
     },
     screens: {
-      title: 'The monitoring screens',
-      caption: 'The contract list and the renewal detail are the two main views.',
-      panels: [
-        { title: 'contract list', items: ['personnel', 'contract status', 'renewal date'] },
-        { title: 'renewal detail', items: ['contract information', 'renewal date', 'notification status'] },
-        { title: 'admin view', items: ['due renewals', 'status', 'records'] }
+      title: 'The inventory screens',
+      caption: 'Captures from the personnel inventory: the dashboard, a staff record, the sign-in screen, and the renewal notice.',
+      images: [
+        {
+          src: 'assets/screens/personnel-dashboard.png',
+          alt: 'Personnel Inventory dashboard with staff totals, renewal alerts, and a searchable staff table.',
+          caption: 'The dashboard: staff totals, renewal alerts, filters, and the staff record table.',
+          tag: 'dashboard',
+          wide: true,
+          w: 1903,
+          h: 800
+        },
+        {
+          src: 'assets/screens/personnel-record.png',
+          alt: 'Personnel record detail showing contract and renewal information.',
+          caption: 'A staff record: contract duration, renewal date, appointment type, school, and years in service.',
+          tag: 'record',
+          w: 600,
+          h: 420
+        },
+        {
+          src: 'assets/screens/personnel-login.png',
+          alt: 'Personnel Inventory sign-in screen.',
+          caption: 'Authorized access only: the sign-in screen for the inventory.',
+          tag: 'access',
+          w: 450,
+          h: 540
+        },
+        {
+          src: 'assets/screens/personnel-email.png',
+          alt: 'Automated renewal notice email with contract details and days remaining.',
+          caption: 'The renewal notice: contract details, days remaining, and a request to coordinate with HR.',
+          tag: 'notification',
+          portrait: true,
+          w: 470,
+          h: 770
+        }
       ]
     },
     challenges: [
-      { constraint: 'Renewal dates and contract details live across separate records.', response: 'One contract record keeps the personnel details and the renewal date together.' },
-      { constraint: 'The build had to stop before every planned workflow was finished.', response: 'The completed parts are documented, and the unfinished parts are named as unfinished.' }
+      { constraint: 'A form response is easy to collect but hard to monitor over time.', response: 'The sheet acts as the inventory, and the dashboard turns the rows into a contract and renewal list.' },
+      { constraint: 'A single organization-wide view is not right for every administrator.', response: 'Super Admin and School Admin roles limit each view to the records that administrator should see.' },
+      { constraint: 'A renewal date is only useful if someone acts before it passes.', response: 'The email workflow sends a notice with the contract details and the days remaining.' }
     ],
-    statusDetail: 'Partially developed during the DepEd ICT internship. The contract record, renewal tracking, and email workflow were in progress; the project was not fully completed.',
-    notClaimed: 'This page does not present the system as finished, deployed, or used for live contract decisions.'
-  },
-  {
-    slug: 'account-requests',
-    number: '05',
-    title: 'Account Request Management Dashboard',
-    navTitle: 'account requests',
-    category: 'web application',
-    group: 'web',
-    status: 'internship build',
-    year: '2026',
-    stack: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript', 'Google Workspace'],
-    summary: 'A single queue for Google and Microsoft account requests, with admin roles, approval states, and activity logs.',
-    card: 'account requests, roles, activity log',
-    lead: 'An internal dashboard built during the DepEd ICT internship. Teachers submit account requests, administrators review them, and every request keeps its status and activity history.',
-    overview: [
-      'The dashboard centralizes teacher account requests for Google and Microsoft accounts. A request enters one queue, an administrator reviews it, and the request moves through a visible approval state.',
-      'The design includes multiple administrator roles and an activity log so the office can see who reviewed or changed a request. The build was part of the DepEd ICT Unit internship in Antipolo.'
-    ],
-    problem: 'Account requests arrived through different channels, and administrators needed different levels of access. The office needed one queue, a clear approval state, and a record of who did what.',
-    objectives: [
-      'Collect Google and Microsoft account requests in one queue.',
-      'Support multiple administrator roles.',
-      'Make the approval workflow and request status visible.',
-      'Keep an activity log for administrative review.'
-    ],
-    role: [
-      { label: 'requirements', text: 'Worked with end users to map the request types, the administrator roles, and the approval states.' },
-      { label: 'build', text: 'Implemented the request queue, request detail, role-based views, and activity log with Google Apps Script and a browser interface.' },
-      { label: 'testing', text: 'Tested the request flow and the role views by hand before review by the IT Officer.' },
-      { label: 'refinement', text: 'Adjusted the status labels and the admin view based on user feedback.' }
-    ],
-    roleNote: 'AI-assisted development tools were used for parts of the implementation. I reviewed the generated code, tested the flow, and refined the result rather than treating the output as finished.',
-    tech: [
-      { group: 'build', items: ['Google Apps Script', 'HTML', 'CSS', 'JavaScript'] },
-      { group: 'accounts', items: ['Google Workspace', 'Microsoft 365'] },
-      { group: 'data', items: ['Google Workspace'] }
-    ],
-    features: [
-      { title: 'Request queue', text: 'Google and Microsoft account requests land in one list.' },
-      { title: 'Request detail', text: 'Shows the requester, the account type, and the current state.' },
-      { title: 'Administrator roles', text: 'Gives different administrators different levels of access.' },
-      { title: 'Approval workflow', text: 'Moves a request through review and approval states.' },
-      { title: 'Status monitoring', text: 'Makes the current state of each request visible.' },
-      { title: 'Activity log', text: 'Records administrative actions for review.' }
-    ],
-    workflow: {
-      title: 'The request route',
-      caption: 'Teacher request to queue to admin review to approval or return, with an activity log alongside.',
-      nodes: [
-        { label: 'teacher request', note: 'Google or Microsoft' },
-        { label: 'request queue', note: 'one list' },
-        { label: 'admin review', note: 'role-based' },
-        { label: 'approval', note: 'status' },
-        { label: 'activity log', note: 'record' }
-      ]
-    },
-    screens: {
-      title: 'The dashboard screens',
-      caption: 'The queue, the request detail, and the activity log are the main views.',
-      panels: [
-        { title: 'request queue', items: ['account type', 'requester', 'status', 'assigned admin'] },
-        { title: 'request detail', items: ['request information', 'approval state', 'admin notes'] },
-        { title: 'activity log', items: ['action', 'administrator', 'time'] }
-      ]
-    },
-    challenges: [
-      { constraint: 'Requests arrive through different channels and administrators need different views.', response: 'One queue holds every request, and role-based views show each administrator the requests they can act on.' },
-      { constraint: 'An approval is only useful if the office can see how it happened.', response: 'The activity log records the administrative actions around each request.' }
-    ],
-    statusDetail: 'Built during the DepEd ICT internship. The dashboard, roles, approval flow, and activity log are described from the project scope. No public deployment or usage metric is claimed.',
-    notClaimed: 'No request volume, adoption figures, or client deployment are claimed on this page.'
+    statusDetail: 'Built as a Google Workspace automation. The form, sheet inventory, dashboard, roles, renewal alerts, and email workflow are the described build. No client deployment or usage metric is claimed.',
+    notClaimed: 'No renewal volume, adoption figures, or client deployment are claimed on this page.'
   }
 ];
