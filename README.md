@@ -1,6 +1,6 @@
 # Mark Justine J. Mauricio — Portfolio
 
-A static portfolio for Mark Justine J. Mauricio, built as the **Cold Reliquary** theme (Hallmark v3.0.0).
+A static portfolio, built as the **Cold Reliquary** theme (Hallmark v3.0.0).
 
 ## Design
 
