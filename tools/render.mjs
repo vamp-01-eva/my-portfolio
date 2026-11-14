@@ -83,14 +83,31 @@ export function screenMap(screens) {
 
 export function screensBlock(screens) {
   if (!screens.images) return screenMap(screens);
-  const shots = screens.images.map((image) => `
-    <figure class="shot${image.wide ? ' shot--wide' : ''}${image.portrait ? ' shot--portrait' : ''}">
-      <div class="shot__frame">
-        <img src="${esc(image.src)}" alt="${esc(image.alt)}" width="${image.w}" height="${image.h}" loading="lazy" decoding="async">
+  const shots = screens.images.map((image, index) => `
+      <li class="shot">
+        <a class="shot__link" href="${esc(image.src)}" aria-label="Enlarge screenshot: ${esc(image.alt)}">
+          <span class="shot__frame" style="--ar: ${image.w} / ${image.h}">
+            <img src="${esc(image.src)}" alt="${esc(image.alt)}" width="${image.w}" height="${image.h}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">${esc(image.tag)}</span><span class="shot__cap-text">${esc(image.caption)}</span></p>
+      </li>`).join('');
+  const total = screens.images.length;
+  return `<div class="shot-rail" data-rail>
+      <div class="shot-rail__bar">
+        <span class="shot-rail__title">${esc(screens.title)}</span>
+        <span class="shot-rail__meta">
+          <span class="shot-rail__count" data-rail-count>${String(total).padStart(2, '0')} captures</span>
+          <span class="shot-rail__hint">scroll or drag &middot; click to enlarge</span>
+        </span>
+        <span class="shot-rail__nav">
+          <button type="button" class="shot-rail__btn" data-rail-prev aria-label="Previous screenshot" disabled>&lsaquo;</button>
+          <button type="button" class="shot-rail__btn" data-rail-next aria-label="Next screenshot">&rsaquo;</button>
+        </span>
       </div>
-      <figcaption><span class="shot__tag">${esc(image.tag)}</span>${esc(image.caption)}</figcaption>
-    </figure>`).join('');
-  return `<div class="shot-grid">${shots}</div>`;
+      <ul class="shot-rail__track" data-rail-track aria-label="${esc(screens.title)}">${shots}
+      </ul>
+    </div>`;
 }
 
 function nav(active) {
@@ -152,8 +169,9 @@ function footer() {
   </footer>`;
 }
 
-export function page({ title, description, active = '', content, hasSlots = false }) {
+export function page({ title, description, active = '', content, hasSlots = false, hasGallery = false }) {
   const slotScript = hasSlots ? '\n  <script src="slot.js"></script>' : '';
+  const galleryScript = hasGallery ? '\n  <script src="gallery.js" defer></script>' : '';
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -178,7 +196,7 @@ ${nav(active)}
 ${content}
   </main>
 ${footer()}
-  <script src="main.js"></script>${slotScript}
+  <script src="main.js"></script>${galleryScript}${slotScript}
 </body>
 </html>
 `;

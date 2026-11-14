@@ -307,19 +307,37 @@
         <section id="screens">
           <h2>screens and demonstrations</h2>
           <figure class="screen-figure screen-figure--gallery">
-            <div class="shot-grid">
-    <figure class="shot shot--wide">
-      <div class="shot__frame">
-        <img src="assets/screens/video-captioner-workflow.png" alt="n8n Local Video Captioner workflow with job preparation, clip_helper.py caption burn-in, parsing, and a report." width="1490" height="320" loading="lazy" decoding="async">
+            <div class="shot-rail" data-rail>
+      <div class="shot-rail__bar">
+        <span class="shot-rail__title">The captioner screens</span>
+        <span class="shot-rail__meta">
+          <span class="shot-rail__count" data-rail-count>02 captures</span>
+          <span class="shot-rail__hint">scroll or drag &middot; click to enlarge</span>
+        </span>
+        <span class="shot-rail__nav">
+          <button type="button" class="shot-rail__btn" data-rail-prev aria-label="Previous screenshot" disabled>&lsaquo;</button>
+          <button type="button" class="shot-rail__btn" data-rail-next aria-label="Next screenshot">&rsaquo;</button>
+        </span>
       </div>
-      <figcaption><span class="shot__tag">workflow</span>The captioner workflow: prepare the job, burn captions with clip_helper.py, parse the result, and build a report.</figcaption>
-    </figure>
-    <figure class="shot shot--portrait">
-      <div class="shot__frame">
-        <img src="assets/screens/video-captioner-form.png" alt="Local Video Captioner request form with video path, caption style, position, and text effect." width="455" height="920" loading="lazy" decoding="async">
-      </div>
-      <figcaption><span class="shot__tag">request form</span>The caption form takes a local video path, subtitle path, style, position, and text effect.</figcaption>
-    </figure></div>
+      <ul class="shot-rail__track" data-rail-track aria-label="The captioner screens">
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/video-captioner-workflow.png" aria-label="Enlarge screenshot: n8n Local Video Captioner workflow with job preparation, clip_helper.py caption burn-in, parsing, and a report.">
+          <span class="shot__frame" style="--ar: 1490 / 320">
+            <img src="assets/screens/video-captioner-workflow.png" alt="n8n Local Video Captioner workflow with job preparation, clip_helper.py caption burn-in, parsing, and a report." width="1490" height="320" loading="eager" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">workflow</span><span class="shot__cap-text">The captioner workflow: prepare the job, burn captions with clip_helper.py, parse the result, and build a report.</span></p>
+      </li>
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/video-captioner-form.png" aria-label="Enlarge screenshot: Local Video Captioner request form with video path, caption style, position, and text effect.">
+          <span class="shot__frame" style="--ar: 455 / 920">
+            <img src="assets/screens/video-captioner-form.png" alt="Local Video Captioner request form with video path, caption style, position, and text effect." width="455" height="920" loading="lazy" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">request form</span><span class="shot__cap-text">The caption form takes a local video path, subtitle path, style, position, and text effect.</span></p>
+      </li>
+      </ul>
+    </div>
             <figcaption>Captures from the captioner: the n8n workflow and the request form.</figcaption>
           </figure>
         </section>
@@ -348,6 +366,20 @@
         </nav>
       </article>
     </div>
+    <dialog class="lightbox" data-lightbox tabindex="-1" aria-labelledby="lightbox-caption">
+      <div class="lightbox__frame">
+        <img data-lightbox-img src="" alt="">
+      </div>
+      <div class="lightbox__bar">
+        <p class="lightbox__caption" id="lightbox-caption"><span class="lightbox__tag" data-lightbox-tag></span><span data-lightbox-text></span></p>
+        <div class="lightbox__nav">
+          <span class="lightbox__count" data-lightbox-count></span>
+          <button type="button" class="lightbox__btn" data-lightbox-prev aria-label="Previous screenshot">&lsaquo;</button>
+          <button type="button" class="lightbox__btn" data-lightbox-next aria-label="Next screenshot">&rsaquo;</button>
+          <button type="button" class="lightbox__btn lightbox__btn--close" data-lightbox-close aria-label="Close enlarged screenshot">&times;</button>
+        </div>
+      </div>
+    </dialog>
   </main>
 
   <footer class="footer">
@@ -368,5 +400,6 @@
     </div>
   </footer>
   <script src="main.js"></script>
+  <script src="gallery.js" defer></script>
 </body>
 </html>

@@ -79,7 +79,6 @@ export const projectsB = [
           alt: 'n8n barbershop assistant workflow with Messenger, Google Docs, Gemini, memory, and booking tools.',
           caption: 'The main assistant: Messenger trigger, shop instructions, Gemini, conversation memory, and the availability and booking tools.',
           tag: 'main workflow',
-          wide: true,
           w: 980,
           h: 580
         },
@@ -88,7 +87,6 @@ export const projectsB = [
           alt: 'n8n booking sub-workflow with validation, calendar availability, event creation, and Google Sheets logging.',
           caption: 'The booking sub-workflow: validate the request, re-check the slot, create the calendar event, and log the booking.',
           tag: 'sub-workflow',
-          wide: true,
           w: 1620,
           h: 545
         },
@@ -97,7 +95,6 @@ export const projectsB = [
           alt: 'n8n availability sub-workflow reading open calendar slots.',
           caption: 'The availability sub-workflow: build a time window and read open slots from Google Calendar.',
           tag: 'sub-workflow',
-          wide: true,
           w: 1620,
           h: 570
         }
@@ -180,7 +177,6 @@ export const projectsB = [
           alt: 'n8n YouTube Shorts Clipper workflow with download, transcript, Gemini moment selection, cuts, and Drive upload.',
           caption: 'The clipper workflow: form submission, download, transcript, moment selection with Gemini, cuts, and Drive upload.',
           tag: 'workflow',
-          wide: true,
           w: 1470,
           h: 658
         },
@@ -189,7 +185,6 @@ export const projectsB = [
           alt: 'YouTube Shorts Clipper request form with framing, clip length, and audio settings.',
           caption: 'The request form settings: framing, clip length, hook card, progress bar, audio polish, watermark, and cookies.',
           tag: 'request form',
-          portrait: true,
           w: 455,
           h: 910
         }
@@ -271,7 +266,6 @@ export const projectsB = [
           alt: 'n8n YouTube Shorts Reclipper workflow reusing a saved source and cutting a fresh set of clips.',
           caption: 'The reclipper reuses a saved source, re-runs moment selection, and cuts a fresh set of clips.',
           tag: 'workflow',
-          wide: true,
           w: 1520,
           h: 430
         },
@@ -280,7 +274,6 @@ export const projectsB = [
           alt: 'YouTube Shorts Reclipper request form with saved source and new clip settings.',
           caption: 'The reclipper form points at a saved source and takes new clip settings; no download or Drive step.',
           tag: 'request form',
-          portrait: true,
           w: 455,
           h: 920
         }
@@ -361,7 +354,6 @@ export const projectsB = [
           alt: 'n8n Local Video Captioner workflow with job preparation, clip_helper.py caption burn-in, parsing, and a report.',
           caption: 'The captioner workflow: prepare the job, burn captions with clip_helper.py, parse the result, and build a report.',
           tag: 'workflow',
-          wide: true,
           w: 1490,
           h: 320
         },
@@ -370,7 +362,6 @@ export const projectsB = [
           alt: 'Local Video Captioner request form with video path, caption style, position, and text effect.',
           caption: 'The caption form takes a local video path, subtitle path, style, position, and text effect.',
           tag: 'request form',
-          portrait: true,
           w: 455,
           h: 920
         }
@@ -452,7 +443,6 @@ export const projectsB = [
           alt: 'Soletisfaction admin product list with prices, categories, stock, and markdowns.',
           caption: 'The product list: prices, categories, stock, markdowns, and archive controls.',
           tag: 'admin',
-          wide: true,
           w: 1006,
           h: 481
         },
@@ -461,7 +451,6 @@ export const projectsB = [
           alt: 'Soletisfaction admin dashboard with sales analytics and totals.',
           caption: 'The admin dashboard: earnings, users, sales, active orders, and returns.',
           tag: 'dashboard',
-          wide: true,
           w: 840,
           h: 394
         },
@@ -470,7 +459,6 @@ export const projectsB = [
           alt: 'Soletisfaction customer login screen.',
           caption: 'The customer sign-in screen for the online store.',
           tag: 'customer',
-          wide: true,
           w: 1007,
           h: 446
         },
@@ -479,7 +467,6 @@ export const projectsB = [
           alt: 'Soletisfaction customer product catalog with category filters.',
           caption: 'The customer catalog with category filters, prices, and stock status.',
           tag: 'storefront',
-          wide: true,
           w: 1010,
           h: 445
         }

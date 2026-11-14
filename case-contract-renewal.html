@@ -288,31 +288,53 @@
         <section id="screens">
           <h2>screens and demonstrations</h2>
           <figure class="screen-figure screen-figure--gallery">
-            <div class="shot-grid">
-    <figure class="shot shot--wide">
-      <div class="shot__frame">
-        <img src="assets/screens/personnel-dashboard.png" alt="Personnel Inventory dashboard with staff totals, renewal alerts, and a searchable staff table." width="1903" height="800" loading="lazy" decoding="async">
+            <div class="shot-rail" data-rail>
+      <div class="shot-rail__bar">
+        <span class="shot-rail__title">The inventory screens</span>
+        <span class="shot-rail__meta">
+          <span class="shot-rail__count" data-rail-count>04 captures</span>
+          <span class="shot-rail__hint">scroll or drag &middot; click to enlarge</span>
+        </span>
+        <span class="shot-rail__nav">
+          <button type="button" class="shot-rail__btn" data-rail-prev aria-label="Previous screenshot" disabled>&lsaquo;</button>
+          <button type="button" class="shot-rail__btn" data-rail-next aria-label="Next screenshot">&rsaquo;</button>
+        </span>
       </div>
-      <figcaption><span class="shot__tag">dashboard</span>The dashboard: staff totals, renewal alerts, filters, and the staff record table.</figcaption>
-    </figure>
-    <figure class="shot">
-      <div class="shot__frame">
-        <img src="assets/screens/personnel-record.png" alt="Personnel record detail showing contract and renewal information." width="600" height="420" loading="lazy" decoding="async">
-      </div>
-      <figcaption><span class="shot__tag">record</span>A staff record: contract duration, renewal date, appointment type, school, and years in service.</figcaption>
-    </figure>
-    <figure class="shot">
-      <div class="shot__frame">
-        <img src="assets/screens/personnel-login.png" alt="Personnel Inventory sign-in screen." width="450" height="540" loading="lazy" decoding="async">
-      </div>
-      <figcaption><span class="shot__tag">access</span>Authorized access only: the sign-in screen for the inventory.</figcaption>
-    </figure>
-    <figure class="shot shot--portrait">
-      <div class="shot__frame">
-        <img src="assets/screens/personnel-email.png" alt="Automated renewal notice email with contract details and days remaining." width="470" height="770" loading="lazy" decoding="async">
-      </div>
-      <figcaption><span class="shot__tag">notification</span>The renewal notice: contract details, days remaining, and a request to coordinate with HR.</figcaption>
-    </figure></div>
+      <ul class="shot-rail__track" data-rail-track aria-label="The inventory screens">
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/personnel-dashboard.png" aria-label="Enlarge screenshot: Personnel Inventory dashboard with staff totals, renewal alerts, and a searchable staff table.">
+          <span class="shot__frame" style="--ar: 1903 / 800">
+            <img src="assets/screens/personnel-dashboard.png" alt="Personnel Inventory dashboard with staff totals, renewal alerts, and a searchable staff table." width="1903" height="800" loading="eager" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">dashboard</span><span class="shot__cap-text">The dashboard: staff totals, renewal alerts, filters, and the staff record table.</span></p>
+      </li>
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/personnel-record.png" aria-label="Enlarge screenshot: Personnel record detail showing contract and renewal information.">
+          <span class="shot__frame" style="--ar: 600 / 420">
+            <img src="assets/screens/personnel-record.png" alt="Personnel record detail showing contract and renewal information." width="600" height="420" loading="lazy" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">record</span><span class="shot__cap-text">A staff record: contract duration, renewal date, appointment type, school, and years in service.</span></p>
+      </li>
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/personnel-login.png" aria-label="Enlarge screenshot: Personnel Inventory sign-in screen.">
+          <span class="shot__frame" style="--ar: 450 / 540">
+            <img src="assets/screens/personnel-login.png" alt="Personnel Inventory sign-in screen." width="450" height="540" loading="lazy" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">access</span><span class="shot__cap-text">Authorized access only: the sign-in screen for the inventory.</span></p>
+      </li>
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/personnel-email.png" aria-label="Enlarge screenshot: Automated renewal notice email with contract details and days remaining.">
+          <span class="shot__frame" style="--ar: 470 / 770">
+            <img src="assets/screens/personnel-email.png" alt="Automated renewal notice email with contract details and days remaining." width="470" height="770" loading="lazy" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">notification</span><span class="shot__cap-text">The renewal notice: contract details, days remaining, and a request to coordinate with HR.</span></p>
+      </li>
+      </ul>
+    </div>
             <figcaption>Captures from the personnel inventory: the dashboard, a staff record, the sign-in screen, and the renewal notice.</figcaption>
           </figure>
         </section>
@@ -341,6 +363,20 @@
         </nav>
       </article>
     </div>
+    <dialog class="lightbox" data-lightbox tabindex="-1" aria-labelledby="lightbox-caption">
+      <div class="lightbox__frame">
+        <img data-lightbox-img src="" alt="">
+      </div>
+      <div class="lightbox__bar">
+        <p class="lightbox__caption" id="lightbox-caption"><span class="lightbox__tag" data-lightbox-tag></span><span data-lightbox-text></span></p>
+        <div class="lightbox__nav">
+          <span class="lightbox__count" data-lightbox-count></span>
+          <button type="button" class="lightbox__btn" data-lightbox-prev aria-label="Previous screenshot">&lsaquo;</button>
+          <button type="button" class="lightbox__btn" data-lightbox-next aria-label="Next screenshot">&rsaquo;</button>
+          <button type="button" class="lightbox__btn lightbox__btn--close" data-lightbox-close aria-label="Close enlarged screenshot">&times;</button>
+        </div>
+      </div>
+    </dialog>
   </main>
 
   <footer class="footer">
@@ -361,5 +397,6 @@
     </div>
   </footer>
   <script src="main.js"></script>
+  <script src="gallery.js" defer></script>
 </body>
 </html>

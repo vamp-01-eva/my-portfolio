@@ -26,6 +26,21 @@ export function casePage(project) {
     ? `<h3>planned, not implemented</h3><ul class="planned-list">${project.planned.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`
     : '';
   const challenges = project.challenges.map((row) => `<tr><td>${esc(row.constraint)}</td><td>${esc(row.response)}</td></tr>`).join('');
+  const lightbox = project.screens.images ? `
+    <dialog class="lightbox" data-lightbox tabindex="-1" aria-labelledby="lightbox-caption">
+      <div class="lightbox__frame">
+        <img data-lightbox-img src="" alt="">
+      </div>
+      <div class="lightbox__bar">
+        <p class="lightbox__caption" id="lightbox-caption"><span class="lightbox__tag" data-lightbox-tag></span><span data-lightbox-text></span></p>
+        <div class="lightbox__nav">
+          <span class="lightbox__count" data-lightbox-count></span>
+          <button type="button" class="lightbox__btn" data-lightbox-prev aria-label="Previous screenshot">&lsaquo;</button>
+          <button type="button" class="lightbox__btn" data-lightbox-next aria-label="Next screenshot">&rsaquo;</button>
+          <button type="button" class="lightbox__btn lightbox__btn--close" data-lightbox-close aria-label="Close enlarged screenshot">&times;</button>
+        </div>
+      </div>
+    </dialog>` : '';
   const content = `
     <header class="case-head">
       <span class="case-head__watermark chrome" aria-hidden="true">${project.number}</span>
@@ -123,11 +138,12 @@ export function casePage(project) {
           <a class="text-link" href="work.html">all work <span aria-hidden="true">→</span></a>
         </nav>
       </article>
-    </div>`;
+    </div>${lightbox}`;
   return page({
     title: `${project.title}, case file`,
     description: project.summary,
     active: 'work',
-    content
+    content,
+    hasGallery: Boolean(project.screens.images)
   });
 }

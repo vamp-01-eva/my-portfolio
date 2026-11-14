@@ -307,19 +307,37 @@
         <section id="screens">
           <h2>screens and demonstrations</h2>
           <figure class="screen-figure screen-figure--gallery">
-            <div class="shot-grid">
-    <figure class="shot shot--wide">
-      <div class="shot__frame">
-        <img src="assets/screens/shorts-clipper-workflow.png" alt="n8n YouTube Shorts Clipper workflow with download, transcript, Gemini moment selection, cuts, and Drive upload." width="1470" height="658" loading="lazy" decoding="async">
+            <div class="shot-rail" data-rail>
+      <div class="shot-rail__bar">
+        <span class="shot-rail__title">The clipper screens</span>
+        <span class="shot-rail__meta">
+          <span class="shot-rail__count" data-rail-count>02 captures</span>
+          <span class="shot-rail__hint">scroll or drag &middot; click to enlarge</span>
+        </span>
+        <span class="shot-rail__nav">
+          <button type="button" class="shot-rail__btn" data-rail-prev aria-label="Previous screenshot" disabled>&lsaquo;</button>
+          <button type="button" class="shot-rail__btn" data-rail-next aria-label="Next screenshot">&rsaquo;</button>
+        </span>
       </div>
-      <figcaption><span class="shot__tag">workflow</span>The clipper workflow: form submission, download, transcript, moment selection with Gemini, cuts, and Drive upload.</figcaption>
-    </figure>
-    <figure class="shot shot--portrait">
-      <div class="shot__frame">
-        <img src="assets/screens/shorts-clipper-form.png" alt="YouTube Shorts Clipper request form with framing, clip length, and audio settings." width="455" height="910" loading="lazy" decoding="async">
-      </div>
-      <figcaption><span class="shot__tag">request form</span>The request form settings: framing, clip length, hook card, progress bar, audio polish, watermark, and cookies.</figcaption>
-    </figure></div>
+      <ul class="shot-rail__track" data-rail-track aria-label="The clipper screens">
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/shorts-clipper-workflow.png" aria-label="Enlarge screenshot: n8n YouTube Shorts Clipper workflow with download, transcript, Gemini moment selection, cuts, and Drive upload.">
+          <span class="shot__frame" style="--ar: 1470 / 658">
+            <img src="assets/screens/shorts-clipper-workflow.png" alt="n8n YouTube Shorts Clipper workflow with download, transcript, Gemini moment selection, cuts, and Drive upload." width="1470" height="658" loading="eager" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">workflow</span><span class="shot__cap-text">The clipper workflow: form submission, download, transcript, moment selection with Gemini, cuts, and Drive upload.</span></p>
+      </li>
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/shorts-clipper-form.png" aria-label="Enlarge screenshot: YouTube Shorts Clipper request form with framing, clip length, and audio settings.">
+          <span class="shot__frame" style="--ar: 455 / 910">
+            <img src="assets/screens/shorts-clipper-form.png" alt="YouTube Shorts Clipper request form with framing, clip length, and audio settings." width="455" height="910" loading="lazy" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">request form</span><span class="shot__cap-text">The request form settings: framing, clip length, hook card, progress bar, audio polish, watermark, and cookies.</span></p>
+      </li>
+      </ul>
+    </div>
             <figcaption>Captures from the clipper: the n8n workflow and the request form settings.</figcaption>
           </figure>
         </section>
@@ -348,6 +366,20 @@
         </nav>
       </article>
     </div>
+    <dialog class="lightbox" data-lightbox tabindex="-1" aria-labelledby="lightbox-caption">
+      <div class="lightbox__frame">
+        <img data-lightbox-img src="" alt="">
+      </div>
+      <div class="lightbox__bar">
+        <p class="lightbox__caption" id="lightbox-caption"><span class="lightbox__tag" data-lightbox-tag></span><span data-lightbox-text></span></p>
+        <div class="lightbox__nav">
+          <span class="lightbox__count" data-lightbox-count></span>
+          <button type="button" class="lightbox__btn" data-lightbox-prev aria-label="Previous screenshot">&lsaquo;</button>
+          <button type="button" class="lightbox__btn" data-lightbox-next aria-label="Next screenshot">&rsaquo;</button>
+          <button type="button" class="lightbox__btn lightbox__btn--close" data-lightbox-close aria-label="Close enlarged screenshot">&times;</button>
+        </div>
+      </div>
+    </dialog>
   </main>
 
   <footer class="footer">
@@ -368,5 +400,6 @@
     </div>
   </footer>
   <script src="main.js"></script>
+  <script src="gallery.js" defer></script>
 </body>
 </html>

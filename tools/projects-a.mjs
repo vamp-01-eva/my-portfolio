@@ -135,7 +135,6 @@ export const projectsA = [
           alt: 'Vehicle Booking System landing page with Book a Vehicle and Admin Login buttons.',
           caption: 'The landing page: book a vehicle or open the admin side.',
           tag: 'landing',
-          wide: true,
           w: 1920,
           h: 954
         },
@@ -160,7 +159,6 @@ export const projectsA = [
           alt: 'Admin dashboard showing request totals and a table of vehicle requests.',
           caption: 'The admin dashboard: request totals, status filters, and the request list.',
           tag: 'dashboard',
-          wide: true,
           w: 1919,
           h: 955
         }
@@ -240,7 +238,6 @@ export const projectsA = [
           alt: 'Personnel Inventory dashboard with staff totals, renewal alerts, and a searchable staff table.',
           caption: 'The dashboard: staff totals, renewal alerts, filters, and the staff record table.',
           tag: 'dashboard',
-          wide: true,
           w: 1903,
           h: 800
         },
@@ -265,7 +262,6 @@ export const projectsA = [
           alt: 'Automated renewal notice email with contract details and days remaining.',
           caption: 'The renewal notice: contract details, days remaining, and a request to coordinate with HR.',
           tag: 'notification',
-          portrait: true,
           w: 470,
           h: 770
         }

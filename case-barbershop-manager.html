@@ -288,25 +288,45 @@
         <section id="screens">
           <h2>screens and demonstrations</h2>
           <figure class="screen-figure screen-figure--gallery">
-            <div class="shot-grid">
-    <figure class="shot shot--wide">
-      <div class="shot__frame">
-        <img src="assets/screens/barbershop-main.png" alt="n8n barbershop assistant workflow with Messenger, Google Docs, Gemini, memory, and booking tools." width="980" height="580" loading="lazy" decoding="async">
+            <div class="shot-rail" data-rail>
+      <div class="shot-rail__bar">
+        <span class="shot-rail__title">The assistant workflows</span>
+        <span class="shot-rail__meta">
+          <span class="shot-rail__count" data-rail-count>03 captures</span>
+          <span class="shot-rail__hint">scroll or drag &middot; click to enlarge</span>
+        </span>
+        <span class="shot-rail__nav">
+          <button type="button" class="shot-rail__btn" data-rail-prev aria-label="Previous screenshot" disabled>&lsaquo;</button>
+          <button type="button" class="shot-rail__btn" data-rail-next aria-label="Next screenshot">&rsaquo;</button>
+        </span>
       </div>
-      <figcaption><span class="shot__tag">main workflow</span>The main assistant: Messenger trigger, shop instructions, Gemini, conversation memory, and the availability and booking tools.</figcaption>
-    </figure>
-    <figure class="shot shot--wide">
-      <div class="shot__frame">
-        <img src="assets/screens/barbershop-booking.png" alt="n8n booking sub-workflow with validation, calendar availability, event creation, and Google Sheets logging." width="1620" height="545" loading="lazy" decoding="async">
-      </div>
-      <figcaption><span class="shot__tag">sub-workflow</span>The booking sub-workflow: validate the request, re-check the slot, create the calendar event, and log the booking.</figcaption>
-    </figure>
-    <figure class="shot shot--wide">
-      <div class="shot__frame">
-        <img src="assets/screens/barbershop-availability.png" alt="n8n availability sub-workflow reading open calendar slots." width="1620" height="570" loading="lazy" decoding="async">
-      </div>
-      <figcaption><span class="shot__tag">sub-workflow</span>The availability sub-workflow: build a time window and read open slots from Google Calendar.</figcaption>
-    </figure></div>
+      <ul class="shot-rail__track" data-rail-track aria-label="The assistant workflows">
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/barbershop-main.png" aria-label="Enlarge screenshot: n8n barbershop assistant workflow with Messenger, Google Docs, Gemini, memory, and booking tools.">
+          <span class="shot__frame" style="--ar: 980 / 580">
+            <img src="assets/screens/barbershop-main.png" alt="n8n barbershop assistant workflow with Messenger, Google Docs, Gemini, memory, and booking tools." width="980" height="580" loading="eager" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">main workflow</span><span class="shot__cap-text">The main assistant: Messenger trigger, shop instructions, Gemini, conversation memory, and the availability and booking tools.</span></p>
+      </li>
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/barbershop-booking.png" aria-label="Enlarge screenshot: n8n booking sub-workflow with validation, calendar availability, event creation, and Google Sheets logging.">
+          <span class="shot__frame" style="--ar: 1620 / 545">
+            <img src="assets/screens/barbershop-booking.png" alt="n8n booking sub-workflow with validation, calendar availability, event creation, and Google Sheets logging." width="1620" height="545" loading="lazy" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">sub-workflow</span><span class="shot__cap-text">The booking sub-workflow: validate the request, re-check the slot, create the calendar event, and log the booking.</span></p>
+      </li>
+      <li class="shot">
+        <a class="shot__link" href="assets/screens/barbershop-availability.png" aria-label="Enlarge screenshot: n8n availability sub-workflow reading open calendar slots.">
+          <span class="shot__frame" style="--ar: 1620 / 570">
+            <img src="assets/screens/barbershop-availability.png" alt="n8n availability sub-workflow reading open calendar slots." width="1620" height="570" loading="lazy" decoding="async">
+          </span>
+        </a>
+        <p class="shot__cap"><span class="shot__tag">sub-workflow</span><span class="shot__cap-text">The availability sub-workflow: build a time window and read open slots from Google Calendar.</span></p>
+      </li>
+      </ul>
+    </div>
             <figcaption>Captures from n8n: the main assistant workflow and the two booking sub-workflows.</figcaption>
           </figure>
         </section>
@@ -335,6 +355,20 @@
         </nav>
       </article>
     </div>
+    <dialog class="lightbox" data-lightbox tabindex="-1" aria-labelledby="lightbox-caption">
+      <div class="lightbox__frame">
+        <img data-lightbox-img src="" alt="">
+      </div>
+      <div class="lightbox__bar">
+        <p class="lightbox__caption" id="lightbox-caption"><span class="lightbox__tag" data-lightbox-tag></span><span data-lightbox-text></span></p>
+        <div class="lightbox__nav">
+          <span class="lightbox__count" data-lightbox-count></span>
+          <button type="button" class="lightbox__btn" data-lightbox-prev aria-label="Previous screenshot">&lsaquo;</button>
+          <button type="button" class="lightbox__btn" data-lightbox-next aria-label="Next screenshot">&rsaquo;</button>
+          <button type="button" class="lightbox__btn lightbox__btn--close" data-lightbox-close aria-label="Close enlarged screenshot">&times;</button>
+        </div>
+      </div>
+    </dialog>
   </main>
 
   <footer class="footer">
@@ -355,5 +389,6 @@
     </div>
   </footer>
   <script src="main.js"></script>
+  <script src="gallery.js" defer></script>
 </body>
 </html>
