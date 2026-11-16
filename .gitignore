@@ -6,6 +6,15 @@
 # Local Hallmark skill copy
 hallmark.md
 
+# Local agent skill copies
+.agents/
+agent-skills/
+skills/
+skills-lock.json
+
+# Local working document
+portfolio-prompt.txt
+
 # Local design references
 design-reference/
 
@@ -14,5 +23,15 @@ images/canoscan-5600f-main-pcb-top-view-1920.jpg
 images/data-center-cua-cmc-telecom-2-1920.jpg
 images/soldering-a-0805-1920.jpg
 
-# Local screenshot sources; the cropped, deployed copies live in assets/screens/
+# Local screenshot sources; the cropped, deployed copies live in public/assets/screens/
 images/*.png
+
+# Next.js
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+
+# Local environment
+.env*.local

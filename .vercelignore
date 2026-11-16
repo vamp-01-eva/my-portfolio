@@ -1,13 +1,21 @@
-# Build records and source tooling, not part of the static site
+# Local-only sources and references
+legacy/
+design-reference/
+images/
+.agents/
+agent-skills/
+skills/
 .hallmark/
-tools/
+node_modules/
+.next/
+out/
+
+# Working documents
 README.md
-.gitignore
-.vercelignore
+portfolio-prompt.txt
 hallmark.md
 front-end-skill.md
 taste-skill.md
-
-# Local-only references and unused photo candidates
-design-reference/
-images/
+skills-lock.json
+.gitignore
+.vercelignore
