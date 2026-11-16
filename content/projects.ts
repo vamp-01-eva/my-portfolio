@@ -1,6 +1,7 @@
-// The single source of truth for the eight builds.
-// Values are ported verbatim from the previous generator. No metrics, clients,
-// testimonials, or deployment claims are added.
+// The single source of truth for the nine builds.
+// The project records are ported from the previous generator; the portfolio
+// record describes this site. No metrics, clients, testimonials, or deployment
+// claims are added.
 
 export type ProjectGroup = "web" | "ai" | "academic";
 
@@ -101,8 +102,87 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "barbershop-manager",
+    slug: "portfolio-website",
     number: "01",
+    title: "Portfolio Website",
+    navTitle: "portfolio website",
+    category: "portfolio site",
+    group: "web",
+    status: "build",
+    year: "2026",
+    stack: ["Next.js", "React", "TypeScript", "CSS"],
+    summary: "The portfolio you are reading: nine builds, one case file each, generated from a single typed project source.",
+    card: "nine builds, one case file each",
+    lead: "This site is build 01 in its own index. It presents every build as a numbered plate and a case file, with clean routes, typed content, and one source of truth.",
+    overview: [
+      "The site is a Next.js App Router project written in TypeScript. Each build has one typed record; the home plate wall, the work index, and the case pages all read from that source.",
+      "The previous portfolio was a set of static HTML pages. The migration kept the cold reliquary visual system, moved every page to a clean route, and added 301 redirects for the old .html paths.",
+      "Case pages are statically generated from the project records. Screenshots use next/image, and the type system uses next/font."
+    ],
+    problem: "The previous portfolio duplicated project content across static pages. Adding, removing, or reordering a build meant editing several files by hand, and old .html URLs had to keep working.",
+    objectives: [
+      "Keep one typed record for each build.",
+      "Generate the plate wall, work index, and case pages from the same source.",
+      "Preserve the cold reliquary visual identity.",
+      "Keep every old .html URL working with a 301 redirect.",
+      "Use Next.js App Router with server components by default.",
+      "Keep the layout responsive and free of horizontal overflow."
+    ],
+    role: [
+      { label: "design", text: "Kept the cold reliquary identity: chrome-metal gradients, hand-authored sigils, the silver and black palette, and the case-file language." },
+      { label: "build", text: "Built the Next.js App Router structure, the typed content source, and the shared components for plates, dossiers, routes, and case files." },
+      { label: "content", text: "Ported the existing project records into one typed source without inventing screenshots, demos, features, or metrics." },
+      { label: "testing", text: "Checked the migration against the legacy site: page heights, text, pixels, links, hashes, keyboard paths, and redirects." }
+    ],
+    roleNote: "AI-assisted development tools were used during the migration. I reviewed the structure, content, and rendered pages by hand.",
+    tech: [
+      { group: "framework", items: ["Next.js"] },
+      { group: "ui", items: ["React"] },
+      { group: "language", items: ["TypeScript"] },
+      { group: "styling", items: ["CSS"] },
+      { group: "content", items: ["typed project records"] }
+    ],
+    features: [
+      { title: "One content source", text: "Every plate, dossier, and case page reads from the same project record." },
+      { title: "Clean case routes", text: "Each build has a stable /case/<slug> URL." },
+      { title: "Old URL redirects", text: "Every previous .html page 301s to its clean route." },
+      { title: "Numbered plate wall", text: "The home index keeps the numbered specimen-plate treatment." },
+      { title: "Case files", text: "Each build opens a full case with overview, role, workflow, screens, challenges, and status." },
+      { title: "Typed content", text: "TypeScript checks the shape of every project record at build time." },
+      { title: "Responsive layout", text: "The same content holds at mobile and desktop widths." },
+      { title: "Server components", text: "Pages render on the server; client components are limited to the interactions that need them." }
+    ],
+    workflow: {
+      title: "The build route",
+      caption: "One typed project record feeds the plate wall, the work index, and the static case pages.",
+      nodes: [
+        { label: "content", note: "one record per build" },
+        { label: "typed source", note: "projects.ts" },
+        { label: "routes", note: "home, work, case" },
+        { label: "static pages", note: "generated" },
+        { label: "check", note: "by hand", accent: true }
+      ]
+    },
+    screens: {
+      title: "The site surfaces",
+      caption: "Surface maps for the home index, the work catalogue, and a case file.",
+      panels: [
+        { title: "home", items: ["hero and seal", "numbered plate wall", "case excerpt", "spec sheet", "about and contact"] },
+        { title: "work", items: ["group index", "dossiers", "pipeline band", "ledger"] },
+        { title: "case file", items: ["case head and watermark", "contents", "overview and role", "workflow and screens", "status and next case"] }
+      ]
+    },
+    challenges: [
+      { constraint: "Project content was duplicated across static pages.", response: "One typed record per build now feeds the plate wall, work index, and case page." },
+      { constraint: "Old .html URLs were public.", response: "Every old page 301s to its clean route." },
+      { constraint: "The visual identity had to survive a framework migration.", response: "The chrome, sigils, palette, type, and case-file language were ported and checked against the legacy pages." }
+    ],
+    statusDetail: "Built and running as the site you are reading. The Next.js migration is complete; the redesign, polish, and final verification are in progress.",
+    notClaimed: "No traffic, conversion, ranking, or client metrics are claimed on this page."
+  },
+  {
+    slug: "barbershop-manager",
+    number: "02",
     title: "Barbershop Manager AI Assistant",
     navTitle: "barbershop manager",
     category: "ai automation",
@@ -208,7 +288,7 @@ export const projects: Project[] = [
   },
   {
     slug: "youtube-clipper",
-    number: "02",
+    number: "03",
     title: "YouTube Shorts Clipper",
     navTitle: "shorts clipper",
     category: "video pipeline",
@@ -297,7 +377,7 @@ export const projects: Project[] = [
   },
   {
     slug: "youtube-reclipper",
-    number: "03",
+    number: "04",
     title: "YouTube Shorts Reclipper",
     navTitle: "shorts reclipper",
     category: "video pipeline",
@@ -386,7 +466,7 @@ export const projects: Project[] = [
   },
   {
     slug: "local-video-captioner",
-    number: "04",
+    number: "05",
     title: "Local Video Captioner",
     navTitle: "video captioner",
     category: "video pipeline",
@@ -474,7 +554,7 @@ export const projects: Project[] = [
   },
   {
     slug: "soletisfaction",
-    number: "05",
+    number: "06",
     title: "Soletisfaction E-commerce, POS & Inventory Management System",
     navTitle: "soletisfaction",
     category: "academic",
@@ -579,7 +659,7 @@ export const projects: Project[] = [
   },
   {
     slug: "vehicle-booking",
-    number: "06",
+    number: "07",
     title: "Vehicle Drop-off / Pick-up Booking System",
     navTitle: "vehicle booking",
     category: "web application",
@@ -681,7 +761,7 @@ export const projects: Project[] = [
   },
   {
     slug: "contract-renewal",
-    number: "07",
+    number: "08",
     title: "Personnel Inventory: Contract Tracker & Automated Email Notification System",
     navTitle: "personnel inventory",
     category: "automation",
@@ -785,7 +865,7 @@ export const projects: Project[] = [
   },
   {
     slug: "time-in-out",
-    number: "08",
+    number: "09",
     title: "Employee Time-In / Time-Out Management System",
     navTitle: "time-in / time-out",
     category: "web application",

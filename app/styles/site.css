@@ -1,6 +1,6 @@
 /* Hallmark · shape: Specimen Wall · genre: chrome relic · theme: Cold Reliquary · job: hire
  * hero: chrome banner over a build seal · nav: retracting bar · footer: colophon block
- * imagery: original sigil plates and real project captures · signature: the eight-build specimen wall
+ * imagery: original sigil plates and real project captures · signature: the nine-build specimen wall
  * axes: dark/didone-metal/monochrome · posture: ceremonial · contrast: pass · fold: pass
  * v3.0.0 */
 
@@ -325,7 +325,8 @@ body { font-variant-numeric: tabular-nums; }
   border: 1px solid var(--rule);
 }
 .plate { min-width: 0; background: var(--void); }
-.plate--featured, .plate--capstone { grid-column: 1 / -1; }
+.plate--featured { grid-column: 1 / -1; }
+.plate--capstone { grid-column: span 2; }
 .plate__link {
   position: relative;
   display: grid;
@@ -1071,7 +1072,8 @@ html.is-locked { overflow: hidden; }
   .section-head { grid-template-columns: 1fr; gap: var(--space-sm); align-items: start; margin-bottom: var(--space-xl); }
   .section-head__lede { margin-bottom: 0; }
   .plate-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .plate--featured, .plate--capstone { grid-column: 1 / -1; }
+  .plate--featured { grid-column: 1 / -1; }
+  .plate--capstone { grid-column: auto; }
   .plate--featured .plate__body, .plate--capstone .plate__body { max-width: 62%; }
   .plate--featured .plate__sigil { width: min(28%, 240px); }
   .plate--capstone .plate__sigil { width: min(24%, 220px); }

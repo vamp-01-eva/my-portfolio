@@ -4,7 +4,7 @@ export function Ledger() {
       <dl className="ledger__counts">
         <div>
           <dt>web applications</dt>
-          <dd>03</dd>
+          <dd>04</dd>
         </div>
         <div>
           <dt>ai automation</dt>

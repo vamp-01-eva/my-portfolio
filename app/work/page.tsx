@@ -11,10 +11,11 @@ import { PipelineBand } from "@/components/PipelineBand";
 export const metadata: Metadata = {
   title: "The work, Mark Justine J. Mauricio",
   description:
-    "Eight builds by Mark Justine J. Mauricio: web applications, AI automation prototypes, and an academic capstone, with the status of each project.",
+    "Nine builds by Mark Justine J. Mauricio: web applications, AI automation prototypes, and an academic capstone, with the status of each project.",
 };
 
 export default function WorkPage() {
+  const featured = projects[0];
   return (
     <PageShell active="work">
       <header className="page-head">
@@ -24,7 +25,7 @@ export default function WorkPage() {
           </p>
           <h1 className="chrome">the work</h1>
           <p className="lead">
-            Eight builds in three groups. Every row opens a case file.
+            Nine builds in three groups. Every row opens a case file.
           </p>
         </div>
       </header>
@@ -32,11 +33,29 @@ export default function WorkPage() {
         <Ledger />
       </div>
 
+      <section
+        className="work-group work-group--featured"
+        aria-labelledby="featured-title"
+      >
+        <div className="container">
+          <GroupHead
+            number={featured.number}
+            group={featured.group}
+            label="build"
+            id="featured-title"
+            title="this site"
+            line="A web build, shown first: the portfolio you are reading."
+          />
+          <DossierList projects={[featured]} />
+        </div>
+      </section>
+
       {groups.map((group, groupIndex) => {
         const isAcademic = group.key === "academic";
         const isAi = group.key === "ai";
         const groupProjects = projects.filter(
-          (project) => project.group === group.key,
+          (project) =>
+            project.group === group.key && project.slug !== featured.slug,
         );
         const title = isAcademic
           ? "one capstone, built as a team."
@@ -54,7 +73,7 @@ export default function WorkPage() {
           >
             <div className="container">
               <GroupHead
-                number={String(groupIndex + 1).padStart(2, "0")}
+                number={String(groupIndex + 2).padStart(2, "0")}
                 group={group.key}
                 title={title}
                 line={line}

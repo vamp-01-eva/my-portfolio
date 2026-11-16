@@ -13,7 +13,7 @@ import { SectionHead } from "@/components/SectionHead";
 export const metadata: Metadata = {
   title: "Mark Justine J. Mauricio, web developer and AI automation builder",
   description:
-    "Portfolio of Mark Justine J. Mauricio, an early-career web developer and AI automation builder in Antipolo. Eight builds, real status, and case files.",
+    "Portfolio of Mark Justine J. Mauricio, an early-career web developer and AI automation builder in Antipolo. Nine builds, real status, and case files.",
 };
 
 const feature = bySlug.get("barbershop-manager")!;
@@ -33,7 +33,7 @@ export default function HomePage() {
               <span>portfolio</span>2026
             </p>
             <h1 id="hero-title" className="chrome">
-              eight builds,
+              nine builds,
               <br />
               <em>checked</em> by hand.
             </h1>
@@ -72,7 +72,7 @@ export default function HomePage() {
             no="01"
             label="index"
             title="the work"
-            lede="Eight builds, three groups. Each plate opens its case."
+            lede="Nine builds, three groups. Each plate opens its case."
             id="work-title"
           />
           <PlateWall projects={projects} />

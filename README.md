@@ -9,7 +9,7 @@ Cold Reliquary is a chrome-led, cybersigilism-intensity-3 system: a monochrome p
 - `app/styles/tokens.css` — palette, type, spacing, chrome, and motion tokens.
 - `app/styles/base.css` — base element styles, chrome text, grain, and image-slot rules.
 - `app/styles/site.css` — page layouts and responsive rules.
-- `components/SigilSprite.tsx` — the original SVG sprite: M monogram, eight-build seal, project sigils, status glyphs, and group glyphs.
+- `components/SigilSprite.tsx` — the original SVG sprite: M monogram, nine-build seal, project sigils, status glyphs, and group glyphs.
 - `components/HeaderController.tsx` — header retraction and mobile-menu behaviour.
 - `components/ContactForm.tsx` — local form validation.
 
@@ -17,13 +17,13 @@ Project plates are abstract specimen plates. Each carries one original sigil; ca
 
 ## Architecture
 
-- `content/projects.ts` — the single typed source for the eight builds.
+- `content/projects.ts` — the single typed source for the nine builds.
 - `content/site.ts` — site details, group copy, pipeline data, and case sections.
 - `app/page.tsx` — home
 - `app/work/page.tsx` — project catalogue
 - `app/about/page.tsx` — background and skills
 - `app/contact/page.tsx` — contact details and form
-- `app/case/[slug]/page.tsx` — eight case studies, statically generated
+- `app/case/[slug]/page.tsx` — nine case studies, statically generated
 - `public/MAURICIO_RESUME.pdf` — downloadable résumé
 - `legacy/` — the archived static site and generator, kept for reference and excluded from deployment
 
@@ -31,8 +31,8 @@ Every old `.html` URL permanently redirects to its clean route through `next.con
 
 ## Content rules
 
-- Eight projects with the status supplied for each: completed, build, prototype, or academic project.
-- No invented metrics, testimonials, client logos, or deployments. Screens are real captures from the projects shown.
+- Nine builds with the status supplied for each: completed, build, prototype, or academic project.
+- No invented metrics, testimonials, client logos, or deployments. Screens are real captures from the projects shown; projects without captures use surface maps.
 - Case studies are long-form documents.
 - LinkedIn and GitHub links remain placeholders until real URLs are supplied.
 - The contact form validates locally only. It does not send anything.

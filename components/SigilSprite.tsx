@@ -212,6 +212,24 @@ export function SigilSprite() {
           <path d="M60 16v12M46 12l14 10 14-10" />
         </g>
       </symbol>
+      <symbol id="sig-11" viewBox="0 0 120 120">
+        <g
+          fill="none"
+          stroke="url(#chrome-stroke)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="18" y="24" width="84" height="72" rx="3" />
+          <path d="M18 38h84" />
+          <circle cx="26" cy="31" r="1.4" />
+          <circle cx="32" cy="31" r="1.4" />
+          <path d="M84 31l4 4-4 4-4-4z" />
+          <rect x="30" y="50" width="24" height="16" />
+          <rect x="60" y="50" width="24" height="16" />
+          <rect x="30" y="72" width="54" height="12" />
+        </g>
+      </symbol>
       <symbol id="sig-10" viewBox="0 0 120 120">
         <g
           fill="none"

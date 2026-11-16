@@ -31,7 +31,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Mark Justine J. Mauricio, web developer and AI automation builder",
   description:
-    "Portfolio of Mark Justine J. Mauricio, an early-career web developer and AI automation builder in Antipolo. Eight builds, real status, and case files.",
+    "Portfolio of Mark Justine J. Mauricio, an early-career web developer and AI automation builder in Antipolo. Nine builds, real status, and case files.",
   icons: {
     icon: "/favicon.svg",
   },

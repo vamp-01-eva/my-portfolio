@@ -6,12 +6,17 @@ export function GroupHead({
   group,
   title,
   line,
+  label = "group",
+  id,
 }: {
   number: string;
   group: ProjectGroup;
   title: string;
   line: string;
+  label?: string;
+  id?: string;
 }) {
+  const headingId = id ?? `${group}-title`;
   return (
     <div className="group-head">
       <span className="group-head__mark" aria-hidden="true">
@@ -19,9 +24,9 @@ export function GroupHead({
       </span>
       <div className="group-head__copy">
         <p className="eyebrow">
-          <span>{number}</span>group
+          <span>{number}</span>{label}
         </p>
-        <h2 id={`${group}-title`}>{title}</h2>
+        <h2 id={headingId}>{title}</h2>
         <p className="lead">{line}</p>
       </div>
     </div>

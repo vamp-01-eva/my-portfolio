@@ -22,6 +22,7 @@ export function statusKey(status: ProjectStatus): StatusKey {
 }
 
 const projectMap: Record<string, string> = {
+  "portfolio-website": "sig-11",
   "time-in-out": "sig-01",
   "vehicle-booking": "sig-02",
   "contract-renewal": "sig-06",
