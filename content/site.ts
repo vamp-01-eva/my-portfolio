@@ -19,11 +19,6 @@ export interface Group {
 
 export const groups: Group[] = [
   {
-    key: "web",
-    label: "web applications",
-    line: "Internal tools built during the DepEd ICT internship.",
-  },
-  {
     key: "ai",
     label: "ai automation",
     line: "Four prototypes: one standalone assistant, one connected shorts pipeline.",
@@ -32,6 +27,11 @@ export const groups: Group[] = [
     key: "academic",
     label: "academic",
     line: "The Soletisfaction capstone.",
+  },
+  {
+    key: "web",
+    label: "web applications",
+    line: "Internal tools built during the DepEd ICT internship.",
   },
 ];
 

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Portfolio of Mark Justine J. Mauricio, an early-career web developer and AI automation builder in Antipolo. Eight builds, real status, and case files.",
 };
 
-const feature = bySlug.get("contract-renewal")!;
+const feature = bySlug.get("barbershop-manager")!;
 
 export default function HomePage() {
   return (
@@ -87,13 +87,13 @@ export default function HomePage() {
             </p>
             <h2 id="feature-title">one build, opened.</h2>
             <p className="lead">
-              The personnel inventory, from form to renewal notice.
+              The barbershop assistant, from Messenger to a booked slot.
             </p>
             <span className="case-excerpt__watermark chrome" aria-hidden="true">
               {feature.number}
             </span>
             <Link className="text-link" href={`/case/${feature.slug}`}>
-              read the personnel inventory case{" "}
+              read the barbershop manager case{" "}
               <span aria-hidden="true">→</span>
             </Link>
           </div>
@@ -101,16 +101,16 @@ export default function HomePage() {
             <RouteFigure workflow={feature.workflow} />
             <dl className="feature__facts">
               <div>
-                <dt>collection</dt>
-                <dd>Google Forms</dd>
+                <dt>channel</dt>
+                <dd>Facebook Messenger</dd>
               </div>
               <div>
-                <dt>database</dt>
-                <dd>Google Sheets</dd>
+                <dt>model</dt>
+                <dd>Google Gemini</dd>
               </div>
               <div>
-                <dt>access</dt>
-                <dd>Super Admin and School Admin</dd>
+                <dt>records</dt>
+                <dd>Google Sheets and Calendar</dd>
               </div>
             </dl>
           </div>
