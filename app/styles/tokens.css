@@ -6,11 +6,14 @@
 
   /* type */
   --text-xs: 0.75rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
-  --text-display-s: clamp(2.5rem, 4vw + 1rem, 4.5rem);
+  --text-cover: clamp(2.75rem, 5.2vw + 1rem, 6.25rem);
+  --text-display-s: clamp(2.25rem, 4vw + 1rem, 4.5rem);
   --text-display: clamp(3rem, 6.5vw + 1rem, 7.5rem);
   --text-section: clamp(2.25rem, 3.5vw + 1rem, 4.5rem);
   --text-title: clamp(1.35rem, 0.8vw + 1rem, 1.75rem);
   --text-lead: clamp(1.125rem, 0.4vw + 1rem, 1.4rem);
+  --text-label: 0.6875rem;
+  --text-micro: 0.625rem;
 
   /* motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -27,7 +30,7 @@
   --ice-dim: #8b9099;
   --ice: #c6cbd3;
   --ice-bright: #edeff3;
-  --specular: #ffffff;
+  --specular: #edeff3;
   --signal: #a9cbdd;
   --signal-dim: #6f8fa1;
   --danger: #d99a9a;

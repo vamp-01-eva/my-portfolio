@@ -1,3 +1,5 @@
+import styles from "./SectionHead.module.css";
+
 export function SectionHead({
   no,
   label,
@@ -12,15 +14,15 @@ export function SectionHead({
   id?: string;
 }) {
   return (
-    <div className="section-head">
-      <div className="section-head__title">
+    <header className={styles.head}>
+      <div className={styles.row}>
         <p className="eyebrow">
           <span>{no}</span>
           {label}
         </p>
         <h2 id={id}>{title}</h2>
       </div>
-      <p className="section-head__lede">{lede}</p>
-    </div>
+      <p className={styles.lede}>{lede}</p>
+    </header>
   );
 }

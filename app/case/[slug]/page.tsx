@@ -11,6 +11,7 @@ import { RouteFigure } from "@/components/RouteFigure";
 import { ScreenMap } from "@/components/ScreenMap";
 import { ShotRail } from "@/components/ShotRail";
 import { StatusTag } from "@/components/StatusTag";
+import styles from "./case.module.css";
 
 type CasePageProps = {
   params: Promise<{ slug: string }>;
@@ -42,27 +43,28 @@ export default async function CasePage({ params }: CasePageProps) {
 
   return (
     <PageShell active="work">
-      <header className="case-head">
-        <span className="case-head__watermark chrome" aria-hidden="true">
+      <header className={styles.cover}>
+        <span className={`${styles.watermark} chrome`} aria-hidden="true">
           {project.number}
         </span>
-        <span className="case-head__sigil" aria-hidden="true">
+        <span className={styles.sigil} aria-hidden="true">
           <ProjectSigil slug={project.slug} />
         </span>
-        <div className="container">
-          <div className="case-head__top">
-            <Link className="back-link" href="/work">
+        <div className={`container ${styles.inner}`}>
+          <div className={styles.top}>
+            <Link className={styles.back} href="/work">
               <span aria-hidden="true">←</span> all work
             </Link>
             <StatusTag status={project.status} />
           </div>
-          <p className="eyebrow">
+          <p className={`eyebrow ${styles.eyebrow}`}>
             <span>case file</span>
+            {" "}
             {project.number}
           </p>
-          <h1>{project.title}</h1>
-          <p className="lead">{project.card}</p>
-          <div className="case-sheet">
+          <h1 className={styles.title}>{project.title}</h1>
+          <p className={styles.coverLead}>{project.summary}</p>
+          <div className={styles.meta}>
             <dl>
               <div>
                 <dt>category</dt>
@@ -70,13 +72,13 @@ export default async function CasePage({ params }: CasePageProps) {
               </div>
               <div>
                 <dt>year</dt>
-                <dd className="num">{project.year}</dd>
+                <dd>{project.year}</dd>
               </div>
               <div>
                 <dt>status</dt>
                 <dd>{project.status}</dd>
               </div>
-              <div>
+              <div className={styles.metaStack}>
                 <dt>stack</dt>
                 <dd>{project.stack.join(", ")}</dd>
               </div>
@@ -85,12 +87,12 @@ export default async function CasePage({ params }: CasePageProps) {
         </div>
       </header>
 
-      <div className="container case-body">
+      <div className={`container ${styles.body}`}>
         <CaseContents />
-        <article className="case-content">
-          <section id="overview">
+        <article className={styles.content}>
+          <section className={styles.section} id="overview">
             <h2>project overview</h2>
-            <p className="lead">{project.lead}</p>
+            <p className={styles.lead}>{project.lead}</p>
             {project.overview.map((paragraph, paragraphIndex) => (
               <p key={paragraphIndex}>{paragraph}</p>
             ))}
@@ -99,25 +101,23 @@ export default async function CasePage({ params }: CasePageProps) {
             ) : null}
           </section>
 
-          <section id="problem">
+          <section className={styles.section} id="problem">
             <h2>problem statement</h2>
-            <p className="case-statement">{project.problem}</p>
+            <p className={styles.statement}>{project.problem}</p>
           </section>
 
-          <section id="objectives">
+          <section className={styles.section} id="objectives">
             <h2>objectives</h2>
-            <ol
-              className={`objective-list objective-list--${project.objectives.length}`}
-            >
+            <ol className={styles.objectives}>
               {project.objectives.map((objective) => (
                 <li key={objective}>{objective}</li>
               ))}
             </ol>
           </section>
 
-          <section id="role">
+          <section className={styles.section} id="role">
             <h2>my role and contributions</h2>
-            <dl className="role-list">
+            <dl className={styles.roleList}>
               {project.role.map((row) => (
                 <div key={row.label}>
                   <dt>{row.label}</dt>
@@ -125,12 +125,12 @@ export default async function CasePage({ params }: CasePageProps) {
                 </div>
               ))}
             </dl>
-            <p className="case-note">{project.roleNote}</p>
+            <p className={styles.note}>{project.roleNote}</p>
           </section>
 
-          <section id="technologies">
+          <section className={styles.section} id="technologies">
             <h2>technologies used</h2>
-            <table className="tech-table">
+            <table className={`${styles.table} ${styles.techTable}`}>
               <thead>
                 <tr>
                   <th scope="col">group</th>
@@ -140,28 +140,32 @@ export default async function CasePage({ params }: CasePageProps) {
               <tbody>
                 {project.tech.map((row) => (
                   <tr key={row.group}>
-                    <td>{row.group}</td>
-                    <td>{row.items.join(", ")}</td>
+                    <td data-label="group">{row.group}</td>
+                    <td data-label="tools">{row.items.join(", ")}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </section>
 
-          <section id="features">
+          <section className={styles.section} id="features">
             <h2>main features</h2>
-            <ol className="feature-list">
+            <ol className={styles.features}>
               {project.features.map((feature) => (
                 <li key={feature.title}>
-                  <span className="feature-list__title">{feature.title}</span>
-                  <span className="feature-list__text">{feature.text}</span>
+                  <span className={styles.featureBody}>
+                    <span className={styles.featureTitle}>
+                      {feature.title}
+                    </span>
+                    <span className={styles.featureText}>{feature.text}</span>
+                  </span>
                 </li>
               ))}
             </ol>
             {project.planned ? (
               <>
-                <h3>planned, not implemented</h3>
-                <ul className="planned-list">
+                <h3 className={styles.subhead}>planned, not implemented</h3>
+                <ul className={styles.planned}>
                   {project.planned.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -170,16 +174,16 @@ export default async function CasePage({ params }: CasePageProps) {
             ) : null}
           </section>
 
-          <section id="workflow">
+          <section className={styles.section} id="workflow">
             <h2>workflow and system architecture</h2>
             <RouteFigure workflow={project.workflow} />
           </section>
 
-          <section id="screens">
+          <section className={styles.section} id="screens">
             <h2>screens and demonstrations</h2>
             <figure
-              className={`screen-figure${
-                project.screens.images ? " screen-figure--gallery" : ""
+              className={`${styles.screens}${
+                project.screens.images ? ` ${styles.screensGallery}` : ""
               }`}
             >
               {project.screens.images ? (
@@ -191,9 +195,9 @@ export default async function CasePage({ params }: CasePageProps) {
             </figure>
           </section>
 
-          <section id="challenges">
+          <section className={styles.section} id="challenges">
             <h2>challenges and solutions</h2>
-            <table className="challenge-table">
+            <table className={`${styles.table} ${styles.challengeTable}`}>
               <thead>
                 <tr>
                   <th scope="col">the constraint</th>
@@ -203,23 +207,23 @@ export default async function CasePage({ params }: CasePageProps) {
               <tbody>
                 {project.challenges.map((row) => (
                   <tr key={row.constraint}>
-                    <td>{row.constraint}</td>
-                    <td>{row.response}</td>
+                    <td data-label="the constraint">{row.constraint}</td>
+                    <td data-label="the response">{row.response}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </section>
 
-          <section id="status">
+          <section className={styles.section} id="status">
             <h2>project status</h2>
-            <div className="status-well">
-              <span className="status-well__sigil" aria-hidden="true">
+            <div className={styles.statusWell}>
+              <span className={styles.statusSigil} aria-hidden="true">
                 <ProjectSigil slug={project.slug} />
               </span>
               <StatusTag status={project.status} />
               <p>{project.statusDetail}</p>
-              <p className="case-note">{project.notClaimed}</p>
+              <p className={styles.note}>{project.notClaimed}</p>
             </div>
           </section>
 

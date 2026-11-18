@@ -10,6 +10,7 @@ import {
   type MouseEvent,
 } from "react";
 import type { Screens } from "@/content/projects";
+import styles from "./ShotRail.module.css";
 
 const pad = (value: number) => String(value).padStart(2, "0");
 
@@ -35,7 +36,7 @@ export function ShotRail({ screens }: { screens: Screens }) {
   const itemsOf = useCallback(
     () =>
       Array.from(
-        trackRef.current?.querySelectorAll<HTMLElement>(".shot") ?? [],
+        trackRef.current?.querySelectorAll<HTMLElement>("[data-shot]") ?? [],
       ),
     [],
   );
@@ -173,19 +174,19 @@ export function ShotRail({ screens }: { screens: Screens }) {
   const single = images.length < 2;
 
   return (
-    <div className="shot-rail" data-rail>
-      <div className="shot-rail__bar">
-        <span className="shot-rail__title">{screens.title}</span>
-        <span className="shot-rail__meta">
-          <span className="shot-rail__count" data-rail-count>
+    <div className={styles.rail} data-rail>
+      <div className={styles.bar}>
+        <span className={styles.title}>{screens.title}</span>
+        <span className={styles.meta}>
+          <span className={styles.count} data-rail-count>
             {pad(current + 1)} / {pad(images.length)}
           </span>
-          <span className="shot-rail__hint">scroll or drag · click to enlarge</span>
+          <span className={styles.hint}>scroll or drag · click to enlarge</span>
         </span>
-        <span className="shot-rail__nav">
+        <span className={styles.nav}>
           <button
             type="button"
-            className="shot-rail__btn"
+            className={styles.btn}
             data-rail-prev
             aria-label="Previous screenshot"
             disabled={prevDisabled}
@@ -195,7 +196,7 @@ export function ShotRail({ screens }: { screens: Screens }) {
           </button>
           <button
             type="button"
-            className="shot-rail__btn"
+            className={styles.btn}
             data-rail-next
             aria-label="Next screenshot"
             disabled={nextDisabled}
@@ -206,7 +207,7 @@ export function ShotRail({ screens }: { screens: Screens }) {
         </span>
       </div>
       <ul
-        className="shot-rail__track"
+        className={styles.track}
         data-rail-track
         ref={trackRef}
         aria-label={screens.title}
@@ -216,15 +217,15 @@ export function ShotRail({ screens }: { screens: Screens }) {
         }}
       >
         {images.map((image, index) => (
-          <li className="shot" key={image.src}>
+          <li className={styles.shot} data-shot key={image.src}>
             <a
-              className="shot__link"
+              className={styles.link}
               href={image.src}
               aria-label={`Enlarge screenshot: ${image.alt}`}
               onClick={(event) => onShotClick(event, index)}
             >
               <span
-                className="shot__frame"
+                className={styles.frame}
                 style={{ "--ar": `${image.w} / ${image.h}` } as CSSProperties}
               >
                 <Image
@@ -237,16 +238,17 @@ export function ShotRail({ screens }: { screens: Screens }) {
                 />
               </span>
             </a>
-            <p className="shot__cap">
-              <span className="shot__tag">{image.tag}</span>
-              <span className="shot__cap-text">{image.caption}</span>
+            <p className={styles.cap}>
+              <span className={styles.tag}>{image.tag}</span>
+              {" "}
+              <span>{image.caption}</span>
             </p>
           </li>
         ))}
       </ul>
 
       <dialog
-        className="lightbox"
+        className={styles.lightbox}
         ref={dialogRef}
         tabIndex={-1}
         aria-labelledby="lightbox-caption"
@@ -269,7 +271,7 @@ export function ShotRail({ screens }: { screens: Screens }) {
           }
         }}
       >
-        <div className="lightbox__frame">
+        <div className={styles.lightboxFrame}>
           {active ? (
             <Image
               key={active.src}
@@ -281,20 +283,21 @@ export function ShotRail({ screens }: { screens: Screens }) {
             />
           ) : null}
         </div>
-        <div className="lightbox__bar">
-          <p className="lightbox__caption" id="lightbox-caption">
-            <span className="lightbox__tag">{active?.tag ?? ""}</span>
+        <div className={styles.lightboxBar}>
+          <p className={styles.lightboxCaption} id="lightbox-caption">
+            <span className={styles.lightboxTag}>{active?.tag ?? ""}</span>
+            {" "}
             <span>{active?.caption ?? ""}</span>
           </p>
-          <div className="lightbox__nav">
-            <span className="lightbox__count">
+          <div className={styles.lightboxNav}>
+            <span className={styles.lightboxCount}>
               {activeIndex !== null
                 ? `${pad(activeIndex + 1)} / ${pad(images.length)}`
                 : ""}
             </span>
             <button
               type="button"
-              className="lightbox__btn"
+              className={styles.lightboxBtn}
               aria-label="Previous screenshot"
               disabled={single}
               onClick={() => stepLightbox(-1)}
@@ -303,7 +306,7 @@ export function ShotRail({ screens }: { screens: Screens }) {
             </button>
             <button
               type="button"
-              className="lightbox__btn"
+              className={styles.lightboxBtn}
               aria-label="Next screenshot"
               disabled={single}
               onClick={() => stepLightbox(1)}
@@ -312,7 +315,7 @@ export function ShotRail({ screens }: { screens: Screens }) {
             </button>
             <button
               type="button"
-              className="lightbox__btn lightbox__btn--close"
+              className={styles.lightboxBtn}
               aria-label="Close enlarged screenshot"
               onClick={closeLightbox}
             >

@@ -9,6 +9,7 @@ import { PlateWall } from "@/components/PlateWall";
 import { RouteFigure } from "@/components/RouteFigure";
 import { Seal } from "@/components/Seal";
 import { SectionHead } from "@/components/SectionHead";
+import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Mark Justine J. Mauricio, web developer and AI automation builder",
@@ -21,27 +22,27 @@ const feature = bySlug.get("barbershop-manager")!;
 export default function HomePage() {
   return (
     <PageShell>
-      <section className="hero" aria-labelledby="hero-title">
-        <div className="hero__field" aria-hidden="true">
+      <section className={styles.hero} aria-labelledby="hero-title">
+        <div className={styles.field} aria-hidden="true">
           <svg viewBox="0 0 600 600" focusable="false">
             <use href="#sigil-field" />
           </svg>
         </div>
-        <div className="container hero__inner">
-          <div className="hero__copy">
+        <div className={`container ${styles.heroInner}`}>
+          <div className={styles.copy}>
             <p className="eyebrow">
-              <span>portfolio</span>2026
+              <span>portfolio archive</span>antipolo ph / 2026
             </p>
-            <h1 id="hero-title" className="chrome">
+            <h1 id="hero-title" className={`${styles.cover} chrome`}>
               nine builds,
               <br />
-              <em>checked</em> by hand.
+              checked by hand.
             </h1>
-            <p className="hero__lede">
+            <p className={styles.lede}>
               I’m Mark, a web developer and AI automation builder in Antipolo. I
               build internal tools, then test the flow by hand.
             </p>
-            <div className="hero__actions">
+            <div className={styles.actions}>
               <a className="btn btn--primary" href="#work">
                 view the work
               </a>
@@ -53,7 +54,7 @@ export default function HomePage() {
                 download résumé
               </a>
             </div>
-            <ul className="hero__meta" aria-label="Disciplines">
+            <ul className={styles.meta} aria-label="Disciplines">
               <li>web developer</li>
               <li>ai automation</li>
               <li>antipolo, ph</li>
@@ -61,12 +62,12 @@ export default function HomePage() {
           </div>
           <Seal />
         </div>
-        <div className="container">
+        <div className={`container ${styles.ledgerWrap}`}>
           <Ledger />
         </div>
       </section>
 
-      <section className="index-section" id="work" aria-labelledby="work-title">
+      <section className={styles.work} id="work" aria-labelledby="work-title">
         <div className="container">
           <SectionHead
             no="01"
@@ -75,31 +76,30 @@ export default function HomePage() {
             lede="Nine builds, three groups. Each plate opens its case."
             id="work-title"
           />
-          <PlateWall projects={projects} />
         </div>
+        <PlateWall projects={projects} />
       </section>
 
-      <section className="case-excerpt" aria-labelledby="feature-title">
-        <div className="container case-excerpt__grid">
-          <div className="case-excerpt__copy">
+      <section className={styles.caseExcerpt} aria-labelledby="feature-title">
+        <div className={`container ${styles.caseGrid}`}>
+          <div className={styles.caseCopy}>
             <p className="eyebrow">
               <span>02</span>case excerpt
             </p>
             <h2 id="feature-title">one build, opened.</h2>
-            <p className="lead">
+            <p className={`lead ${styles.caseLead}`}>
               The barbershop assistant, from Messenger to a booked slot.
             </p>
-            <span className="case-excerpt__watermark chrome" aria-hidden="true">
+            <span className={`${styles.watermark} chrome`} aria-hidden="true">
               {feature.number}
             </span>
             <Link className="text-link" href={`/case/${feature.slug}`}>
-              read the barbershop manager case{" "}
-              <span aria-hidden="true">→</span>
+              read the barbershop manager case
             </Link>
           </div>
-          <div className="case-excerpt__body">
+          <div className={styles.caseBody}>
             <RouteFigure workflow={feature.workflow} />
-            <dl className="feature__facts">
+            <dl className={styles.facts}>
               <div>
                 <dt>channel</dt>
                 <dd>Facebook Messenger</dd>
@@ -117,7 +117,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="spec-section" aria-labelledby="skills-title">
+      <section className={styles.spec} aria-labelledby="skills-title">
         <div className="container">
           <SectionHead
             no="03"
@@ -126,7 +126,7 @@ export default function HomePage() {
             lede="Used in coursework, internship work, and personal builds."
             id="skills-title"
           />
-          <dl className="spec-list">
+          <dl className={styles.specList}>
             <div>
               <dt>build</dt>
               <dd>HTML, CSS, JavaScript, PHP, MySQL.</dd>
@@ -155,10 +155,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="about" aria-labelledby="about-title">
+      <section className={styles.about} aria-labelledby="about-title">
         <div className="container">
-          <div className="about__grid">
-            <div className="about__copy">
+          <div className={styles.aboutGrid}>
+            <div className={styles.aboutCopy}>
               <p className="eyebrow">
                 <span>04</span>about
               </p>
@@ -168,10 +168,10 @@ export default function HomePage() {
                 bookings, and contract tracking, then tested each flow by hand.
               </p>
               <Link className="text-link" href="/about">
-                more about how i work <span aria-hidden="true">→</span>
+                more about how i work
               </Link>
             </div>
-            <dl className="about__facts">
+            <dl className={styles.aboutFacts}>
               <div>
                 <dt>education</dt>
                 <dd>BSIT, STI College, 2022 to 2026.</dd>
@@ -190,26 +190,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="close" aria-labelledby="close-title">
-        <div className="container close__inner">
-          <div className="close__copy">
+      <section className={styles.close} aria-labelledby="close-title">
+        <div className={`container ${styles.closeInner}`}>
+          <div className={styles.closeCopy}>
             <p className="eyebrow">
               <span>05</span>contact
             </p>
             <h2 id="close-title">tell me what’s slow.</h2>
-            <p className="lead">
+            <p className={`lead ${styles.closeLead}`}>
               I’m open to junior developer and AI automation roles, remote or in
               Antipolo.
             </p>
           </div>
-          <div className="close__details">
-            <a className="close__mail chrome" href={`mailto:${SITE.email}`}>
+          <div className={styles.closeDetails}>
+            <a className={`${styles.closeMail} chrome`} href={`mailto:${SITE.email}`}>
               {SITE.email}
             </a>
-            <a className="close__phone" href={`tel:${SITE.phoneHref}`}>
+            <a className={styles.closePhone} href={`tel:${SITE.phoneHref}`}>
               {SITE.phone}
             </a>
-            <p className="close__note">
+            <p className={styles.closeNote}>
               Antipolo, Philippines. Available for remote work.
             </p>
             <Link className="btn btn--ghost" href="/contact">

@@ -1,0 +1,82 @@
+.band {
+  margin-block: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--rule-strong);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.copy {
+  min-width: 0;
+}
+
+.copy h3 {
+  max-width: 24ch;
+  margin: var(--space-2xs) 0 0;
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ice-bright);
+}
+
+.text {
+  margin-top: var(--space-xs);
+  max-width: 62ch;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ice-dim);
+}
+
+.route {
+  margin-top: var(--space-lg);
+}
+
+@media (max-width: 60rem) {
+  .head {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+  }
+}
+
+/* keep the junction plate horizontal on tablet; the global route stacks at 60rem */
+@media (min-width: 40.01rem) and (max-width: 60rem) {
+  .route :global(.route) {
+    flex-direction: row;
+  }
+
+  .route :global(.route__node) {
+    padding: 16px 10px 0 0;
+    border-top: 1px solid var(--rule-strong);
+    border-left: 0;
+  }
+
+  .route :global(.route__node)::before {
+    top: -4px;
+    left: 0;
+  }
+
+  .route :global(.route__node--accent) {
+    border-top-color: var(--signal);
+  }
+
+  .route :global(.route__link) {
+    flex: 0 0 18px;
+    width: auto;
+    height: 1px;
+    margin: 8px 0 0;
+    background: var(--rule-strong);
+  }
+
+  .route :global(.route__link)::after {
+    top: -3px;
+    left: 50%;
+    margin: -2.5px 0 0 -2.5px;
+  }
+}

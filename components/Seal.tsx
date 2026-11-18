@@ -1,16 +1,18 @@
+import styles from "./Seal.module.css";
+
 export function Seal() {
   return (
-    <figure className="seal" aria-hidden="true">
-      <svg className="seal__rings" viewBox="0 0 400 400" focusable="false">
+    <figure className={styles.seal} aria-hidden="true">
+      <svg className={styles.rings} viewBox="0 0 400 400" focusable="false">
         <use href="#seal-rings" />
       </svg>
-      <div className="seal__core">
-        <span className="seal__number chrome">09</span>
-        <span className="seal__unit">builds</span>
+      <div className={styles.core}>
+        <span className={`${styles.number} chrome`}>09</span>
+        <span className={styles.unit}>builds</span>
       </div>
-      <span className="seal__label seal__label--a">web 04</span>
-      <span className="seal__label seal__label--b">ai 04</span>
-      <span className="seal__label seal__label--c">academic 01</span>
+      <span className={`${styles.label} ${styles.labelA}`}>web 04</span>
+      <span className={`${styles.label} ${styles.labelB}`}>ai 04</span>
+      <span className={`${styles.label} ${styles.labelC}`}>academic 01</span>
     </figure>
   );
 }

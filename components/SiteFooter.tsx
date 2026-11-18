@@ -14,7 +14,9 @@ export function SiteFooter() {
           >
             <use href="#mark-m" />
           </svg>
-          <p className="footer__name">mark justine j. mauricio</p>
+          <p className="footer__name" translate="no">
+            mark justine j. mauricio
+          </p>
           <p className="footer__note">
             web developer / ai automation builder / antipolo
           </p>
@@ -22,8 +24,8 @@ export function SiteFooter() {
         <p className="footer__colophon">
           mark justine j. mauricio, antipolo, philippines.{" "}
           <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.{" "}
-          <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a>. built with html,
-          css, and javascript.
+          <a href={`tel:${SITE.phoneHref}`}>{SITE.phone}</a>. built with next.js,
+          react, and typescript.
         </p>
         <nav className="footer__nav" aria-label="Footer">
           <Link href="/work">work</Link>

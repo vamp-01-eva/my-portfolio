@@ -1,0 +1,120 @@
+/* Work — a catalogue register, not a card list. */
+
+.head {
+  position: relative;
+  padding-block: clamp(48px, 7vw, 104px) var(--space-lg);
+}
+
+.head h1 {
+  margin-top: var(--space-md);
+  max-width: 14ch;
+  font-size: var(--text-display);
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+}
+
+.lead {
+  margin-top: var(--space-md);
+  max-width: 46ch;
+  color: var(--ice-dim);
+}
+
+.ledgerWrap {
+  padding-bottom: var(--section-gap-s);
+}
+
+.featured {
+  padding-bottom: var(--section-gap-s);
+}
+
+.group {
+  padding-block: var(--section-gap-s);
+  border-top: 1px solid var(--rule);
+}
+
+.groupGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+  align-items: start;
+}
+
+.rail {
+  padding-right: clamp(24px, 3vw, 40px);
+  border-right: 1px solid var(--rule);
+}
+
+.register {
+  min-width: 0;
+  padding-left: clamp(24px, 3vw, 40px);
+}
+
+.subhead {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: var(--space-lg) 0 var(--space-sm);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--ice-dim);
+}
+
+.register > .subhead:first-child {
+  margin-top: 0;
+}
+
+.subheadLetter {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.14em;
+  color: var(--signal);
+}
+
+.close {
+  padding-block: var(--section-gap-s);
+  border-top: 1px solid var(--rule);
+}
+
+.closeInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+.closeStatement {
+  max-width: 30ch;
+  font-family: var(--font-display);
+  font-size: var(--text-section);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--ice-bright);
+}
+
+.closeAction {
+  flex-shrink: 0;
+}
+
+@media (max-width: 60rem) {
+  .groupGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .rail {
+    padding-right: 0;
+    padding-bottom: var(--space-lg);
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .register {
+    padding-top: var(--space-lg);
+    padding-left: 0;
+  }
+
+  .closeInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+}

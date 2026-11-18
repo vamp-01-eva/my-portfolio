@@ -1,18 +1,15 @@
 import Link from "next/link";
 import type { Project } from "@/content/projects";
+import styles from "./CaseNext.module.css";
 
 export function CaseNext({ next }: { next: Project }) {
   return (
-    <nav className="case-next" aria-label="Next case">
-      <div>
-        <p className="case-next__label">next case</p>
-        <Link className="case-next__link" href={`/case/${next.slug}`}>
-          <span className="case-next__no">{next.number}</span>
-          {next.navTitle}
-        </Link>
-      </div>
-      <Link className="text-link" href="/work">
-        all work <span aria-hidden="true">→</span>
+    <nav className={styles.next} aria-label="Next case">
+      <p className={styles.label}>next file</p>
+      <Link className={styles.link} href={`/case/${next.slug}`}>
+        <span className={styles.no}>{next.number}</span>
+        {" "}
+        <span className={styles.name}>{next.navTitle}</span>
       </Link>
     </nav>
   );

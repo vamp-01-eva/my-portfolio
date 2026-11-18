@@ -1,0 +1,42 @@
+/* Surface map — real interface areas, not fake screenshots. */
+
+.map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.panel {
+  padding: var(--space-md);
+  background: var(--char);
+}
+
+.title {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  color: var(--ice-bright);
+}
+
+.list {
+  margin: var(--space-sm) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  padding-block: 7px;
+  border-top: 1px solid var(--rule);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--ice-dim);
+}
+
+@media (max-width: 40rem) {
+  .map {
+    grid-template-columns: 1fr;
+  }
+}

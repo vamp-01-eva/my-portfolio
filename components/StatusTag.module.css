@@ -1,0 +1,53 @@
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 9px 4px 7px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  color: var(--ice-dim);
+  white-space: nowrap;
+}
+
+.glyph {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  color: var(--ice-dim);
+}
+
+.done,
+.internship,
+.academic {
+  border-color: var(--rule-strong);
+  color: var(--ice);
+}
+
+.done .glyph,
+.internship .glyph,
+.academic .glyph {
+  color: var(--ice-bright);
+}
+
+.build {
+  border-color: rgba(169, 203, 221, 0.3);
+  color: var(--signal);
+}
+
+.build .glyph {
+  color: var(--signal);
+}
+
+.progress,
+.prototype {
+  color: var(--ice-dim);
+}
+
+.progress .glyph,
+.prototype .glyph {
+  color: var(--signal-dim);
+}

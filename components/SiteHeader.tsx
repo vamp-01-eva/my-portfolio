@@ -32,7 +32,7 @@ export function SiteHeader({ active = "" }: { active?: ActivePage }) {
             developer and ai automation roles
           </p>
           <Link className="topline__link" href="/contact">
-            start a conversation <span aria-hidden="true">↗</span>
+            start a conversation
           </Link>
         </div>
       </div>
@@ -41,7 +41,7 @@ export function SiteHeader({ active = "" }: { active?: ActivePage }) {
           <Link
             className="brand"
             href="/"
-            aria-label={`${SITE.name}, home`}
+            aria-label={`${SITE.shortName}, home`}
           >
             <svg
               className="brand__mark"
@@ -51,7 +51,9 @@ export function SiteHeader({ active = "" }: { active?: ActivePage }) {
             >
               <use href="#mark-m" />
             </svg>
-            <span className="brand__name">{SITE.shortName}</span>
+            <span className="brand__name" translate="no">
+              {SITE.shortName}
+            </span>
           </Link>
           <nav className="site-nav" aria-label="Primary">
             <NavLink href="/work" label="work" active={active} />

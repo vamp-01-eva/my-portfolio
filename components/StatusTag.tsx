@@ -1,12 +1,13 @@
 import type { ProjectStatus } from "@/content/projects";
 import { statusKey } from "@/lib/sigils";
+import styles from "./StatusTag.module.css";
 
 export function StatusTag({ status }: { status: ProjectStatus }) {
   const key = statusKey(status);
   return (
-    <span className={`status status--${key}`}>
+    <span className={`${styles.status} ${styles[key]}`}>
       <svg
-        className="status__glyph"
+        className={styles.glyph}
         viewBox="0 0 16 16"
         aria-hidden="true"
         focusable="false"
