@@ -1,0 +1,163 @@
+/* Contact form — a dispatch sheet with inline validation. */
+
+.form {
+  padding: var(--space-lg);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.field {
+  min-width: 0;
+  margin-bottom: var(--space-md);
+}
+
+.field label {
+  display: block;
+  margin-bottom: 7px;
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  color: var(--ice-dim);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 13px;
+  background: var(--void);
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  color: var(--ice-bright);
+  font-size: 1rem;
+  transition: border-color var(--dur-micro) var(--ease-out);
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: var(--rule-bright);
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+  border-color: var(--signal);
+}
+
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.field select {
+  appearance: none;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238B9099' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 10px 6px;
+  cursor: pointer;
+}
+
+.field textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.error {
+  margin-top: 5px;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--danger);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.submit {
+  min-width: 200px;
+}
+
+.note {
+  max-width: 62ch;
+  margin-top: var(--space-lg);
+  padding-left: var(--space-sm);
+  border-left: 1px solid var(--rule-strong);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--ice-dim);
+}
+
+.note a {
+  color: var(--ice);
+}
+
+.status {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 3.4em;
+  margin-top: var(--space-sm);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ice);
+}
+
+.status::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin-top: 6px;
+  border: 1px solid var(--ice-dim);
+  transform: rotate(45deg);
+}
+
+.status:empty::before {
+  display: none;
+}
+
+.statusError {
+  color: var(--danger);
+}
+
+.statusError::before {
+  border-color: var(--danger);
+}
+
+@media (max-width: 40rem) {
+  .form {
+    padding: var(--space-md);
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .submit {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field input,
+  .field select,
+  .field textarea {
+    transition: none;
+  }
+}

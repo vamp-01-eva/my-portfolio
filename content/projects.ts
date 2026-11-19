@@ -177,7 +177,7 @@ export const projects: Project[] = [
       { constraint: "Old .html URLs were public.", response: "Every old page 301s to its clean route." },
       { constraint: "The visual identity had to survive a framework migration.", response: "The chrome, sigils, palette, type, and case-file language were ported and checked against the legacy pages." }
     ],
-    statusDetail: "Built and running as the site you are reading. The Next.js migration is complete; the redesign, polish, and final verification are in progress.",
+    statusDetail: "Built and running as the site you are reading. The Next.js migration and Phase 4 verification are complete, and the production build is verified locally.",
     notClaimed: "No traffic, conversion, ranking, or client metrics are claimed on this page."
   },
   {

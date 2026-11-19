@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SITE } from "@/content/site";
 import { ContactForm } from "@/components/ContactForm";
 import { PageShell } from "@/components/PageShell";
+import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
   title: "Contact Mark Justine J. Mauricio",
@@ -12,29 +13,38 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageShell active="contact">
-      <header className="page-head">
-        <div className="container">
+      <header className={styles.head}>
+        <div className={`container ${styles.headInner}`}>
           <p className="eyebrow">
-            <span>contact</span>2026
+            <span>contact</span>{" "}2026
           </p>
           <h1 className="chrome">tell me what’s slow.</h1>
-          <p className="lead">A junior role, a small build, or a slow process.</p>
+          <p className={`lead ${styles.lead}`}>
+            A junior role, a small build, or a slow process.
+          </p>
         </div>
       </header>
-      <div className="container contact-grid">
-        <section className="contact-form-wrap" aria-labelledby="form-title">
-          <p className="eyebrow">
-            <span>01</span>message
-          </p>
-          <h2 id="form-title">send a message</h2>
+
+      <div className={`container ${styles.desk}`}>
+        <section className={styles.sheet} aria-labelledby="form-title">
+          <header className={styles.sheetHead}>
+            <div>
+              <p className="eyebrow">
+                <span>01</span>{" "}message
+              </p>
+              <h2 id="form-title">send a message</h2>
+            </div>
+            <p className={styles.sheetStamp}>dispatch sheet / 2026</p>
+          </header>
           <ContactForm />
         </section>
-        <aside className="contact-rail" aria-labelledby="direct-title">
+
+        <aside className={styles.rail} aria-labelledby="direct-title">
           <p className="eyebrow">
-            <span>02</span>direct line
+            <span>02</span>{" "}direct line
           </p>
           <h2 id="direct-title">direct</h2>
-          <dl className="contact-rail__facts">
+          <dl className={styles.facts}>
             <div>
               <dt>email</dt>
               <dd>
@@ -53,13 +63,17 @@ export default function ContactPage() {
             </div>
             <div>
               <dt>availability</dt>
-              <dd>Junior developer and AI automation roles, remote or on-site.</dd>
+              <dd>
+                Junior developer and AI automation roles, remote or on-site.
+              </dd>
             </div>
           </dl>
-          <h3>profiles</h3>
-          <p className="contact-rail__note">LinkedIn and GitHub links to add.</p>
+          <div className={styles.profiles}>
+            <h3>profiles</h3>
+            <p>LinkedIn and GitHub links to add.</p>
+          </div>
           <a
-            className="btn btn--ghost"
+            className={`btn btn--ghost ${styles.resume}`}
             href={SITE.resume}
             download={SITE.resumeDownload}
           >

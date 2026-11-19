@@ -1,0 +1,120 @@
+/* Field plate — a reserved slot for a real workspace photograph. */
+
+.plate {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 21 / 9;
+  margin: var(--space-2xl) 0 0;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--char);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--rule-faint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule-faint) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(
+    70% 80% at 50% 50%,
+    rgba(0, 0, 0, 0.9),
+    transparent 78%
+  );
+}
+
+.rings {
+  position: absolute;
+  width: min(46%, 380px);
+  aspect-ratio: 1;
+  opacity: 0.22;
+}
+
+.mark {
+  position: relative;
+  z-index: 1;
+  width: min(16%, 160px);
+  height: auto;
+  opacity: 0.72;
+}
+
+.tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.14em;
+  color: var(--ice-dim);
+}
+
+.caption {
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  left: var(--space-md);
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.14em;
+  color: var(--ice-dim);
+}
+
+.plate::before,
+.plate::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: var(--rule-strong);
+  border-style: solid;
+  z-index: 2;
+}
+
+.plate::before {
+  top: 12px;
+  left: 12px;
+  border-width: 1px 0 0 1px;
+}
+
+.plate::after {
+  right: 12px;
+  bottom: 12px;
+  border-width: 0 1px 1px 0;
+}
+
+@media (max-width: 60rem) {
+  .plate {
+    aspect-ratio: 16 / 9;
+    margin-top: var(--space-xl);
+  }
+}
+
+@media (max-width: 40rem) {
+  .plate {
+    aspect-ratio: 4 / 3;
+  }
+
+  .rings {
+    width: 62%;
+  }
+
+  .mark {
+    width: 24%;
+  }
+
+  .tag {
+    top: 12px;
+    left: 12px;
+  }
+
+  .caption {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

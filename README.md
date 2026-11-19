@@ -8,7 +8,8 @@ Cold Reliquary is a chrome-led, cybersigilism-intensity-3 system: a monochrome p
 
 - `app/styles/tokens.css` — palette, type, spacing, chrome, and motion tokens.
 - `app/styles/base.css` — base element styles, chrome text, grain, and image-slot rules.
-- `app/styles/site.css` — page layouts and responsive rules.
+- `app/styles/chrome.css` — shared header, footer, buttons, text links, route figure, and page-head chrome.
+- CSS Modules beside each route (`app/**/*.module.css`, `components/*.module.css`) — surface layouts and responsive rules.
 - `components/SigilSprite.tsx` — the original SVG sprite: M monogram, nine-build seal, project sigils, status glyphs, and group glyphs.
 - `components/HeaderController.tsx` — header retraction and mobile-menu behaviour.
 - `components/ContactForm.tsx` — local form validation.

@@ -2,6 +2,7 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import { SITE } from "@/content/site";
+import styles from "./ContactForm.module.css";
 
 type FieldName = "name" | "email" | "message";
 
@@ -63,9 +64,9 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={onSubmit} noValidate>
-      <div className="field-row">
-        <div className="field">
+    <form className={styles.form} onSubmit={onSubmit} noValidate>
+      <div className={styles.row}>
+        <div className={styles.field}>
           <label htmlFor="name">your name</label>
           <input
             id="name"
@@ -77,31 +78,32 @@ export function ContactForm() {
             required
             onInput={() => revalidate("name")}
           />
-          <p className="field__error" id="name-error" hidden={!errors.name}>
+          <p className={styles.error} id="name-error" hidden={!errors.name}>
             enter your name.
           </p>
         </div>
-        <div className="field">
+        <div className={styles.field}>
           <label htmlFor="email">email</label>
           <input
             id="email"
             name="email"
             type="email"
             autoComplete="email"
+            spellCheck={false}
             aria-describedby="email-error"
             aria-invalid={errors.email ? "true" : "false"}
             ref={emailRef}
             required
             onInput={() => revalidate("email")}
           />
-          <p className="field__error" id="email-error" hidden={!errors.email}>
+          <p className={styles.error} id="email-error" hidden={!errors.email}>
             enter a valid email address.
           </p>
         </div>
       </div>
-      <div className="field">
+      <div className={styles.field}>
         <label htmlFor="topic">what do you need?</label>
-        <select id="topic" name="topic">
+        <select id="topic" name="topic" autoComplete="off">
           <option>a junior role</option>
           <option>a web application</option>
           <option>an AI automation</option>
@@ -109,31 +111,34 @@ export function ContactForm() {
           <option>something else</option>
         </select>
       </div>
-      <div className="field">
+      <div className={styles.field}>
         <label htmlFor="message">message</label>
         <textarea
           id="message"
           name="message"
           rows={6}
+          autoComplete="off"
           aria-describedby="message-error"
           aria-invalid={errors.message ? "true" : "false"}
           ref={messageRef}
           required
           onInput={() => revalidate("message")}
         />
-        <p className="field__error" id="message-error" hidden={!errors.message}>
+        <p className={styles.error} id="message-error" hidden={!errors.message}>
           write a short message.
         </p>
       </div>
-      <button className="btn btn--primary" type="submit">
-        check the message
-      </button>
-      <p className="form__note">
+      <div className={styles.actions}>
+        <button className={`btn btn--primary ${styles.submit}`} type="submit">
+          check the message
+        </button>
+      </div>
+      <p className={styles.note}>
         This form is not connected yet. It checks the fields here and tells you
         so. Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> to reach me.
       </p>
       <p
-        className={`form__status${statusError ? " is-error" : ""}`}
+        className={`${styles.status}${statusError ? ` ${styles.statusError}` : ""}`}
         role="status"
         aria-live="polite"
       >
