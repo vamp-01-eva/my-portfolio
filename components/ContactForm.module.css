@@ -91,6 +91,15 @@
   min-width: 200px;
 }
 
+.honeypot {
+  display: none;
+}
+
+.submit:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
 .note {
   max-width: 62ch;
   margin-top: var(--space-lg);

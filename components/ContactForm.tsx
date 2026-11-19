@@ -6,6 +6,8 @@ import styles from "./ContactForm.module.css";
 
 type FieldName = "name" | "email" | "message";
 
+const FORM_ENDPOINT = "https://formspree.io/f/moedwzdd";
+
 const initialErrors: Record<FieldName, boolean> = {
   name: false,
   email: false,
@@ -16,7 +18,9 @@ export function ContactForm() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const sendingRef = useRef(false);
   const [errors, setErrors] = useState(initialErrors);
+  const [sending, setSending] = useState(false);
   const [status, setStatus] = useState("");
   const [statusError, setStatusError] = useState(false);
 
@@ -40,8 +44,11 @@ export function ContactForm() {
     setErrors((current) => ({ ...current, [field]: !validateField(field) }));
   }
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (sendingRef.current) return;
+
+    const form = event.currentTarget;
     const nextErrors: Record<FieldName, boolean> = {
       name: !validateField("name"),
       email: !validateField("email"),
@@ -57,14 +64,52 @@ export function ContactForm() {
       fieldRef(firstInvalid)?.focus();
       return;
     }
+
     setStatusError(false);
-    setStatus(
-      `Nothing was sent. This form is not connected yet. Email ${SITE.email}.`,
-    );
+    sendingRef.current = true;
+    setSending(true);
+    setStatus("Sending your message…");
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Formspree returned ${response.status}`);
+      }
+
+      form.reset();
+      setErrors(initialErrors);
+      setStatus("Message sent. I’ll reply to the address you gave.");
+    } catch {
+      setStatusError(true);
+      setStatus(`The message didn’t send. Try again, or email ${SITE.email}.`);
+    } finally {
+      sendingRef.current = false;
+      setSending(false);
+    }
   }
 
   return (
-    <form className={styles.form} onSubmit={onSubmit} noValidate>
+    <form
+      className={styles.form}
+      action={FORM_ENDPOINT}
+      method="POST"
+      onSubmit={onSubmit}
+      noValidate
+    >
+      <input type="hidden" name="_subject" value="Portfolio contact form" />
+      <input
+        className={styles.honeypot}
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
       <div className={styles.row}>
         <div className={styles.field}>
           <label htmlFor="name">your name</label>
@@ -129,13 +174,18 @@ export function ContactForm() {
         </p>
       </div>
       <div className={styles.actions}>
-        <button className={`btn btn--primary ${styles.submit}`} type="submit">
-          check the message
+        <button
+          className={`btn btn--primary ${styles.submit}`}
+          type="submit"
+          disabled={sending}
+        >
+          {sending ? "sending…" : "send message"}
         </button>
       </div>
       <p className={styles.note}>
-        This form is not connected yet. It checks the fields here and tells you
-        so. Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> to reach me.
+        Messages are delivered through Formspree to my inbox. I use your details
+        only to reply. Prefer email?{" "}
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
       </p>
       <p
         className={`${styles.status}${statusError ? ` ${styles.statusError}` : ""}`}
